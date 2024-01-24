@@ -1,3 +1,3 @@
 ## SAE - WEB / PHP
 
-# BRISSET Léo - Ozocak Ibrahim - SEVELLEC Maxime
+# BRISSET Léo - OZOCAK Ibrahim - SEVELLEC Maxime
