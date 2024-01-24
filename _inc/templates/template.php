@@ -1,3 +1,10 @@
+<?php
+
+use classes\dataloadersqlite;
+$sqlite = new dataloadersqlite();
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,7 +15,7 @@
 <body>
     <header id="header">
         <div id="recherche">
-            <h1><a href="#">Yfitops</a></h1>
+            <h1><a href="./index.php">Yfitops</a></h1>
             <input type="text" placeholder="Rechercher...">
         </div>
         <div id="menu">
@@ -17,7 +24,7 @@
                     <li><a class="slide-line" href="#">Albums</a></li>
                     <li><a class="slide-line" href="#">Musiques</a></li>
                     <li><a class="slide-line" href="#">Artistes</a></li>
-                    <li><a class="slide-line" href="#">S'identifier</a></li>
+                    <li><a class="slide-line" href="./identifier.php">S'identifier</a></li>
                 </ul>
             </nav>
         </div>

@@ -26,6 +26,12 @@ class DataLoaderSqlite{
     public function __construct(){
         $this->pdo = new PDO('sqlite:db.sqlite');
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $this->createTable('./Base.sql');
+    }
+
+    private function createTable($sql_file){
+        $sql = file_get_contents($sql_file);
+        $this->pdo->exec($sql);
     }
 
     
