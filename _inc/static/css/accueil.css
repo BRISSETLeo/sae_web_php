@@ -1,0 +1,54 @@
+#container {
+    max-height: 17.188em;
+    overflow: hidden;
+}
+
+#container .top {
+    border: 0.063em solid #ccc;
+    padding: 0.625em;
+    margin: 0.625em;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    max-width: 10em;
+}
+
+#container .top .play {
+    position: absolute;
+    width: 20%;
+    padding: 0.65em;
+    top: 60%;
+    right: 0;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease, width 0.3s ease;
+}
+
+#container .top img {
+    max-width: 10em;
+    height: auto;
+    margin-bottom: 0.625em;
+    display: block;
+}
+
+#container .top .informations h3,
+#container .top .informations p {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#container .top:hover {
+    cursor: pointer;
+    border: 0.063em solid #000;
+}
+
+#container .top:hover .play {
+    opacity: 1;
+}
+
+#container .top .play:hover {
+    width: 25%;
+}
