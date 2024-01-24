@@ -4,13 +4,13 @@
 
 -- SUJET
 
-SAé Web PhP - Musics 2024
+SAé Web PhP - Musics 2024  
 
-Présentation
+Présentation  
 A partir des données que vous trouverez dans le fichier fixtures.zip dans Celene, il vous est demandé de
-réaliser une application présentant le contenu de cette base d'albums de musique. 
+réaliser une application présentant le contenu de cette base d'albums de musique.  
 
-Le fichier fixtures.zip contient quelques albums et artistes avec des pochettes d'albums. 
+Le fichier fixtures.zip contient quelques albums et artistes avec des pochettes d'albums.  
 
 Fonctionalités attendues  
 Modèle de la BD de musiques    
@@ -31,13 +31,13 @@ Noter les albums
 Organisation et délais  
 Par groupes de 3  
 
-Contraintes
-Organisation du code dans une arboresence cohérente
-Utilisation des objets
-Utilisation des namespaces
-Utilisation d'un autoloader
-Utilisation de PDO avec base de données sqlite
+Contraintes  
+Organisation du code dans une arboresence cohérente  
+Utilisation des objets  
+Utilisation des namespaces  
+Utilisation d'un autoloader  
+Utilisation de PDO avec base de données sqlite  
 
-Dépôt gitlab/github obligatoire 
-Enseignants SAé à mettre en reporter sur le dépôt
-Soutenances à définir avec votre chargé de SAé
+Dépôt gitlab/github obligatoire  
+Enseignants SAé à mettre en reporter sur le dépôt  
+Soutenances à définir avec votre chargé de SAé  
