@@ -1,8 +1,9 @@
 <?php
 
 /**
- * Class Autoloader
- */
+* Class Autoloader
+* @package classes
+*/
 class Autoloader{
 
     /**
