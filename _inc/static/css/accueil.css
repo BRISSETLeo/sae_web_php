@@ -1,0 +1,43 @@
+#container .mieux-note {
+    border: 0.063em solid #ccc;
+    padding: 0.625em;
+    margin: 0.625em;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+
+#container .mieux-note .play {
+    position: absolute;
+    width: 20%;
+    aspect-ratio: 1/1;
+    top: 50%;
+    right: 0;
+    visibility: hidden;
+    padding: 0.65em;
+}
+
+#container .mieux-note img {
+    max-width: 10em;
+    height: auto;
+    margin-bottom: 0.625em;
+    display: block;
+}
+
+#container .mieux-note .informations h3,
+#container .mieux-note .informations p {
+    margin: 0;
+    padding: 0;
+}
+
+#container .mieux-note:hover {
+    border: 0.063em solid #000;
+}
+
+#container .mieux-note:hover .play {
+    visibility: visible;
+}
+
+#container .mieux-note .play:hover {
+    cursor: pointer;
+}

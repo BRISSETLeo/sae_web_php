@@ -14,10 +14,10 @@
         <div id="menu">
             <nav>
                 <ul>
-                    <li><a href="#">Albums</a></li>
-                    <li><a href="#">Musiques</a></li>
-                    <li><a href="#">Artistes</a></li>
-                    <li><a href="#">S'identifier</a></li>
+                    <li><a class="slide-line" href="#">Albums</a></li>
+                    <li><a class="slide-line" href="#">Musiques</a></li>
+                    <li><a class="slide-line" href="#">Artistes</a></li>
+                    <li><a class="slide-line" href="#">S'identifier</a></li>
                 </ul>
             </nav>
         </div>
@@ -28,7 +28,7 @@
     <footer>
         <div id="footer">
             <div id="droit">
-                <p>Yfitops &copy; 2020 - Tous droits réservés</p>
+                <p>Yfitops &copy; 2024 - Tous droits réservés</p>
             </div>
             <div id="createur">
                 <p>BRISSET Léo</p>

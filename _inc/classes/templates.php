@@ -29,9 +29,11 @@ class Templates{
     * Affiche le template
     * @param string $chemin Chemin vers le fichier à inclure
     */
-    public function render(string $chemin): string{
+    public function render(string $chemin){
         if (file_exists($chemin)) {
-            $content = file_get_contents($chemin);
+            ob_start();
+            require $chemin;
+            $content = ob_get_clean();        
         } else {
             $content = "Le fichier n'existe pas";
         }

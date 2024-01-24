@@ -7,6 +7,6 @@ use classes\dataloadersqlite;
 use classes\templates;
 
 $template = new Templates('_inc/templates/template.php');
-$template->render("test.php");
+$template->render("_inc/templates/accueil.php");
 
 ?>
