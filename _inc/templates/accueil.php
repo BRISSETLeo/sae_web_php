@@ -18,13 +18,13 @@ function getAlbumsMieuxNotes() {
 
 ?>
 
-<link rel="stylesheet" href="./_inc/static/css/accueil.css" />
+<link rel="stylesheet" href="./static/css/accueil.css" />
 <h2>Les albums les mieux notés :</h2>
 <div id="container">
     <?php foreach ($albumsMieuxNotes as $album) { ?>
         <div class="top">
-            <img src="./_inc/static/images/no-image.png" alt="Image de l'album" />
-            <img class="play" src="./_inc/static/images/play.png" alt="Jouer l'album" />
+            <img src="./static/images/no-image.png" alt="Image de l'album" />
+            <img class="play" src="./static/images/play.png" alt="Jouer l'album" />
             <div class="informations">
                 <h3><?php echo $album['titre']; ?></h3>
                 <p><?php echo $album['description']; ?></p>

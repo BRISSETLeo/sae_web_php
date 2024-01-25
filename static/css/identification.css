@@ -1,4 +1,4 @@
-#identification{
+#identification {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,14 +6,14 @@
     background-color: #f5f5f5;
 }
 
-#identification .formulaire-identification{
+#identification .formulaire-identification {
     background-color: rgb(189, 219, 219);
-    padding: 15em 10em;
+    padding: 10em 10em;
     border-radius: 5%;
 }
 
 #identification .formulaire-identification input,
-#identification .formulaire-identification .envoyer-formulaire{
+#identification .formulaire-identification .envoyer-formulaire {
     width: 100%;
     padding: 0.3em;
     font-size: 1.2em;

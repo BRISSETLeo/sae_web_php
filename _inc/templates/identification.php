@@ -1,15 +1,8 @@
-<?php
-
-if(!empty($_SESSION['pseudo'])){
-    header("location: ./index.php");
-    return;
-}
-
-?>
-
-<link rel="stylesheet" href="./_inc/static/css/identification.css" />
+<link rel="stylesheet" href="./static/css/identification.css" />
 <div id="identification">
-    <form id="inscription" class="formulaire-identification" action="inscription.php" method="POST">
+    <form id="inscription" class="formulaire-identification" action="./identification.php" method="POST">
+        <h2>Inscription</h2>
+        <input type="text" id="inscription-input" name="inscription-input" value="inscription" hidden>
         <input type="text" id="pseudo" name="pseudo" placeholder="Pseudo" required>
         <br>
         <input type="password" id="password" name="password" placeholder="Mot de passe" required>
@@ -17,7 +10,8 @@ if(!empty($_SESSION['pseudo'])){
         <button class="slide-line envoyer-formulaire" type="submit">S'inscrire</button>
         <p>Vous avez déjà un compte ? <a href="#" onclick="afficherConnexion()">Connectez-vous</a></p>
     </form>
-    <form id="connexion" class="formulaire-identification" action="connexion.php" method="POST">
+    <form id="connexion" class="formulaire-identification" action="./identification.php" method="POST">
+        <h2>Connexion</h2>
         <input type="text" id="pseudo" name="pseudo" placeholder="Pseudo" required>
         <br>
         <input type="password" id="password" name="password" placeholder="Mot de passe" required>

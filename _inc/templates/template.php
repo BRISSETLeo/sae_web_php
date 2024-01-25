@@ -1,18 +1,9 @@
-<?php
-
-session_start();
-
-use classes\dataloadersqlite;
-$sqlite = new dataloadersqlite();
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Yfitops</title>
-    <link rel="stylesheet" href="_inc/static/css/template.css">
+    <link rel="stylesheet" href="./static/css/template.css">
 </head>
 <body>
     <header id="header">
@@ -26,7 +17,7 @@ $sqlite = new dataloadersqlite();
                     <li><a class="slide-line" href="#">Albums</a></li>
                     <li><a class="slide-line" href="#">Musiques</a></li>
                     <li><a class="slide-line" href="#">Artistes</a></li>
-                    <li><a class="slide-line" href="./identifier.php">S'identifier</a></li>
+                    <li><a class="slide-line" href="./identification.php">S'identifier</a></li>
                 </ul>
             </nav>
         </div>

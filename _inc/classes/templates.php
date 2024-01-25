@@ -37,7 +37,7 @@ class Templates{
         } else {
             $content = "Le fichier n'existe pas";
         }
-        require $this->path;        
+        require $this->path;
     }
 
 }

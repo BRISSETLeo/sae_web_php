@@ -34,6 +34,31 @@ class DataLoaderSqlite{
         $this->pdo->exec($sql);
     }
 
+    public function insertUser($pseudo, $password){
+        $pseudo = htmlspecialchars($pseudo);
+        $password = htmlspecialchars($password);
+        $password = password_hash($password, PASSWORD_DEFAULT);
+        $sql = "INSERT INTO `user` (name_user, password) VALUES ('$pseudo', '$password')";
+        $result = $this->pdo->exec($sql);
+        return $result;
+    }
+
+    public function isUser($pseudo, $password): bool{
+        $pseudo = htmlspecialchars($pseudo);
+        $password = htmlspecialchars($password);
+        $sql = "SELECT * FROM `user` WHERE name_user = '$pseudo'";
+        $result = $this->pdo->query($sql);
+        $result = $result->fetch(PDO::FETCH_ASSOC);
+        if($result){
+            if(password_verify($password, $result['password'])){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        return false;
+    }
+
     
 
 }
