@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 use classes\dataloadersqlite;
 $sqlite = new dataloadersqlite();
 

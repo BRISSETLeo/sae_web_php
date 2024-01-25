@@ -1,8 +1,6 @@
 <?php
 
-require '_inc/autoloader.php'; 
-Autoloader::register(); 
-
+require './launchautoloader.php';
 use classes\templates;
 
 $template = new Templates('_inc/templates/template.php');
