@@ -17,7 +17,15 @@
                     <li><a class="slide-line" href="#">Albums</a></li>
                     <li><a class="slide-line" href="#">Musiques</a></li>
                     <li><a class="slide-line" href="#">Artistes</a></li>
-                    <li><a class="slide-line" href="./identification.php">S'identifier</a></li>
+                    <li>
+                        <?php 
+                        if(!empty($_SESSION['pseudo'])){
+                            echo '<a class="slide-line" href="./deconnexion.php">Déconnexion</a>';
+                        }else{
+                            echo '<a class="slide-line" href="./identification.php">Connexion</a>';
+                        }
+                        ?>
+                    </li>
                 </ul>
             </nav>
         </div>
