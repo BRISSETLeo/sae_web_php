@@ -30,7 +30,10 @@ $sqlite = new dataloadersqlite();
         </div>
     </header>
     <main id="main">
-        <?php echo $content; ?>
+        <div id="menu-gauche">
+            <a class="slide-line" href="#">Playlist</a>
+        </div>
+        <div> <?php echo $content; ?></div>
     </main>
     <footer>
         <div id="footer">

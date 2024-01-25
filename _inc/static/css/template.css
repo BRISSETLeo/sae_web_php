@@ -57,7 +57,12 @@ body {
 }
 
 #main {
+    display: flex;
     flex: 10;
+}
+
+#menu-gauche{
+    background-color: rgb(141, 141, 216);
 }
 
 #recherche {
@@ -67,19 +72,21 @@ body {
 }
 
 #footer {
-    flex: 1;
-    display: flex;
-    align-items: center;
     background-color: rgb(166, 166, 219);
-    padding: 0.5em;
+    padding: 0.1%;
 }
 
-#droit {
-    flex: 1;
+#droit{
+    text-align: center;
 }
 
-#createur {
-    flex: 1;
-    width: 100%;
-    text-align: right;
+#createur{
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
+
+#createur p{
+    flex-grow: 1;
+}
+
