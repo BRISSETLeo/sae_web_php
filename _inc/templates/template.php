@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Yfitops</title>
-    <link rel="stylesheet" href="_inc/static/css/template.css">
+    <link rel="stylesheet" href="./static/css/template.css">
 </head>
 <body>
     <header id="header">
         <div id="recherche">
-            <h1><a href="#">Yfitops</a></h1>
+            <h1><a href="./index.php">Yfitops</a></h1>
             <input type="text" placeholder="Rechercher...">
         </div>
         <div id="menu">
@@ -17,7 +17,15 @@
                     <li><a class="slide-line" href="#">Albums</a></li>
                     <li><a class="slide-line" href="#">Musiques</a></li>
                     <li><a class="slide-line" href="#">Artistes</a></li>
-                    <li><a class="slide-line" href="#">S'identifier</a></li>
+                    <li>
+                        <?php 
+                        if(!empty($_SESSION['pseudo'])){
+                            echo '<a class="slide-line" href="./deconnexion.php">Déconnexion</a>';
+                        }else{
+                            echo '<a class="slide-line" href="./identification.php">Connexion</a>';
+                        }
+                        ?>
+                    </li>
                 </ul>
             </nav>
         </div>

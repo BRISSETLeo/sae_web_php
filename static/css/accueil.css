@@ -52,3 +52,15 @@
 #container .top .play:hover {
     width: 25%;
 }
+
+.search {
+    
+    margin: 0.625em;
+    padding: 0.625em;
+    border-radius: 15px;  
+    border: 0.063em solid #ccc;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    max-width: 15em;
+}
