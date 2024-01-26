@@ -35,12 +35,26 @@ class DataLoaderSqlite{
     }
 
     public function insertUser($pseudo, $password){
+        if($this->userAlreadyExist($pseudo)){
+            return false;
+        }
         $pseudo = htmlspecialchars($pseudo);
         $password = htmlspecialchars($password);
         $password = password_hash($password, PASSWORD_DEFAULT);
         $sql = "INSERT INTO `user` (name_user, password) VALUES ('$pseudo', '$password')";
         $result = $this->pdo->exec($sql);
         return $result;
+    }
+
+    private function userAlreadyExist($pseudo): bool{
+        $pseudo = htmlspecialchars($pseudo);
+        $sql = "SELECT * FROM `user` WHERE name_user = '$pseudo'";
+        $result = $this->pdo->query($sql);
+        $result = $result->fetch(PDO::FETCH_ASSOC);
+        if($result){
+            return true;
+        }
+        return false;
     }
 
     public function isUser($pseudo, $password): bool{
