@@ -8,6 +8,7 @@ async function fetchAndPlayVideo() {
         const videoURL = URL.createObjectURL(videoBlob);
 
         videoPlayer.src = videoURL;
+        document.getElementById('videoPlayer').classList.remove('hidden');
     } catch (error) {
         console.error('Error fetching or playing the video:', error);
     }
@@ -48,6 +49,7 @@ async function displayAlbums(albums) {
             // Créer la balise img pour le bouton "Jouer"
             const playImgElement = document.createElement('img');
             playImgElement.src = './static/images/play.png';
+            playImgElement.addEventListener('click', fetchAndPlayVideo);
             playImgElement.alt = `Jouer l'album ${index + 1}`;
             playImgElement.classList.add('play');
             divElement.appendChild(playImgElement);
