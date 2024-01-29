@@ -10,5 +10,3 @@ use classes\DataLoaderSQLite;
 
 $template = new Template('./_inc/templates/template.php');
 $pdo = new DataLoaderSqlite();
-
-?>
