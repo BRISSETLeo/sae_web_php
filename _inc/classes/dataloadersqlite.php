@@ -59,6 +59,13 @@ class DataLoaderSqlite{
         return false;
     }
 
+    public function getAlbums(): array{
+        $sql = "SELECT * FROM `album`";
+        $result = $this->pdo->query($sql);
+        $result = $result->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
     
 
 }
