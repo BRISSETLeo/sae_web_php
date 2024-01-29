@@ -33,3 +33,8 @@ function getAlbumsMieuxNotes() {
         </div>
     <?php } ?>
 </div>
+<video controls id="videoPlayer" width="640" height="30">
+    Your browser does not support the video tag.
+</video>
+<button onclick="fetchAndPlayVideo()">Lancer vidéo</button>
+<script src="./static/js/lancer_video.js"></script>
