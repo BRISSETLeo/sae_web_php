@@ -9,7 +9,7 @@ namespace classes;
 *
 * @package classes    
 */
-class Templates{
+class Template{
 
     /**
     * @var string $path Chemin vers le template
