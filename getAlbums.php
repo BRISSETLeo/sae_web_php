@@ -27,5 +27,4 @@ header('Content-Type: application/json');
 
 >>>>>>> ceff646 (pr)
 echo json_encode($response);
-
 ?>
