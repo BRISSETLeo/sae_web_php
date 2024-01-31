@@ -2,8 +2,7 @@
 
 session_start();
 
-require '_inc/AutoLoader.php'; 
-Autoloader::register();
+require_once('./config.php');
 
 use classes\Template;
 

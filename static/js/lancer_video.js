@@ -22,9 +22,7 @@ async function fetchAlbums() {
                 'Content-Type': 'application/json',
             },
         });
-        const albums = await response.json();
-        console.log(albums);
-        
+        const albums = await response.json();        
         return albums;
     } catch (error) {
         console.error('Erreur lors de la récupération des albums:', error);
