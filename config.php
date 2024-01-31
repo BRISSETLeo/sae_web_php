@@ -15,3 +15,4 @@ $template = new Templates('./_inc/templates/template.php');
 $pdo = new DataLoaderSqlite();
 
 ?>
+
