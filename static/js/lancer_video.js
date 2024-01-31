@@ -8,7 +8,6 @@ async function fetchAndPlayVideo() {
         const videoURL = URL.createObjectURL(videoBlob);
 
         videoPlayer.src = videoURL;
-<<<<<<< HEAD
         document.getElementById('videoPlayer').classList.remove('hidden');
     } catch (error) {
         console.error('Error fetching or playing the video:', error);
@@ -85,9 +84,3 @@ async function displayAlbums(albums) {
 fetchAlbums()
 .then(albums => displayAlbums(albums))
 .catch(error => console.error('Erreur lors de l\'affichage des albums:', error));
-=======
-    } catch (error) {
-        console.error('Error fetching or playing the video:', error);
-    }
-}
->>>>>>> 82d9f49 (pr)
