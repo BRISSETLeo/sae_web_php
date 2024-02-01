@@ -8,7 +8,7 @@
 <body>
     <header id="header">
         <div id="recherche">
-            <h1><a href="./index.php">Yfitops</a></h1>
+            <h1><a href="./">Yfitops</a></h1>
             <input type="text" placeholder="Rechercher...">
         </div>
         <div id="menu">
@@ -20,9 +20,9 @@
                     <li>
                         <?php 
                         if(!empty($_SESSION['pseudo'])){
-                            echo '<a class="slide-line" href="./deconnexion.php">Déconnexion</a>';
+                            echo '<a class="slide-line" href="?action=deconnexion">Déconnexion</a>';
                         }else{
-                            echo '<a class="slide-line" href="./identification.php">Connexion</a>';
+                            echo '<a class="slide-line" href="?action=connexion">Connexion</a>';
                         }
                         ?>
                     </li>

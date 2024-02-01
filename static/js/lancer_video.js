@@ -16,13 +16,15 @@ async function fetchAndPlayVideo() {
 
 async function fetchAlbums() {
     try {
-        const response = await fetch('getAlbums.php', {
+        const response = await fetch('./getAlbums.php', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
             },
         });
         const albums = await response.json();
+        console.log(albums);
+        
         return albums;
     } catch (error) {
         console.error('Erreur lors de la récupération des albums:', error);
@@ -82,5 +84,5 @@ async function displayAlbums(albums) {
 
 // Appel des fonctions pour récupérer et afficher les albums
 fetchAlbums()
-    .then(albums => displayAlbums(albums))
-    .catch(error => console.error('Erreur lors de l\'affichage des albums:', error));
+.then(albums => displayAlbums(albums))
+.catch(error => console.error('Erreur lors de l\'affichage des albums:', error));
