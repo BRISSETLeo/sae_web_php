@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Inscription - iuT'Unes</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="./static/css/identification.css" />    </head>
     <body>

@@ -1,9 +1,11 @@
 <?php
 
-echo ($dataLoaderSQLite->isUser('User', 'user') == true) ? 'OUI' : 'NON';
+use classes\DataLoaderSQLite;
+$dataLoaderSQLite = new DataLoaderSQLite();
 
 ?>
 
+<title>Connexion - iuT'Unes</title>
 <div id="main-identification-center">
     <div id="identification-container">
         <div id="identification-container-center-2">

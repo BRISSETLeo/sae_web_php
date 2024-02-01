@@ -1,4 +1,5 @@
 
+<title>Inscription - iuT'Unes</title>
 <div id="main-identification-center">
     <div id="identification-container">
         <div id="identification-container-center-2">

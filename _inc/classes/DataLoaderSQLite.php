@@ -1,8 +1,7 @@
 <?php
 
 namespace classes;
-
-use \PDO;
+use PDO;
 
 /**
 * Class DataLoaderSQLite
@@ -79,9 +78,5 @@ class DataLoaderSQLite{
         $result = $result->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
-
     
-
 }
-
-?>
