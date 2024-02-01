@@ -1,92 +1,101 @@
 body {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     height: 100vh;
     margin: 0;
     padding: 0;
-}
-
-#header {
-    flex: 1;
-    padding: 0.5em;
-    background-color: rgb(166, 166, 219);
-}
-
-#header h1 {
-    margin: 0;
-    padding: 0;
-}
-
-#menu ul {
-    list-style-type: none;
-    padding: 1em;
-    margin: 0;
-    background-color: rgb(141, 141, 216);
-}
-
-#menu ul li {
-    display: inline-block;
-    text-align: center;
-}
-
-.slide-line {
-    font-family: sans-serif;
-    text-decoration: none;
-    color: #fff;
-    position: relative;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-.slide-line::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #222;
-    transform-origin: 100% 0;
-    transform: scaleX(0);
-    transition: transform 0.4s;
-}
-
-.slide-line:hover::before {
-    transform-origin: 0 0;
-    transform: scaleX(1);
-}
-
-#main {
-    display: flex;
-    flex: 10;
+    background-color: white;
+    overflow: hidden;
 }
 
 #menu-gauche{
-    background-color: rgb(141, 141, 216);
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    width: 20%;
+    height: 100vh; /* 100% of the viewport height */
+    float: left; /* Use float left to make it side by side with the main content */
 }
 
-#recherche {
+#main {
+    overflow: auto; /* Add overflow:auto to handle content overflow */
+    background-color: black;
+    width: 100%;
+}
+
+#menu-haut{
+    background-color:#222;
+    width: 100%;
+    height: 10vh;
+    border-radius: 1%;
+    margin: 2%;
+}
+
+#menu-gauche a{
+    color: white;
+    text-decoration: none;
+}
+
+.acceuil, .recherche, .playlist{
     display: flex;
-    justify-content: left;
+    flex-direction: row;
     align-items: center;
 }
 
-#footer {
-    background-color: rgb(166, 166, 219);
-    padding: 0.1%;
+#menu-gauche img{
+    width: 7%;
+    height: auto;
+    padding: 3%;
 }
 
-#droit{
-    text-align: center;
-}
-
-#createur{
+.playlist{
     display: flex;
-    justify-content: center;
-    text-align: center;
+    flex-direction: row;
 }
 
-#createur p{
-    flex-grow: 1;
+.plus{
+    margin-left: auto;    
 }
+
+#menu-corps{
+    background-color:#222;
+    width: 100%;
+    height: 90vh;
+    border-radius: 1% ;
+    margin: 2%;
+    margin-top:0%;
+}
+
+header {
+    background-color: #222;
+    border-radius: 1% ;
+    color: #fff;
+    display: flex;
+    justify-content: right;
+    width: 100%;
+    height: auto;
+    margin-left: 0.5%;
+    margin-top: 0.4%;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 2%;
+}
+
+.header-button {
+    margin-left: auto;
+    padding: 5%;
+    background-color: #1db954;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10%;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.header-button:hover {
+    background-color: #25b960;
+}
+
 
