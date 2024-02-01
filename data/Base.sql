@@ -14,13 +14,6 @@ CREATE TABLE IF NOT EXISTS `playlist` (
     FOREIGN KEY(`owner_name`) REFERENCES `user`(`name_user`)
 );
 
-CREATE TABLE IF NOT EXISTS `artist` (
-    `id_artist` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    `name` VARCHAR(30) NOT NULL,
-    `genre` VARCHAR(30) NOT NULL,
-    `image_artist` LONGBLOB
-);
-
 CREATE TABLE IF NOT EXISTS `band` (
     `id_band` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     `name_band` VARCHAR(30) NOT NULL,
@@ -49,11 +42,11 @@ CREATE TABLE IF NOT EXISTS `song` (
 
 CREATE TABLE IF NOT EXISTS `song_artist` (
     `id_song` INTEGER NOT NULL,
-    `id_artist` INTEGER NOT NULL,
+    `id_band` INTEGER NOT NULL,
     `date` DATE NOT NULL,
-    PRIMARY KEY(`id_song`, `id_artist`),
+    PRIMARY KEY(`id_song`, `id_band`),
     FOREIGN KEY(`id_song`) REFERENCES `song`(`id_song`),
-    FOREIGN KEY(`id_artist`) REFERENCES `artist`(`id_artist`)
+    FOREIGN KEY(`id_band`) REFERENCES `band`(`id_band`)
 );
 
 CREATE TABLE IF NOT EXISTS `song_playlist` (
