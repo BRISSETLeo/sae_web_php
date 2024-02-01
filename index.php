@@ -1,6 +1,6 @@
 <?php
 
-require_once('./config.php');
+require './config.php';
 
 use classes\Template;
 $template = new Template('./_inc/templates/template.php');

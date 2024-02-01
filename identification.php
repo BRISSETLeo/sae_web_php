@@ -6,8 +6,6 @@ use classes\DataLoaderSQLite;
 
 $pdo = new DataLoaderSQLite();
 
-$pdo = new DataLoaderSQLite();
-
 if(isset($_SESSION['pseudo'])){
     header('Location: ./index.php');
     return;
