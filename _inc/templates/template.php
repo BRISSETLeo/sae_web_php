@@ -15,7 +15,7 @@ $sqlite = new dataloadersqlite();
 <body>
     <div id="menu-gauche">
         <div id="menu-haut">
-            <div class="acceuil">
+            <div class="accueil">
                 <img src="_inc/static/images/accueil.png" alt="Maison">
                 <a href="#">Accueil</a>
             </div>
@@ -42,5 +42,6 @@ $sqlite = new dataloadersqlite();
         </header>
         <div> <?php echo $content; ?></div>
     </main>
+    <script src="/_inc/js/template.js"></script>
 </body>
 </html>
