@@ -1,6 +1,6 @@
 <?php
 
-require_once('./config.php');
+require './config.php';
 
 use classes\Template;
 $template = new Template('./_inc/templates/template.php');
@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action'])){
 
     if($action === 'connexion'){
         $template->render("./vues/connexion.php");
-        return;
+        exit;
     }else if($action === 'deconnexion'){
         $_SESSION['pseudo'] = null;
         header('Location: index.php');
