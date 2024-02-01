@@ -36,12 +36,12 @@ $sqlite = new dataloadersqlite();
     <main id="main">
         <header>
             <div class="header-buttons">
-                <a href="#" class="header-button">Inscription</a>
-                <a href="#" class="header-button">Connexion</a>
+                <a href="#" class="inscription">Inscription</a>
+                <a href="#" class="connexion">Connexion</a>
             </div>
         </header>
         <div> <?php echo $content; ?></div>
     </main>
-    <script src="/_inc/js/template.js"></script>
+    <script src="/_inc/static/js/template.js"></script>
 </body>
 </html>
