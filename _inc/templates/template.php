@@ -9,14 +9,14 @@ $sqlite = new dataloadersqlite();
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Yfitops</title>
+    <title>iuT'Unes</title>
     <link rel="stylesheet" href="./static/css/template.css">
 </head>
 <body>
     <div id="menu-gauche">
         <div id="menu-haut">
             <div class="logo">
-                <a href="#"><img src="./static/images/logo.png" alt="logo"></a>
+                <a href="#">iuT'Unes</a>
             </div>
             <div class="acceuil">
                 <img src="./static/images/accueil.png" alt="Maison">
