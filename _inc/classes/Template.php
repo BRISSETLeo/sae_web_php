@@ -14,7 +14,6 @@ class Template{
     /**
     * @var string $path Chemin vers le template
     */
-
     private string $path;
 
     /**
