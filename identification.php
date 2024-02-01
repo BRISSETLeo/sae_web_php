@@ -3,11 +3,6 @@
 require './config.php';
 
 use classes\DataLoaderSQLite;
-
-$pdo = new DataLoaderSQLite();
-
-use classes\DataLoaderSQLite;
-
 $pdo = new DataLoaderSQLite();
 
 if(isset($_SESSION['pseudo'])){
