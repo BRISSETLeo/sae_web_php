@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 require_once('./config.php');
 
 use classes\Template;
@@ -25,4 +23,3 @@ if($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action'])){
 $template->render("./vues/accueil.php");
 
 ?>
-
