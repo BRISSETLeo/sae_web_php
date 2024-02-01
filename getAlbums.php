@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 require_once('./config.php');
 
 use classes\DataLoaderSQLite;
@@ -19,6 +20,12 @@ function convertAlbum($album) {
 }
 
 header('Content-Type: application/json; charset=utf-8');
+=======
+$response = array('success' => true, 'albums' => 'albums');
+
+header('Content-Type: application/json');
+
+>>>>>>> ceff646 (pr)
 echo json_encode($response);
 
 ?>
