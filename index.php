@@ -13,7 +13,9 @@ if($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action'])){
         $template->render("./vues/connexion.php");
         exit;
     }else if($action === 'deconnexion'){
-        session_destroy();
+        $_SESSION['pseudo'] = null;
+        header('Location: ./');
+        exit;
     }
 
 }
