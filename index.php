@@ -14,7 +14,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action'])){
         exit;
     }else if($action === 'deconnexion'){
         $_SESSION['pseudo'] = null;
-        header('Location: index.php');
+        header('Location: ./');
         exit;
     }
 
