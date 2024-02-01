@@ -5,13 +5,13 @@ namespace classes;
 use \PDO;
 
 /**
-* Class DataLoaderSqlite
+* Class DataLoaderSQLite
 * 
 * Cette classe est utilisé pour récupérer des informations d'une base de donnée sqlite
 * 
-* @package classes    
+* @package classes
 */
-class DataLoaderSqlite{
+class DataLoaderSQLite{
     
     /**
     * @var pdo $pdo

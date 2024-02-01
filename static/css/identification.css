@@ -1,0 +1,149 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(rgba(255, 255, 255, 0.1) 0%, rgb(0, 0, 0) 100%);
+    background-color: #121212;
+    height: 100vh;
+    background-repeat: no-repeat;
+}
+
+#header-identification{
+    flex: 1;
+    background-color: #121212;
+    padding: 3em;
+    margin-bottom: 1em;
+}
+
+#header-identification img{
+    width: 15%;
+    aspect-ratio: 1/1;
+}
+
+#main-identification{
+    flex: 1000;
+    display: flex;
+    justify-content: center;
+}
+
+#main-identification div{
+    padding-bottom: 1em;
+}
+
+#main-identification-center{
+    background-color: #121212;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1em;
+}
+
+#identification-container-center-2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+#identification-container{
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+#identification-container h1{
+    color: white;
+    padding: 3em 0 2em 0;
+}
+
+#identification{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+#identification #nameuser,
+#identification #mdp{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+#identification label{
+    font-weight: bold;
+    font-size: 0.8em;
+    margin: 0.7em 0;
+}
+
+#identification input{
+    padding: 1em;
+    background-color: #121212;
+    color: white;
+    border: 0.001em solid gray;
+    border-radius: 0.3em;
+}
+
+#identification input:hover{
+    border: 0.001em solid white;
+}
+
+#identification input:focus{
+    outline: 0.2em solid white;
+}
+
+#identification #se-identifier{
+    text-align: center;
+    width: 70%;
+    font-weight: bold;
+    background-color: #1ed760;
+    color: black;
+    padding: 0.8em;
+    border-radius: 10em;
+    text-decoration: none;
+    margin: 2em;
+    position: relative;
+}
+
+#identification #mdp-oublie{
+    text-align: center;
+    padding-bottom: 3em;
+    border-bottom: 0.1em solid #292929;
+}
+
+#identification #mot-de-passe-oublie{
+    color: white;
+}
+
+#identification p{
+    color: #a7a7a7;
+    padding-top: 2em;
+}
+
+#identification p a{
+    color: white;
+}
+
+#identification p a:hover,
+#identification #mot-de-passe-oublie:hover{
+    color: #1ed760;
+}
+
+#identification #se-identifier:hover{
+    transform: scale(1.04);
+}
+
+#footer-identification{
+    flex: 1;
+    background-color: #121212;
+    padding: 2em;
+    color: gray;
+    text-align: center;
+    margin-top: 1em;
+}

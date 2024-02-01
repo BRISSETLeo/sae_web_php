@@ -19,7 +19,10 @@ class Autoloader{
      */
     static function autoload($fqcn){
         $path = str_replace('\\', '/', $fqcn);
-        require '_inc/' . $path . '.php';
+        $file = dirname(__FILE__) . '/' . $path . '.php';
+        if (file_exists($file)) {
+            require_once($file);
+        }
     }
 
 }

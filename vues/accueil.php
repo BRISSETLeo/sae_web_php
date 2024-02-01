@@ -1,6 +1,5 @@
 <?php 
 
-
 ?>
 
 <link rel="stylesheet" href="./static/css/accueil.css" />
