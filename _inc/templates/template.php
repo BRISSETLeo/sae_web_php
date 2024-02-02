@@ -15,6 +15,10 @@ $sqlite = new dataloadersqlite();
 <body>
     <div id="menu-gauche">
         <div id="menu-haut">
+            <div class="logo">
+                <img src="_inc/static/images/diamond.png" alt="Logo">
+                <a href="#">iuT'Unes</a>
+            </div>
             <div class="accueil">
                 <img src="_inc/static/images/accueil.png" alt="Maison">
                 <a href="#">Accueil</a>
@@ -36,8 +40,8 @@ $sqlite = new dataloadersqlite();
     <main id="main">
         <header>
             <div class="header-buttons">
-                <a href="#" class="inscription">Inscription</a>
-                <a href="#" class="connexion">Connexion</a>
+                <a href="#" class="inscription">S'inscrire</a>
+                <a href="#" class="connexion">Se connecter</a>
             </div>
         </header>
         <div> <?php echo $content; ?></div>

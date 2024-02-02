@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
+    var alogo = document.querySelector('.logo a');
+    var imglogo = document.querySelector('.logo img[alt="Logo"]');
     var aaccueil = document.querySelector('.accueil a');
     var imgaccueil = document.querySelector('.accueil img[alt="Maison"]');
     var arecherche = document.querySelector('.recherche a');
@@ -20,6 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Redirigez vers l'URL du lien a
         window.location.href = a.href;
     }
+
+    // Event listeners sur la div logo
+    imglogo.addEventListener("click",function(){handleClick(alogo)});
 
     // Event listeners sur la div accueil
     aaccueil.addEventListener('mouseover', function() { handleHover(aaccueil, imgaccueil); });
