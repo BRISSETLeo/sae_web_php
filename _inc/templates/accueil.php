@@ -18,11 +18,11 @@ $sqlite = new dataloadersqlite();
         <div id="menu-haut">
             <div class="logo">
                 <img src="static/images/diamond.png" alt="Logo">
-                <a href="#">iuT'Unes</a>
+                <a href="./" target="_blank">iuT'Unes</a>
             </div>
             <div class="accueil">
                 <img src="static/images/accueil.png" alt="Maison">
-                <a href="#">Accueil</a>
+                <a href="./">Accueil</a>
             </div>
             <div class="recherche">
                 <img src="static/images/rechercher.png" alt="loupe">
@@ -41,8 +41,8 @@ $sqlite = new dataloadersqlite();
     <main id="main">
         <header>
             <div class="header-buttons">
-                <a href="#" class="inscription">S'inscrire</a>
-                <a href="#" class="connexion">Se connecter</a>
+                <a href="?action=inscription" class="inscription">S'inscrire</a>
+                <a href="?action=connexion" class="connexion">Se connecter</a>
             </div>
         </header>
         <div> <?php echo $content; ?></div>
