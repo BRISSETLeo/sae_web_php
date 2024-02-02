@@ -147,3 +147,9 @@ body{
     text-align: center;
     margin-top: 1em;
 }
+
+#erreur-name-already-used,
+#erreur-mdp-not-same,
+#erreur-name-not-same{
+    display: none;
+}

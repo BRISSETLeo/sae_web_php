@@ -45,7 +45,7 @@ class DataLoaderSQLite{
         return $result;
     }
 
-    private function userAlreadyExist($pseudo): bool{
+    public function userAlreadyExist($pseudo): bool{
         $pseudo = htmlspecialchars($pseudo);
         $sql = "SELECT * FROM `user` WHERE name_user = '$pseudo'";
         $result = $this->pdo->query($sql);

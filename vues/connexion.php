@@ -1,7 +1,9 @@
 <?php
 
-use classes\DataLoaderSQLite;
-$dataLoaderSQLite = new DataLoaderSQLite();
+if(isset($_SESSION['pseudo'])){
+    header('Location: ./');
+    exit;
+}
 
 ?>
 
