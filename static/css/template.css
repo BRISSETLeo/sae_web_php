@@ -148,7 +148,7 @@ body {
     color: white;
     opacity: 0.7;
     margin-right: 3%;
-    transition: opacity 0.5s;
+    transition: opacity 0.5s, transform 0.8s;
   }
   
   .inscription:hover{
