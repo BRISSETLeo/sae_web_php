@@ -45,16 +45,6 @@ function supprimerAlerte(){
 var mdpInput = document.getElementById("mot-de-passe");
 var mdpErreur = document.getElementById("erreur-mdp-not-same");
 
-seIdentifier.addEventListener("click", function(event) {
-    if (nameInput.value.trim() === "" && !seIdentifier.disabled){
-        alerterUtilisateurQueNameNonRenseigne();
-        event.preventDefault();
-    } else if(mdpInput.value.trim() === "" && !seIdentifier.disabled){
-        alerterUtilisateurQueMdpNonRenseigne();
-        event.preventDefault();
-    }
-});
-
 mdpInput.addEventListener("change", function() {
     supprimerAlerteMdp();
 });
@@ -79,3 +69,31 @@ function supprimerAlerteName(){
     var nameErreur = document.getElementById("erreur-name-not-same");
     nameErreur.style.display = "none";
 }
+
+function sIdentifier(){
+    if (nameInput.value.trim() === "" && !seIdentifier.disabled){
+        alerterUtilisateurQueNameNonRenseigne();
+    } else if(mdpInput.value.trim() === "" && !seIdentifier.disabled){
+        alerterUtilisateurQueMdpNonRenseigne();
+    }else{
+        $.ajax({
+            url: './identificationSucceful.php',
+            type: 'POST',
+            data: {
+                pseudo: nameInput.value,
+                password: mdpInput.value
+            },
+            success: function(response){
+                response = JSON.parse(response);
+                if(response.success){
+                    window.location.href = "./";
+                }else{
+                    
+                }
+            },
+            error: function(error){
+                console.log(error);
+            }
+        });
+    }
+};
