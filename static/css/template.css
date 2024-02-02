@@ -42,6 +42,12 @@ body {
     color: white;
     text-decoration: none;
     border-radius: 0.75em;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+#menu-gauche a:hover{
+    color: white;
 }
 
 .acceuil, .recherche, .playlist{
@@ -54,10 +60,6 @@ body {
     width: 7%;
     height: auto;
     padding: 4%;
-}
-
-#menu-gauche a{
-    font-weight: bold;
 }
 
 .playlist{
@@ -99,7 +101,6 @@ header {
     background-color: #1db954;
     color: #fff;
     text-decoration: none;
-    font-weight: bold;
     transition: background-color 0.3s;
 }
 
@@ -113,3 +114,6 @@ header {
     padding-bottom: 2%;
 }
 
+#menu-gauche .couleur{
+    color: #b3b3b3;
+}

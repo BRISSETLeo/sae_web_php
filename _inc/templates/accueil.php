@@ -17,17 +17,17 @@
                 </div>
                 <div class="acceuil">
                     <img src="./static/images/accueil.png" alt="Maison">
-                    <a href="#">Accueil</a>
+                    <a class="couleur" href="#">Accueil</a>
                 </div>
                 <div class="recherche">
                     <img src="./static/images/rechercher.png" alt="loupe">
-                    <a href="#">Recherche</a>
+                    <a class="couleur" href="#">Recherche</a>
                 </div>
             </div>
             <div id="menu-corps">
                 <div class="playlist">
                     <img src="./static/images/playlist.png" alt="playlist">
-                    <a href="#">Playlist</a>
+                    <a class="couleur" href="#">Playlist</a>
                     <img class="plus" src="./static/images/plus.png" alt="+">
                     <img class="fleche-droite" src="./static/images/fleche-droite.png" alt="fleche vers la droite">
                 </div>
