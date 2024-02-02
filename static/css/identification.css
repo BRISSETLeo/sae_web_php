@@ -150,6 +150,7 @@ body{
 
 #erreur-name-already-used,
 #erreur-mdp-not-same,
-#erreur-name-not-same{
+#erreur-name-not-same,
+#erreur-connexion{
     display: none;
 }

@@ -24,7 +24,7 @@ if(isset($_SESSION['pseudo'])){
                     <input type="password" id="mot-de-passe" name="mot-de-passe" placeholder="Mot de passe">
                     <p id="erreur-mdp-not-same">Aucun mot de passe n'a été renseigné.</p>
                 </div>
-                <button id="se-identifier" onclick="sIdentifier()">S'inscrire</button>
+                <button id="se-identifier" onclick="sInscrire()">S'inscrire</button>
                 <div id="mdp-oublie">
                     <a id="mot-de-passe-oublie" href="#">Mot de passe oublié ?</a>
                 </div>

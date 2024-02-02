@@ -70,7 +70,7 @@ function supprimerAlerteName(){
     nameErreur.style.display = "none";
 }
 
-function sIdentifier(){
+function sInscrire(){
     if (nameInput.value.trim() === "" && !seIdentifier.disabled){
         alerterUtilisateurQueNameNonRenseigne();
     } else if(mdpInput.value.trim() === "" && !seIdentifier.disabled){
