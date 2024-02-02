@@ -10,110 +10,158 @@ body {
     padding: 0;
     background-color: white;
     overflow: hidden;
-}
-
-#menu-gauche{
+  }
+  
+  #menu-gauche{
     display: flex;
     flex-direction: column;
     background-color: black;
-    width: 20%;
-    height: 100vh; /* 100% of the viewport height */
-    float: left; /* Use float left to make it side by side with the main content */
-    min-width: 20%;
-
-}
-
-#main {
+    width: 34%;
+    height: 100vh;
+  }
+  
+  #main {
     overflow: auto; /* Add overflow:auto to handle content overflow */
     background-color: black;
     width: 100%;
-}
-
-#menu-haut{
-    background-color:#121212;
-    padding-left: 5%;
-    margin: 3%;
-    border-radius: 0.75em;
-    padding-top: 3%;
-    padding-bottom: 3%;
-}
-
-#menu-gauche a{
+  }
+  
+  #menu-gauche img{
+    height: auto;
+    padding: 3%;
+    padding-right: 6%;
+  }
+  
+  #menu-gauche a{
     color: white;
     text-decoration: none;
-    border-radius: 0.75em;
-    font-size: 0.9em;
-    font-weight: bold;
-}
-
-#menu-gauche a:hover{
-    color: white;
-}
-
-.acceuil, .recherche, .playlist{
+  }
+  
+  #menu-haut{
+    background-color:#121212;
+    max-width: 100%;
+    height: auto;
+    margin: 2%;
+    border-radius: 10px;
+  }
+  
+  .logo, .accueil, .recherche{
+    margin: 2% 0 2% 5%;
+  }
+  
+  .logo, .accueil, .recherche, .playlist{
     display: flex;
     flex-direction: row;
     align-items: center;
-}
-
-#menu-gauche img{
-    width: 7%;
-    height: auto;
-    padding: 4%;
-}
-
-.playlist{
+  }
+  
+  .logo img, .accueil img, .recherche img, .playlist img[alt="playlist"]{
+    width: 8%;
+  }
+  
+  .logo a, .accueil a, .recherche a{
+    font-size: 110%;
+  }
+  
+  .accueil a, .accueil img[alt="Maison"],
+  .recherche a, .recherche img[alt="loupe"]{
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    cursor: pointer;
+  }
+  
+  .logo img{
+    cursor: pointer;
+  }
+  
+  .playlist{
     display: flex;
     flex-direction: row;
-}
-
-.plus{
-    margin-left: auto;    
-}
-
-#menu-corps{
-    background-color:#121212;
-    height: 100%;
-    margin: 3%;
-    margin-top:0%;
-    border-radius: 0.75em;
-}
-
-header {
-    background-color: #121212;
-    color: #fff;
-    display: flex;
-    justify-content: right;
-    width: 100%;
-    height: auto;
-    margin-left: 0.5%;
-    margin-top: 0.4%;
-}
-
-.header-buttons {
-    display: flex;
-    gap: 2%;
-}
-
-.header-button {
+    margin-top: 3%;
+    margin-left: 5%;
+  }
+  
+  .playlist a, .playlist img[alt="playlist"]{
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    cursor: pointer;
+  }
+  
+  .playlist a{
+    font-size: 110%;
+  }
+  
+  .plus{
+    width: 7%;
     margin-left: auto;
-    padding: 5%;
-    background-color: #1db954;
+    opacity: 0.5;
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  
+  .fleche-droite{
+    width: 7%;
+    opacity: 0.5;
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  
+  .plus:hover, .fleche-droite:hover{
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  
+  #menu-corps{
+    background-color:#121212;
+    max-width: 100%;
+    height: 90vh;
+    border-radius: 10px; ;
+    margin: 0% 2% 2% 2%;
+  }
+  
+  header {
+    background-color: #121212;
+    border-radius: 10px;
     color: #fff;
+    display: flex;
+    justify-content: flex-end;
+    max-width: 100%;
+    height: auto;
+    margin: 0.6% 0.8% 0.6% 0.2%;
+  }
+  
+  .header-buttons {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    margin-right: 9%;
+    padding: 1%;
+    gap: 11%;
+  }
+  
+  .inscription,
+  .connexion {
     text-decoration: none;
-    transition: background-color 0.3s;
-}
-
-.header-button:hover {
-    background-color: #25b960;
-}
-
-.logo {
-    padding-top: 2%;
-    margin-left: 4%;
-    padding-bottom: 2%;
-}
-
-#menu-gauche .couleur{
-    color: #b3b3b3;
-}
+    font-weight: bold;
+    transition: transform 0.5s;
+  }
+  
+  .inscription{
+    color: white;
+    opacity: 0.7;
+    margin-right: 3%;
+    transition: opacity 0.5s;
+  }
+  
+  .inscription:hover{
+    opacity: 1;
+  }
+  
+  .connexion{
+    background-color: white;
+    color: black;
+    border-radius: 30px;
+    padding: 9% 15%;
+  }
+  
+  .inscription:hover, .connexion:hover{
+    transform: scale(1.1);
+  }
