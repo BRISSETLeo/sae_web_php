@@ -1,8 +1,5 @@
 <?php
 
-use classes\dataloadersqlite;
-$sqlite = new dataloadersqlite();
-
 ?>
 
 <!DOCTYPE html>
