@@ -32,7 +32,7 @@ $sqlite = new dataloadersqlite();
         <div id="menu-corps">
             <div class="playlist">
                 <img src="static/images/playlist.png" alt="playlist">
-                <a href="#">Playlist</a>
+                <a href="#">Playlists</a>
                 <img class="plus" src="static/images/plus.png" alt="+">
                 <img class="fleche-droite" src="static/images/fleche-droite.png" alt="fleche vers la droite">
             </div>

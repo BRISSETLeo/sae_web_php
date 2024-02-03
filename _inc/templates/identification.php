@@ -5,7 +5,10 @@
         <link rel="stylesheet" href="./static/css/identification.css" />    </head>
     <body>
         <header id="header-identification">
-            <p><a href="./">iuT'Unes</a></p>
+            <div>
+                <img src="./static/images/diamond.png" alt="Logo">
+                <a href="./">iuT'Unes</a>
+            </div>
         </header>
         <main id="main-identification">
             <?php echo $content; ?>
