@@ -28,7 +28,7 @@ if(isset($_SESSION['pseudo'])){
                 <div id="mdp-oublie">
                     <a id="mot-de-passe-oublie" href="#">Mot de passe oublié ?</a>
                 </div>
-                <p>Vous n'avez pas de compte ? <a id="creer-un-compte" href="?action=inscription">Je n'ai pas iuT'Unes</a></p>
+                <p class="pas-compte">Vous n'avez pas de compte ? <a id="creer-un-compte" href="?action=inscription">Je n'ai pas iuT'Unes</a></p>
             </div>
         </div>
     </div>
