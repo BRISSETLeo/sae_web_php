@@ -11,7 +11,6 @@ $sqlite = new dataloadersqlite();
     <meta charset="UTF-8">
     <title>Yfitops</title>
     <link rel="stylesheet" href="static/css/template.css">
-    <link rel="stylesheet" href="static/css/accueil.css">
 </head>
 <body>
     <div id="menu-gauche">
@@ -41,13 +40,28 @@ $sqlite = new dataloadersqlite();
     <main id="main">
         <header>
             <div class="header-buttons">
-                <a href="?action=inscription" class="inscription">S'inscrire</a>
-                <a href="?action=connexion" class="connexion">Se connecter</a>
+                <?php 
+                    if(isset($_SESSION['pseudo'])){
+                        echo "<button id='button-profil'><span id='lettre-profil'>".$_SESSION['pseudo'][0]."</span></button>";
+                        echo "<div id='popupMenu'>";
+                            echo "<ul>";
+                                echo "<li><a href='#'>Option 1</a></li>";
+                            echo "</ul>";
+                        echo "</div>";
+                    }else{
+                        echo "<a href='?action=inscription' class='inscription'>S'inscrire</a>";
+                        echo "<a href='?action=connexion' class='connexion'>Se connecter</a>";
+                    }
+                ?>
             </div>
         </header>
         <div> <?php echo $content; ?></div>
     </main>
+    <video controls id="videoPlayer" class="hidden" width="640" height="30">
+    Your browser does not support the video tag.
+    </video>
 </body>
+<!--<script src="./static/js/lancer_video.js"></script>-->
 <script src="static/js/accueil.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </html>
