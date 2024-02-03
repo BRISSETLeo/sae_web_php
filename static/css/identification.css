@@ -105,11 +105,12 @@ body {
     text-decoration: none;
     margin: 2em;
     position: relative;
+    transition: 0.3s;
 }
 
 #identification #mdp-oublie {
     text-align: center;
-    padding-bottom: 3em;
+    padding-bottom: 10%;
     border-bottom: 0.1em solid #292929;
 }
 
@@ -127,9 +128,13 @@ body {
 }
 
 #identification p a:hover,
-#identification #mot-de-passe-oublie:hover,
-#identification #se-identifier:hover {
+#identification #mot-de-passe-oublie:hover{
     color: #1ed760;
+    transform: scale(1.04);
+}
+
+#identification #se-identifier:hover {
+    background-color: #1ed760;
     transform: scale(1.04);
 }
 
