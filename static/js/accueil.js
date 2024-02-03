@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var imgaccueil = document.querySelector('.accueil img[alt="Maison"]');
     var arecherche = document.querySelector('.recherche a');
     var imgrecherche = document.querySelector('.recherche img[alt="loupe"]');
-    var aplaylist = document.querySelector('.playlist a');
+    var aplaylist = document.querySelector('.lien-playlist');
     var imgplalist = document.querySelector('.playlist img[alt="playlist"]');
 
     // Fonctions de gestion des événements

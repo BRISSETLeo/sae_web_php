@@ -33,7 +33,6 @@ body {
 }
 
 #menu-gauche a {
-  color: white;
   text-decoration: none;
 }
 
@@ -49,6 +48,12 @@ body {
 .accueil,
 .recherche {
   margin: 2% 0 2% 5%;
+}
+
+.logo a,
+.accueil a,
+.recherche a {
+  color: white;
 }
 
 .logo,
@@ -93,15 +98,16 @@ body {
   margin-left: 5%;
 }
 
-.playlist a,
+.lien-playlist,
 .playlist img[alt="playlist"] {
   opacity: 0.7;
   transition: opacity 0.3s;
   cursor: pointer;
 }
 
-.playlist a {
+.lien-playlist {
   font-size: 110%;
+  color: white;
 }
 
 .plus {
@@ -121,6 +127,41 @@ body {
 .fleche-droite:hover {
   opacity: 1;
   transform: scale(1.2);
+}
+
+.creer-playlist{
+  background-color: #242424;
+  margin: 2.5%;
+  padding-bottom: 7%;
+  border-radius: 10px;
+
+}
+
+.playlist-ligne-un{
+  color: white;
+  padding: 7% 5% 0 6%;
+  margin-bottom: 0%;
+  font-weight: bold;
+}
+
+.playlist-ligne-deux{
+  color: white;
+  padding: 3% 5% 5% 6%;
+  margin-top: 0%;
+}
+
+.btn-creer-playlist{
+  color: black;
+  background-color: white;
+  font-weight: bold;
+  padding: 2% 6%;
+  margin-left: 7%;
+  border-radius: 35px;
+  opacity: 0.8;
+}
+
+.btn-creer-playlist:hover{
+  opacity: 1;
 }
 
 #menu-corps {

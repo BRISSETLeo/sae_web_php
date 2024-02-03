@@ -31,10 +31,19 @@ $sqlite = new dataloadersqlite();
         <div id="menu-corps">
             <div class="playlist">
                 <img src="static/images/playlist.png" alt="playlist">
-                <a href="#">Playlists</a>
+                <a href="#" class="lien-playlist">Playlists</a>
                 <img class="plus" src="static/images/plus.png" alt="+">
                 <img class="fleche-droite" src="static/images/fleche-droite.png" alt="fleche vers la droite">
             </div>
+            <?php
+                if (!isset($_SESSION['pseudo'])) {
+                    echo "<div class='creer-playlist'>";
+                        echo "<p class='playlist-ligne-un'>Créez votre première playlist</p>";
+                        echo "<p class='playlist-ligne-deux'>C'est simple, nous allons vous aider</p>";
+                        echo "<a href='?action=connexion' class='btn-creer-playlist'>Créer une playlist</a>";
+                    echo "</div>";
+                }
+            ?>
         </div>
     </div>
     <main id="main">
