@@ -33,8 +33,9 @@ body {
 }
 
 #header-identification img {
-    width: 4%;
+    width: 2.5%;
     margin-right: 0.5%;
+    cursor: pointer;
 }
 
 #main-identification {

@@ -17,5 +17,6 @@
             <p>Tous droits réservés © 2024</p>
         </footer>
     </body>
+    <script src="./static/js/identification.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </html>

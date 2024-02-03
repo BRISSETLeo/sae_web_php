@@ -8,10 +8,12 @@ if(isset($_SESSION['pseudo'])){
 ?>
 
 <title>Connexion - iuT'Unes</title>
+<link rel="stylesheet" href="./static/css/connexion.css" />
 <div id="main-identification-center">
     <div id="identification-container">
         <div id="identification-container-center-2">
-            <h1>J'ai un compte iuT'Unes</h1>   
+            <h1>J'ai un compte iuT'Unes</h1>
+            <img src="./static/images/diamond.png/" alt="logo">
             <div id="identification">
                 <div id="nameuser">
                     <label for="name-user">Adresse e-mail ou nom d'utilisateur</label>
