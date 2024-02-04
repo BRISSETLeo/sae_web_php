@@ -98,7 +98,7 @@ body {
     text-align: center;
     width: 70%;
     font-weight: bold;
-    background-color: #1ed760;
+    background-color: #05db50;
     color: black;
     padding: 0.8em;
     border-radius: 10em;
@@ -135,6 +135,7 @@ body {
 
 #identification #se-identifier:hover {
     background-color: #1ed760;
+    ;
     transform: scale(1.04);
 }
 
