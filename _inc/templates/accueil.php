@@ -33,7 +33,7 @@ $sqlite = new dataloadersqlite();
                 <img src="static/images/playlist.png" alt="playlist">
                 <a href="#" class="lien-playlist">Playlists</a>
                 <img class="plus" src="static/images/plus.png" alt="+">
-                <img class="fleche-droite" src="static/images/fleche-droite.png" alt="fleche vers la droite">
+                <img class="fleche" src="static/images/fleche-droite.png" alt="fleche">
             </div>
             <?php
                 if (!isset($_SESSION['pseudo'])) {

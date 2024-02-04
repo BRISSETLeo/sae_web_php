@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var aplaylist = document.querySelector('.lien-playlist');
     var imgplalist = document.querySelector('.playlist img[alt="playlist"]');
 
+    var menugauche = document.querySelector('#menu-gauche');
+    var imgfleche = document.querySelector('img[alt="fleche"]');
+
     // Fonctions de gestion des événements
     function handleHover(a, img) {
         img.style.opacity = a.style.opacity = 1;

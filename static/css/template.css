@@ -12,18 +12,18 @@ body {
   overflow: hidden;
 }
 
+#main {
+  overflow: auto;
+  background-color: black;
+  width: 100%;
+}
+
 #menu-gauche {
   display: flex;
   flex-direction: column;
   background-color: black;
   width: 34%;
   height: 100vh;
-}
-
-#main {
-  overflow: auto;
-  background-color: black;
-  width: 100%;
 }
 
 #menu-gauche img {
@@ -117,14 +117,14 @@ body {
   transition: opacity 0.5s, transform 0.5s;
 }
 
-.fleche-droite {
+.fleche {
   width: 7%;
   opacity: 0.5;
   transition: opacity 0.5s, transform 0.5s;
 }
 
 .plus:hover,
-.fleche-droite:hover {
+.fleche:hover {
   opacity: 1;
   transform: scale(1.2);
 }
