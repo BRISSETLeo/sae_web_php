@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var imgplalist = document.querySelector('.playlist img[alt="playlist"]');
 
     var minimenugauche = document.querySelector('#mini-menu-gauche');
+    var headerbtn = document.querySelector('.header-buttons');
+    var header = document.querySelector('header');
     var minifleche = document.querySelector('img[alt="miniFleche"]');
     var menugauche = document.querySelector('#menu-gauche');
     var imgfleche = document.querySelector('img[alt="fleche"]');
@@ -31,6 +33,8 @@ document.addEventListener('DOMContentLoaded', function () {
     imgfleche.addEventListener('click', function () {
         menugauche.style.display = 'none';
         minimenugauche.style.display = 'flex';
+        header.style.margin = '0.6% 0.7% 0.6% 0.2%';
+        headerbtn.style.margin = '0 6.6% 0 0';
     });
 
     minifleche.addEventListener('mouseover', function () {
@@ -44,6 +48,8 @@ document.addEventListener('DOMContentLoaded', function () {
     minifleche.addEventListener('click', function () {
         menugauche.style.display = 'flex';
         minimenugauche.style.display = 'none';
+        header.style.margin = '0.7% 0.8% 0.6% 0.2%';
+        headerbtn.style.margin = '0 9% 0 0';
     });
 
     // Event listeners sur la div logo
