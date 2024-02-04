@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var aplaylist = document.querySelector('.lien-playlist');
     var imgplalist = document.querySelector('.playlist img[alt="playlist"]');
 
+    var minimenugauche = document.querySelector('#mini-menu-gauche');
+    var minifleche = document.querySelector('img[alt="miniFleche"]');
     var menugauche = document.querySelector('#menu-gauche');
     var imgfleche = document.querySelector('img[alt="fleche"]');
 
@@ -25,6 +27,24 @@ document.addEventListener('DOMContentLoaded', function () {
         // Redirigez vers l'URL du lien a
         window.location.href = a.href;
     }
+
+    imgfleche.addEventListener('click', function () {
+        menugauche.style.display = 'none';
+        minimenugauche.style.display = 'flex';
+    });
+
+    minifleche.addEventListener('mouseover', function () {
+        minimenugauche.style.backgroundColor = '#191919';
+    });
+
+    minifleche.addEventListener('mouseout', function () {
+        minimenugauche.style.backgroundColor = '#121212';
+    });
+
+    minifleche.addEventListener('click', function () {
+        menugauche.style.display = 'flex';
+        minimenugauche.style.display = 'none';
+    });
 
     // Event listeners sur la div logo
     imglogo.addEventListener("click", function () { handleClick(alogo) });

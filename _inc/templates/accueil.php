@@ -13,6 +13,9 @@ $sqlite = new dataloadersqlite();
     <link rel="stylesheet" href="static/css/template.css">
 </head>
 <body>
+    <div id="mini-menu-gauche">
+        <img src="static/images/next.png" alt="miniFleche">
+    </div>
     <div id="menu-gauche">
         <div id="menu-haut">
             <div class="logo">
@@ -33,7 +36,7 @@ $sqlite = new dataloadersqlite();
                 <img src="static/images/playlist.png" alt="playlist">
                 <a href="#" class="lien-playlist">Playlists</a>
                 <img class="plus" src="static/images/plus.png" alt="+">
-                <img class="fleche" src="static/images/fleche-droite.png" alt="fleche">
+                <img class="fleche" src="static/images/left-chevron.png" alt="fleche">
             </div>
             <?php
                 if (!isset($_SESSION['pseudo'])) {
