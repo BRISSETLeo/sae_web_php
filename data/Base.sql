@@ -14,13 +14,6 @@ CREATE TABLE IF NOT EXISTS `playlist` (
     FOREIGN KEY(`owner_name`) REFERENCES `user`(`name_user`)
 );
 
-CREATE TABLE IF NOT EXISTS `artist` (
-    `id_artist` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    `name` VARCHAR(30) NOT NULL,
-    `genre` VARCHAR(30) NOT NULL,
-    `image_artist` LONGBLOB
-);
-
 CREATE TABLE IF NOT EXISTS `band` (
     `id_band` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     `name_band` VARCHAR(30) NOT NULL,

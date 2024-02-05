@@ -23,6 +23,11 @@ class DataLoaderSQLite{
     * @return void
     */
     public function __construct(){
+
+        if(!file_exists('./data/db.sqlite')){
+            touch('./data/db.sqlite');
+        }
+
         $this->pdo = new PDO('sqlite:./data/db.sqlite');
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $this->createTable('./data/Base.sql');
@@ -90,4 +95,8 @@ class DataLoaderSQLite{
         return false;
     }
     
+    public function getPdo(){
+        return $this->pdo;
+    }
+
 }
