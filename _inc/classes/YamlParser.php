@@ -118,6 +118,20 @@ class YamlParser {
 
         return $this->pdo->lastInsertId();
     }
+
+    private function createSong($title, $genre, $releaseYear, $albumId, $artistId, $img)
+    {
+        $stmtInsertSong = $this->pdo->prepare("INSERT INTO song (title, genre, releaseYear, id_album, id_band, image_song) VALUES (:title, :genre, :releaseYear, :albumId, :artistId, :img)");
+        $stmtInsertSong->bindParam(':title', $title);
+        $stmtInsertSong->bindParam(':genre', $genre);
+        $stmtInsertSong->bindParam(':releaseYear', $releaseYear);
+        $stmtInsertSong->bindParam(':albumId', $albumId);
+        $stmtInsertSong->bindParam(':artistId', $artistId);
+        $stmtInsertSong->bindParam(':img', $img);
+        $stmtInsertSong->execute();
+
+        return $this->pdo->lastInsertId();
+    }
     
 
 }

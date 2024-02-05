@@ -1,3 +1,14 @@
-p{
-    color: white;
+.categorie{
+    padding-left: 5%;
+    padding-right: 5%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #adadad;
+}
+
+.song-info{
+    padding-left: 5%;
+    padding-right: 5%;
+    display: flex;
+    justify-content: space-between;
 }
