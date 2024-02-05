@@ -30,6 +30,7 @@ class DataLoaderSQLite{
 
         $this->pdo = new PDO('sqlite:./data/db.sqlite');
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $this->pdo->exec('PRAGMA encoding = "UTF-8";');
         $this->createTable('./data/Base.sql');
     }
 

@@ -82,22 +82,29 @@ $.ajax({
     type: 'GET',
     dataType: 'json',
     success: function (data) {
-        data.albums.forEach(album => {
-            afficherAlbum(album);
-        });
+        for (var key in data) {
+            afficherAlbum(data[key]);
+        }
     },
-    error: function (error) {
-        console.log(error);
+    error: function (xhr, status, error) {
+        console.log("Erreur de requête Ajax:", status, error);
     }
 });
 
-function afficherAlbum(album){
+function afficherAlbum(album) {
     var div = document.createElement('div');
+    div.onclick = function () {
+        onclickAlbum(album[0]);
+    }
     div.className = 'album';
     div.innerHTML = `
-    <img src="data:image/jpeg;base64,${album.image}" alt="${album.name}">
-    <h3>${album.name}</h3>
-    <p>${album.name}</p>
+    <img src="data:image/jpeg;base64,${album[2]}" alt="${album[1]}">
+    <h3>${album[1]}</h3>
+    <p>${album[0]}</p>
     `;
     document.getElementById('container-albums').appendChild(div);
+}
+
+function onclickAlbum(id_album) {
+    window.location.href = `?action=album&id=${id_album}`;
 }
