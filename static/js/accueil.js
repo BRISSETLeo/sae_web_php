@@ -77,20 +77,14 @@ document.addEventListener('DOMContentLoaded', function () {
     imgplalist.addEventListener('click', function () { handleClick(aplaylist) });
 });
 
-var buttonProfil = document.getElementById('button-profil');
-var popupMenu = document.getElementById('popupMenu');
-var spanProfil = document.getElementById('lettre-profil');
-
-buttonProfil.addEventListener('click', function () {
-    if(popupMenu.style.display === 'block'){
-        popupMenu.style.display = 'none';
-        return;
-    }
-    popupMenu.style.display = 'block';
-});
-
-document.addEventListener('click', function (event) {
-    if (!popupMenu.contains(event.target) && event.target !== buttonProfil && event.target !== spanProfil) {
-        popupMenu.style.display = 'none';
+$.ajax({
+    url: './getAlbums.php',
+    type: 'GET',
+    dataType: 'json',
+    success: function (data) {
+        console.log(data.albums);
+    },
+    error: function (error) {
+        console.log(error);
     }
 });

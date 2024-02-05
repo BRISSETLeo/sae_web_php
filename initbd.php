@@ -1,9 +1,8 @@
 <?php 
 
-require './config.php'; 
+require './loader.php'; 
 
 use classes\dataloadersqlite;
-
 $pdo = new DataLoaderSqlite();
 
 $yamlContent = file_get_contents('./data/fixtures/extrait.yml');

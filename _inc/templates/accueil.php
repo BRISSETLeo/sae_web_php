@@ -60,6 +60,7 @@ $dataLoaderSQLite = new DataLoaderSQLite();
                                 echo "<li><a href='#'>Option 1</a></li>";
                             echo "</ul>";
                         echo "</div>";
+                        echo '<script src="static/js/connecter.js"></script>';
                     }else{
                         echo "<a href='?action=inscription' class='inscription'>S'inscrire</a>";
                         echo "<a href='?action=connexion' class='connexion'>Se connecter</a>";
@@ -74,6 +75,6 @@ $dataLoaderSQLite = new DataLoaderSQLite();
     </video>
 </body>
 <!--<script src="./static/js/lancer_video.js"></script>-->
-<script src="static/js/accueil.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="static/js/accueil.js"></script>
 </html>

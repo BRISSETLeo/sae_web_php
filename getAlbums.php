@@ -9,12 +9,10 @@ $albums = $dataLoaderSQLite->getAlbums();
 $response = array('albums' => array_map('convertAlbum', $albums));
 
 function convertAlbum($album) {
-    $imageData = $album['image_album'];
     return array(
-        'titre' => $album['titre'],
-        'description' => $album['description'],
-        'note' => $album['note'],
-        'imageBlob' => $imageData,
+        'id' => $album['id_album'],
+        'name' => $album['name'],
+        'image' => $album['image_album']
     );
 }
 
