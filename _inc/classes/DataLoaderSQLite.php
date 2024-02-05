@@ -1,17 +1,16 @@
 <?php
 
 namespace classes;
-
-use \PDO;
+use PDO;
 
 /**
-* Class DataLoaderSqlite
+* Class DataLoaderSQLite
 * 
 * Cette classe est utilisé pour récupérer des informations d'une base de donnée sqlite
 * 
-* @package classes    
+* @package classes
 */
-class DataLoaderSqlite{
+class DataLoaderSQLite{
     
     /**
     * @var pdo $pdo
@@ -46,7 +45,7 @@ class DataLoaderSqlite{
         return $result;
     }
 
-    private function userAlreadyExist($pseudo): bool{
+    public function userAlreadyExist($pseudo): bool{
         $pseudo = htmlspecialchars($pseudo);
         $sql = "SELECT * FROM `user` WHERE name_user = '$pseudo'";
         $result = $this->pdo->query($sql);
@@ -80,8 +79,44 @@ class DataLoaderSqlite{
         return $result;
     }
 
+    private function idAlbumExist($id_album): bool{
+        $id_album = htmlspecialchars($id_album);
+        $sql = "SELECT * FROM `album` WHERE id_album = $id_album";
+        $result = $this->pdo->query($sql);
+        $result = $result->fetch(PDO::FETCH_ASSOC);
+        if($result){
+            return true;
+        }
+        return false;
+    }
+
+    public function getAlbum($id_album): array{
+        if (!$this->idAlbumExist($id_album)){
+            return [];
+        }
+        $id_album = htmlspecialchars($id_album);
+        $sql = "SELECT * FROM `album` WHERE id_album = $id_album";
+        $result = $this->pdo->query($sql);
+        $result = $result->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function userHasPlayList($pseudo){
+        $pseudo = htmlspecialchars($pseudo);
+        $sql = "SELECT * FROM `playlist` WHERE owner_name = '$pseudo'";
+        $result = $this->pdo->query($sql);
+        $result = $result->fetch(PDO::FETCH_ASSOC);
+        if($result){
+            return true;
+        }
+        return false;
+    }
+
+    public function getMusiqueAlbum($id_album){
+        $sql = "SELECT * FROM `song` WHERE id_album = $id_album";
+        $result = $this->pdo->query($sql);
+        $result = $result->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
     
-
 }
-
-?>

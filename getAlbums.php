@@ -1,6 +1,6 @@
 <?php
 
-require './config.php';
+require './loader.php';
 
 use classes\DataLoaderSQLite;
 $dataLoaderSQLite = new DataLoaderSQLite();
@@ -9,16 +9,12 @@ $albums = $dataLoaderSQLite->getAlbums();
 $response = array('albums' => array_map('convertAlbum', $albums));
 
 function convertAlbum($album) {
-    $imageData = $album['image_album'];
     return array(
-        'titre' => $album['titre'],
-        'description' => $album['description'],
-        'note' => $album['note'],
-        'imageBlob' => $imageData,
+        'id' => $album['id_album'],
+        'name' => $album['name'],
+        'image' => $album['image_album']
     );
 }
 
 header('Content-Type: application/json; charset=utf-8');
 echo json_encode($response);
-
-?>

@@ -49,11 +49,11 @@ CREATE TABLE IF NOT EXISTS `song` (
 
 CREATE TABLE IF NOT EXISTS `song_artist` (
     `id_song` INTEGER NOT NULL,
-    `id_artist` INTEGER NOT NULL,
+    `id_band` INTEGER NOT NULL,
     `date` DATE NOT NULL,
-    PRIMARY KEY(`id_song`, `id_artist`),
+    PRIMARY KEY(`id_song`, `id_band`),
     FOREIGN KEY(`id_song`) REFERENCES `song`(`id_song`),
-    FOREIGN KEY(`id_artist`) REFERENCES `artist`(`id_artist`)
+    FOREIGN KEY(`id_band`) REFERENCES `band`(`id_band`)
 );
 
 CREATE TABLE IF NOT EXISTS `song_playlist` (

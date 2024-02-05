@@ -12,33 +12,41 @@ namespace classes;
 class Template{
 
     /**
-    * @var string $path Chemin vers le template
+    * @var string $template Chemin vers le template
     */
-    private string $path;
+    private string $template;
 
     /**
     * Constructeur de la classe
     * @param string $path Chemin vers le template
     */
-    public function __construct(string $path){
-        $this->path = $path;
+    public function __construct(string $template){
+        $this->template = $template;
+    }
+
+    /**
+     * Redéfini le path
+     * @param string $template Chemin vers le template
+     * @return void
+     */
+    public function setPath(string $template){
+        $this->template = $template;
     }
 
     /**
     * Affiche le template
     * @param string $chemin Chemin vers le fichier à inclure
     */
-    public function render(string $chemin){
-        if (file_exists($chemin)) {
+    public function render(string $path): string{
+        if (file_exists($path)) {
             ob_start();
-            require $chemin;
+            require $path;
             $content = ob_get_clean();        
         } else {
             $content = "Le fichier n'existe pas";
         }
-        require $this->path;
+        require $this->template;
+        return $content;
     }
 
 }
-
-?>
