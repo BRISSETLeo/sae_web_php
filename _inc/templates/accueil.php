@@ -70,11 +70,12 @@ $dataLoaderSQLite = new DataLoaderSQLite();
         </header>
         <div> <?php echo $content; ?></div>
     </main>
-    <video controls id="videoPlayer" class="hidden" width="640" height="30">
-    Your browser does not support the video tag.
-    </video>
 </body>
 <!--<script src="./static/js/lancer_video.js"></script>-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="static/js/accueil.js"></script>
 </html>
+
+<!-- <video controls id="videoPlayer" class="hidden" width="640" height="30">
+Your browser does not support the video tag.
+</video> -->
