@@ -82,9 +82,22 @@ $.ajax({
     type: 'GET',
     dataType: 'json',
     success: function (data) {
-        console.log(data.albums);
+        data.albums.forEach(album => {
+            afficherAlbum(album);
+        });
     },
     error: function (error) {
         console.log(error);
     }
 });
+
+function afficherAlbum(album){
+    var div = document.createElement('div');
+    div.className = 'album';
+    div.innerHTML = `
+    <img src="data:image/jpeg;base64,${album.image}" alt="${album.name}">
+    <h3>${album.name}</h3>
+    <p>${album.name}</p>
+    `;
+    document.getElementById('container-albums').appendChild(div);
+}

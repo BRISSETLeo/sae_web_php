@@ -19,6 +19,9 @@ if($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action'])){
     } else if($action === 'inscription'){
         $file_template = '_inc/templates/identification.php';
         $file_content = 'vues/inscription.php';
+    } else if($action === 'album'){
+        $id_album = $_GET['id'];
+        $file_content = 'vues/album.php';
     }
 
 }
