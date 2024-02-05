@@ -5,16 +5,16 @@ $dataLoaderSQLite = new DataLoaderSQLite();
 
 $id_album = $_GET['id'];
 $album = $dataLoaderSQLite->getAlbum($id_album);
-$musiqueAlbum = $dataLoaderSQLite->getMusiqueAlbum($id_album);
 
 if(empty($album)){
     header('Location: ./');
     exit;
 }
 
-echo '<img src="data:image/jpeg;base64,'. $album["image_album"] .'" alt="${album.name}">';
+echo '<img src="data:image/jpeg;base64,'. base64_encode($album["image_album"]) .'" alt="${album.name}">';
 echo '<p>' . $album['name'] . '</p>';
 
+$musiqueAlbum = $dataLoaderSQLite->getMusiqueAlbum($id_album);
 
 if(!empty($musiqueAlbum)){
     echo '<ul>';
@@ -24,8 +24,6 @@ if(!empty($musiqueAlbum)){
     echo '</ul>';
 } else {
     echo '<p>Il n\'y a pas de musique dans cet album</p>';
-
-    
 }
 
 
