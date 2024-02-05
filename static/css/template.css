@@ -1,5 +1,6 @@
 * {
   font-family: url("./static/font/font.otf");
+  color: white;
 }
 
 body {
@@ -16,22 +17,6 @@ body {
   overflow: auto;
   background-color: black;
   width: 100%;
-}
-
-#mini-menu-gauche {
-  display: none;
-  background-color: #121212;
-  width: 2%;
-  margin-right: 0.5%;
-  align-items: center;
-  justify-content: center;
-}
-
-#mini-menu-gauche img {
-  width: 90%;
-  align-self: center; 
-  justify-self: center;
-  cursor: pointer;
 }
 
 #menu-gauche {

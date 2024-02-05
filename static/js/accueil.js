@@ -6,14 +6,17 @@ document.addEventListener('DOMContentLoaded', function () {
     var arecherche = document.querySelector('.recherche a');
     var imgrecherche = document.querySelector('.recherche img[alt="loupe"]');
     var aplaylist = document.querySelector('.lien-playlist');
-    var imgplalist = document.querySelector('.playlist img[alt="playlist"]');
-
-    var minimenugauche = document.querySelector('#mini-menu-gauche');
+    var imgplaylist = document.querySelector('.playlist img[alt="playlist"]');
+    var plus = document.querySelector('.plus');
     var headerbtn = document.querySelector('.header-buttons');
     var header = document.querySelector('header');
-    var minifleche = document.querySelector('img[alt="miniFleche"]');
     var menugauche = document.querySelector('#menu-gauche');
+    var menuhaut = document.querySelector('#menu-haut');
+    var menucorps = document.querySelector('#menu-corps');
     var imgfleche = document.querySelector('img[alt="fleche"]');
+    var blockcreerplaylist = document.querySelector('.creer-playlist');
+
+    var listeImg = [imglogo, imgaccueil, imgrecherche, imgplaylist];
 
     // Fonctions de gestion des événements
     function handleHover(a, img) {
@@ -31,27 +34,40 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     imgfleche.addEventListener('click', function () {
-        menugauche.style.display = 'none';
-        minimenugauche.style.display = 'flex';
-        header.style.margin = '0.6% 0.7% 0.6% 0.2%';
-        headerbtn.style.margin = '0 6.6% 0 0';
-    });
+        if (imgfleche.src.endsWith('left-chevron.png')) {
+            imgfleche.src = './static/images/next.png';
+            alogo.style.display = 'none';
+            aaccueil.style.display = 'none';
+            arecherche.style.display = 'none';
+            aplaylist.style.display = 'none';
+            blockcreerplaylist.style.display = 'none';
+            menuhaut.style.margin = '7.5% 4% 4% 4%';
+            menucorps.style.margin = '0% 4% 4% 4%';
+            menugauche.style.width = '8%';
+            for ( img of listeImg){
+                img.style.width = '23.8%';
+                if (img != imgplaylist){
+                    img.style.margin = '2% 0% 2% 30%';
+                }
+            }
+            plus.style.width = '15%';
+            imgfleche.style.width = '17%';
+            plus.style.margin = '0 8%';
+            header.style.margin = '0.6% 0.7% 0.6% 0.2%';
+            headerbtn.style.margin = '0 6.6% 0 0';
+        }else{
+            imgfleche.src = './static/images/left-chevron.png';
+        }
 
-    minifleche.addEventListener('mouseover', function () {
-        minimenugauche.style.backgroundColor = '#191919';
     });
+    
 
-    minifleche.addEventListener('mouseout', function () {
-        minimenugauche.style.backgroundColor = '#121212';
-    });
-
-    minifleche.addEventListener('click', function () {
-        menugauche.style.display = 'flex';
-        minimenugauche.style.display = 'none';
+    /* minifleche.addEventListener('click', function () {
+        
         header.style.margin = '0.7% 0.8% 0.6% 0.2%';
         headerbtn.style.margin = '0 9% 0 0';
     });
-
+ */
     // Event listeners sur la div logo
     imglogo.addEventListener("click", function () { handleClick(alogo) });
 
@@ -70,11 +86,11 @@ document.addEventListener('DOMContentLoaded', function () {
     imgrecherche.addEventListener('click', function () { handleClick(arecherche) });
 
     // Event listeners sur la div playlist
-    aplaylist.addEventListener('mouseover', function () { handleHover(aplaylist, imgplalist); });
-    aplaylist.addEventListener('mouseout', function () { handleMouseOut(aplaylist, imgplalist); });
-    imgplalist.addEventListener('mouseover', function () { handleHover(aplaylist, imgplalist); });
-    imgplalist.addEventListener('mouseout', function () { handleMouseOut(aplaylist, imgplalist) });
-    imgplalist.addEventListener('click', function () { handleClick(aplaylist) });
+    aplaylist.addEventListener('mouseover', function () { handleHover(aplaylist, imgplaylist); });
+    aplaylist.addEventListener('mouseout', function () { handleMouseOut(aplaylist, imgplaylist); });
+    imgplaylist.addEventListener('mouseover', function () { handleHover(aplaylist, imgplaylist); });
+    imgplaylist.addEventListener('mouseout', function () { handleMouseOut(aplaylist, imgplaylist) });
+    imgplaylist.addEventListener('click', function () { handleClick(aplaylist) });
 });
 
 $.ajax({

@@ -13,9 +13,6 @@ $dataLoaderSQLite = new DataLoaderSQLite();
     <link rel="stylesheet" href="static/css/template.css">
 </head>
 <body>
-    <div id="mini-menu-gauche">
-        <img src="static/images/next.png" alt="miniFleche">
-    </div>
     <div id="menu-gauche">
         <div id="menu-haut">
             <div class="logo">
