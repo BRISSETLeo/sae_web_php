@@ -12,7 +12,7 @@ if(empty($album)){
     exit;
 }
 
-echo '<img src="data:image/jpeg;base64,'. $album["image_album"] .'" alt="${album.name}">';
+echo '<img src="data:image/jpeg;base64,'. base64_encode($album["image_album"]) .'" alt="${album.name}">';
 echo '<p>' . $album['name'] . '</p>';
 
 

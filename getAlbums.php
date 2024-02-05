@@ -12,7 +12,7 @@ function convertAlbum($album) {
     return array(
         'id' => $album['id_album'],
         'name' => $album['name'],
-        'image' => $album['image_album']
+        'image' => base64_encode($album['image_album'])
     );
 }
 
