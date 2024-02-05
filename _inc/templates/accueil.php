@@ -57,7 +57,7 @@ $dataLoaderSQLite = new DataLoaderSQLite();
                         echo "<button id='button-profil'><span id='lettre-profil'>".$_SESSION['pseudo'][0]."</span></button>";
                         echo "<div id='popupMenu'>";
                             echo "<ul>";
-                                echo "<li><a href='#'>Option 1</a></li>";
+                                echo "<li><a href='?action=deconnexion'>Se déconnecter</a></li>";
                             echo "</ul>";
                         echo "</div>";
                         echo '<script src="static/js/connecter.js"></script>';

@@ -16,14 +16,6 @@ $json_reponse = json_encode($reponse);
 
 if($json_reponse === false){
     $json_reponse = json_encode(["error" => json_last_error_msg()]);
-$response = array('albums' => array_map('convertAlbum', $albums));
-
-function convertAlbum($album) {
-    return array(
-        'id' => $album['id_album'],
-        'name' => $album['name'],
-        'image' => base64_encode($album['image_album'])
-    );
 }
 
 header('Content-Type: application/json');
