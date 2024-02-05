@@ -6,15 +6,17 @@ use classes\DataLoaderSQLite;
 $dataLoaderSQLite = new DataLoaderSQLite();
 $albums = $dataLoaderSQLite->getAlbums();
 
-$response = array('albums' => array_map('convertAlbum', $albums));
+$reponse = array();
 
-function convertAlbum($album) {
-    return array(
-        'id' => $album['id_album'],
-        'name' => $album['name'],
-        'image' => $album['image_album']
-    );
+for ($i = 0; $i < count($albums); $i++) {
+    $reponse[$albums[$i]['id_album']] = array($albums[$i]['id_album'], $albums[$i]['name'], base64_encode($albums[$i]['image_album']));
 }
 
-header('Content-Type: application/json; charset=utf-8');
-echo json_encode($response);
+$json_reponse = json_encode($reponse);
+
+if($json_reponse === false){
+    $json_reponse = json_encode(["error" => json_last_error_msg()]);
+}
+
+header('Content-Type: application/json');
+echo $json_reponse;

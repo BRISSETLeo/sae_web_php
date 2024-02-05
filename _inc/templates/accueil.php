@@ -54,7 +54,7 @@ $dataLoaderSQLite = new DataLoaderSQLite();
                         echo "<button id='button-profil'><span id='lettre-profil'>".$_SESSION['pseudo'][0]."</span></button>";
                         echo "<div id='popupMenu'>";
                             echo "<ul>";
-                                echo "<li><a href='#'>Option 1</a></li>";
+                                echo "<li><a href='?action=deconnexion'>Se déconnecter</a></li>";
                             echo "</ul>";
                         echo "</div>";
                         echo '<script src="static/js/connecter.js"></script>';
@@ -67,11 +67,12 @@ $dataLoaderSQLite = new DataLoaderSQLite();
         </header>
         <div> <?php echo $content; ?></div>
     </main>
-    <video controls id="videoPlayer" class="hidden" width="640" height="30">
-    Your browser does not support the video tag.
-    </video>
 </body>
 <!--<script src="./static/js/lancer_video.js"></script>-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="static/js/accueil.js"></script>
 </html>
+
+<!-- <video controls id="videoPlayer" class="hidden" width="640" height="30">
+Your browser does not support the video tag.
+</video> -->
