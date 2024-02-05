@@ -78,5 +78,16 @@ class DataLoaderSQLite{
         $result = $result->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+
+    public function userHasPlayList($pseudo){
+        $pseudo = htmlspecialchars($pseudo);
+        $sql = "SELECT * FROM `playlist` WHERE owner_name = '$pseudo'";
+        $result = $this->pdo->query($sql);
+        $result = $result->fetch(PDO::FETCH_ASSOC);
+        if($result){
+            return true;
+        }
+        return false;
+    }
     
 }

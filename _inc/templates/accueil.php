@@ -1,7 +1,7 @@
 <?php
 
-use classes\dataloadersqlite;
-$sqlite = new dataloadersqlite();
+use classes\DataLoaderSQLite;
+$dataLoaderSQLite = new DataLoaderSQLite();
 
 ?>
 
@@ -39,7 +39,7 @@ $sqlite = new dataloadersqlite();
                 <img class="fleche" src="static/images/left-chevron.png" alt="fleche">
             </div>
             <?php
-                if (!isset($_SESSION['pseudo'])) {
+                if (!isset($_SESSION['pseudo']) || !$dataLoaderSQLite->userHasPlayList($_SESSION['pseudo'])) {
                     echo "<div class='creer-playlist'>";
                         echo "<p class='playlist-ligne-un'>Créez votre première playlist</p>";
                         echo "<p class='playlist-ligne-deux'>C'est simple, nous allons vous aider</p>";

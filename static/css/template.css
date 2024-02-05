@@ -85,7 +85,8 @@ body {
 .accueil img,
 .recherche img,
 .playlist img[alt="playlist"] {
-  width: 8%;
+  width: 7%;
+  aspect-ratio: 1/1;
 }
 
 .logo a,
