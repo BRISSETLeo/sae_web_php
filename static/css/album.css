@@ -1,4 +1,4 @@
-.categorie{
+.categorie {
     padding-left: 5%;
     padding-right: 5%;
     display: flex;
@@ -6,9 +6,13 @@
     border-bottom: 1px solid #adadad;
 }
 
-.song-info{
+.song-info {
     padding-left: 5%;
-    padding-right: 5%;
     display: flex;
     justify-content: space-between;
+}
+
+.img-song {
+    width: 4%;
+    height: 4%;
 }

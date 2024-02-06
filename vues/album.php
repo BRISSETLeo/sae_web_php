@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/css/album.css">
-</head>
-<body>
 
+<link rel="stylesheet" href="static/css/album.css">
 <?php
 use classes\DataLoaderSQLite;
 $dataLoaderSQLite = new DataLoaderSQLite();
@@ -54,6 +47,7 @@ foreach ($musiqueAlbum as $musique) {
             if (!empty($musiqueAlbum)) {
                 foreach ($musiqueAlbum as $musique) {
                     echo '<div class="song-info">';
+                    echo '<img class="img-song" src="data:image/jpeg;base64,' . $musique['image_song'] . '" alt="">';
                     echo '<p>' . $musique['name'] . '</p>';
                     echo '<p>' . $musique['id_album'] . '</p>';
                     echo '<p>' . $musique['date'] . '</p>';
@@ -66,6 +60,3 @@ foreach ($musiqueAlbum as $musique) {
             ?>
     </div>
 </div>
-
-</body>
-</html>
