@@ -10,7 +10,6 @@ body {
   margin: 0;
   padding: 0;
   background-color: black;
-  overflow: hidden;
 }
 
 #main {
@@ -24,7 +23,9 @@ body {
   flex-direction: column;
   background-color: black;
   width: 34%;
-  height: 100vh;
+  height: 100%;
+  transition: width 0.5s ease;
+  
 }
 
 #menu-gauche img {
@@ -43,6 +44,14 @@ body {
   height: auto;
   margin: 2%;
   border-radius: 10px;
+}
+
+.logo img,
+.accueil img,
+.recherche img,
+.playlist img[alt="playlist"] {
+  width: 2em;
+  aspect-ratio: 1/1;
 }
 
 .logo,
@@ -64,14 +73,6 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-}
-
-.logo img,
-.accueil img,
-.recherche img,
-.playlist img[alt="playlist"] {
-  width: 7%;
-  aspect-ratio: 1/1;
 }
 
 .logo a,

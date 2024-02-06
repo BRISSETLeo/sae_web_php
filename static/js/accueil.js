@@ -34,40 +34,41 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     imgfleche.addEventListener('click', function () {
-        if (imgfleche.src.endsWith('left-chevron.png')) {
-            imgfleche.src = './static/images/next.png';
-            alogo.style.display = 'none';
-            aaccueil.style.display = 'none';
-            arecherche.style.display = 'none';
-            aplaylist.style.display = 'none';
-            blockcreerplaylist.style.display = 'none';
-            menuhaut.style.margin = '7.5% 4% 4% 4%';
-            menucorps.style.margin = '0% 4% 4% 4%';
-            menugauche.style.width = '8%';
-            for ( img of listeImg){
-                img.style.width = '23.8%';
-                if (img != imgplaylist){
-                    img.style.margin = '2% 0% 2% 30%';
-                }
-            }
-            plus.style.width = '15%';
-            imgfleche.style.width = '17%';
-            plus.style.margin = '0 8%';
-            header.style.margin = '0.6% 0.7% 0.6% 0.2%';
-            headerbtn.style.margin = '0 6.6% 0 0';
-        }else{
-            imgfleche.src = './static/images/left-chevron.png';
+        alogo.style.display = 'none';
+        aaccueil.style.display = 'none';
+        arecherche.style.display = 'none';
+        aplaylist.style.display = 'none';
+        blockcreerplaylist.style.display = 'none';
+        plus.style.display = 'none';
+        imgfleche.style.display = 'none';
+        menucorps.style.margin = '0% 7% 7% 7%';
+        menugauche.style.width = '8%';
+        menuhaut.style.margin = "7%";
+        for ( img of listeImg){
+            img.style.margin = '12.3% 0% 12.3% 24%';
         }
-
+        header.style.margin = '0.6% 0.7% 0.6% 0.2%';
+        headerbtn.style.margin = '0 6.6% 0 0';
     });
-    
 
-    /* minifleche.addEventListener('click', function () {
-        
+    imgplaylist.addEventListener('click', function () {
+        alogo.style.display = 'block';
+        aaccueil.style.display = 'block';
+        arecherche.style.display = 'block';
+        aplaylist.style.display = 'block';
+        blockcreerplaylist.style.display = 'block';
+        plus.style.display = 'block';
+        imgfleche.style.display = 'block';
+        menuhaut.style.margin = '2%';
+        menucorps.style.margin = '0% 2% 2% 2%';
+        menugauche.style.width = '34%';
+        for ( img of listeImg){
+            img.style.margin = '0%';
+        }
         header.style.margin = '0.7% 0.8% 0.6% 0.2%';
         headerbtn.style.margin = '0 9% 0 0';
     });
- */
+    
     // Event listeners sur la div logo
     imglogo.addEventListener("click", function () { handleClick(alogo) });
 
@@ -90,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
     aplaylist.addEventListener('mouseout', function () { handleMouseOut(aplaylist, imgplaylist); });
     imgplaylist.addEventListener('mouseover', function () { handleHover(aplaylist, imgplaylist); });
     imgplaylist.addEventListener('mouseout', function () { handleMouseOut(aplaylist, imgplaylist) });
-    imgplaylist.addEventListener('click', function () { handleClick(aplaylist) });
+    //imgplaylist.addEventListener('click', function () { handleClick(aplaylist) });
 });
 
 $.ajax({
