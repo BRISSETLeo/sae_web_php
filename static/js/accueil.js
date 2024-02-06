@@ -99,7 +99,7 @@ function afficherAlbum(album) {
     div.className = 'album';
     div.innerHTML = `
     <img src="data:image/jpeg;base64,${album[2]}" alt="${album[1]}">
-    <h3>${album[1]}</h3>
+    <h6>${album[1]}</h6>
     <p>${album[0]}</p>
     `;
     document.getElementById('container-albums').appendChild(div);
