@@ -18,7 +18,8 @@ function convertAlbum($album) {
     );
 }
 
-header('Content-Type: application/json; charset=utf-8');
+$response = array('success' => true, 'albums' => 'albums');
+header('Content-Type: application/json');
 echo json_encode($response);
 
 ?>
