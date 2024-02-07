@@ -47,8 +47,10 @@ foreach ($musiqueAlbum as $musique) {
             if (!empty($musiqueAlbum)) {
                 foreach ($musiqueAlbum as $musique) {
                     echo '<div class="song-info">';
+                    echo '<div class="img-song-container">';
                     echo '<img class="img-song" src="data:image/jpeg;base64,' . $musique['image_song'] . '" alt="">';
                     echo '<p>' . $musique['name'] . '</p>';
+                    echo '</div>';
                     echo '<p>' . $musique['id_album'] . '</p>';
                     echo '<p>' . $musique['date'] . '</p>';
                     echo '<p>' . formatDuration($musique['duration']) . '</p>';
