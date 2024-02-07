@@ -139,7 +139,6 @@ body {
     transform: scale(1.04);
 }
 
-/* Footer Identification */
 #footer-identification {
     flex: 1;
     background-color: #121212;
@@ -150,7 +149,17 @@ body {
     height: auto;
 }
 
-/* Error Messages */
 [id^="erreur-"] {
     display: none;
+}
+
+@media screen and (max-width: 958px) {
+   #main-identification-center{
+    width: 100%;
+    border-radius: 0;
+   }
+   #header-identification,
+   #footer-identification {
+    margin: 0;
+   }
 }

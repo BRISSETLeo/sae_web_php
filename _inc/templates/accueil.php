@@ -52,7 +52,7 @@ $dataLoaderSQLite = new DataLoaderSQLite();
     </div>
     <main id="main">
         <header>
-            <div class="header-buttons">
+            <div id="header-buttons">
                 <?php 
                     if(isset($_SESSION['pseudo'])){
                         echo "<button id='button-profil'><span id='lettre-profil'>".$_SESSION['pseudo'][0]."</span></button>";
@@ -69,7 +69,7 @@ $dataLoaderSQLite = new DataLoaderSQLite();
                 ?>
             </div>
         </header>
-        <div> <?php echo $content; ?></div>
+        <div id="main-container"> <?php echo $content; ?></div>
     </main>
 </body>
 <!--<script src="./static/js/lancer_video.js"></script>-->
