@@ -41,14 +41,14 @@ document.addEventListener('DOMContentLoaded', function () {
         blockcreerplaylist.style.display = 'none';
         plus.style.display = 'none';
         imgfleche.style.display = 'none';
-        menucorps.style.margin = '0% 7% 7% 7%';
+        //menucorps.style.margin = '0% 7% 7% 7%';
         menugauche.style.width = '8%';
-        menuhaut.style.margin = "7%";
+        //menuhaut.style.margin = "7%";
         for ( img of listeImg){
-            img.style.margin = '12.3% 0% 12.3% 24%';
+            img.style.margin = '10.5% 0% 10.5% 24%';
         }
-        header.style.margin = '0.6% 0.7% 0.6% 0.2%';
-        headerbtn.style.margin = '0 6.6% 0 0';
+        //header.style.margin = '0.6% 0.7% 0.6% 0.2%';
+        //headerbtn.style.margin = '0 6.6% 0 0';
     });
 
     imgplaylist.addEventListener('click', function () {
@@ -59,14 +59,14 @@ document.addEventListener('DOMContentLoaded', function () {
         blockcreerplaylist.style.display = 'block';
         plus.style.display = 'block';
         imgfleche.style.display = 'block';
-        menuhaut.style.margin = '2%';
-        menucorps.style.margin = '0% 2% 2% 2%';
+        //menuhaut.style.margin = '2%';
+        //menucorps.style.margin = '0% 2% 2% 2%';
         menugauche.style.width = '34%';
         for ( img of listeImg){
             img.style.margin = '0%';
         }
-        header.style.margin = '0.7% 0.8% 0.6% 0.2%';
-        headerbtn.style.margin = '0 9% 0 0';
+        //header.style.margin = '0.7% 0.8% 0.6% 0.2%';
+        //headerbtn.style.margin = '0 9% 0 0';
     });
     
     // Event listeners sur la div logo
