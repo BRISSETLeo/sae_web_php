@@ -10,7 +10,6 @@ body {
   margin: 0;
   padding: 0;
   background-color: black;
-  overflow: hidden;
 }
 
 #main{
@@ -92,14 +91,6 @@ body {
   align-items: center;
 }
 
-.logo img,
-.accueil img,
-.recherche img,
-.playlist img[alt="playlist"] {
-  width: 7%;
-  aspect-ratio: 1/1;
-}
-
 .logo a,
 .accueil a,
 .recherche a {
@@ -126,16 +117,22 @@ body {
   margin-left: 5%;
 }
 
-.lien-playlist,
-.playlist img[alt="playlist"] {
-  opacity: 0.7;
-  transition: opacity 0.3s;
-  cursor: pointer;
-}
-
 .lien-playlist {
   font-size: 110%;
   color: white;
+}
+
+img[alt="playlist"]{
+  transition: opacity 0.5s;
+}
+
+.low-opacity{
+  opacity: 0.7;
+}
+
+.img-hover:hover{
+  opacity: 1;
+  transition: opacity 0.5s;
 }
 
 .plus {
@@ -211,12 +208,14 @@ header {
 
 #header-buttons {
   display: flex;
+  flex:0;
   align-items: center;
   white-space: nowrap;
   margin-right: 9%;
   padding: 1%;
   gap: 11%;
 }
+
 
 .inscription,
 .connexion {
