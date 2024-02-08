@@ -31,7 +31,7 @@ $dataLoaderSQLite = new DataLoaderSQLite();
         <div id="menu-corps">
             <div class="playlist">
                 <img src="static/images/playlist.png" alt="playlist">
-                <a href="#" class="lien-playlist">Playlists</a>
+                <p class="lien-playlist">Playlists</p>
                 <img class="plus" src="static/images/plus.png" alt="+">
                 <img class="fleche" src="static/images/left-chevron.png" alt="fleche">
             </div>

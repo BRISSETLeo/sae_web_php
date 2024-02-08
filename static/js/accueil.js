@@ -34,6 +34,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     imgfleche.addEventListener('click', function () {
+        imgplaylist.classList.add("img-hover");
+        imgplaylist.classList.add("low-opacity");
+        imgplaylist.style.cursor = "pointer";
         alogo.style.display = 'none';
         aaccueil.style.display = 'none';
         arecherche.style.display = 'none';
@@ -44,14 +47,22 @@ document.addEventListener('DOMContentLoaded', function () {
         //menucorps.style.margin = '0% 7% 7% 7%';
         menugauche.style.width = '8%';
         //menuhaut.style.margin = "7%";
-        for ( img of listeImg){
-            img.style.margin = '10.5% 0% 10.5% 24%';
-        }
+        imglogo.style.margin = "12.4% 0% 12.4% 20%";
+        imgaccueil.style.margin = '7.5% 0% 10.7% 20%';
+        imgrecherche.style.margin = '9% 0% 12% 20%'
+        imgplaylist.style.margin = '18.5% 0% 10.7% 20%';
+        
+        // for ( img of listeImg){
+        //     img.style.margin = '10.7% 0% 10.7% 20%';
+        // }
         //header.style.margin = '0.6% 0.7% 0.6% 0.2%';
         //headerbtn.style.margin = '0 6.6% 0 0';
     });
 
     imgplaylist.addEventListener('click', function () {
+        imgplaylist.style.cursor = "default";
+        imgplaylist.classList.remove("low-opacity");
+        imgplaylist.classList.remove("img-hover")
         alogo.style.display = 'block';
         aaccueil.style.display = 'block';
         arecherche.style.display = 'block';
@@ -87,10 +98,10 @@ document.addEventListener('DOMContentLoaded', function () {
     imgrecherche.addEventListener('click', function () { handleClick(arecherche) });
 
     // Event listeners sur la div playlist
-    aplaylist.addEventListener('mouseover', function () { handleHover(aplaylist, imgplaylist); });
-    aplaylist.addEventListener('mouseout', function () { handleMouseOut(aplaylist, imgplaylist); });
-    imgplaylist.addEventListener('mouseover', function () { handleHover(aplaylist, imgplaylist); });
-    imgplaylist.addEventListener('mouseout', function () { handleMouseOut(aplaylist, imgplaylist) });
+    //aplaylist.addEventListener('mouseover', function () { handleHover(aplaylist, imgplaylist); });
+    //aplaylist.addEventListener('mouseout', function () { handleMouseOut(aplaylist, imgplaylist); });
+    //imgplaylist.addEventListener('mouseover', function () { handleHover(aplaylist, imgplaylist); });
+    //imgplaylist.addEventListener('mouseout', function () { handleMouseOut(aplaylist, imgplaylist) });
     //imgplaylist.addEventListener('click', function () { handleClick(aplaylist) });
 });
 
