@@ -1,162 +1,73 @@
-#container {
-  max-height: 17.188em;
-  overflow: hidden;
-}
-
-#container .top {
-  border: 0.063em solid #ccc;
-  padding: 0.625em;
-  margin: 0.625em;
-  display: inline-block;
-  vertical-align: top;
-  position: relative;
-  max-width: 10em;
-}
-
-#container .top .play {
-  position: absolute;
-  width: 20%;
-  padding: 0.65em;
-  top: 60%;
-  right: 0;
-  transform: translateY(-50%);
-  opacity: 0;
-  transition: opacity 0.3s ease, width 0.3s ease;
-}
-
-#container .top img {
-  max-width: 10em;
-  height: auto;
-  margin-bottom: 0.625em;
-  display: block;
-}
-
-#container .top .informations h3,
-#container .top .informations p {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-#container .top:hover {
-  cursor: pointer;
-  border: 0.063em solid #000;
-}
-
-#container .top:hover .play {
-  opacity: 1;
-}
-
-#container .top .play:hover {
-  width: 25%;
-}
-
-.search {
-
-  margin: 0.625em;
-  padding: 0.625em;
-  border-radius: 15px;
-  border: 0.063em solid #ccc;
-  display: inline-block;
-  vertical-align: top;
-  position: relative;
-  max-width: 15em;
-}
-
-.hidden {
-  display: none;
-}
-
-#videoPlayer {
-  width: 100%;
-  position: fixed;
-  bottom: 15%;
-  height: 60px;
-  /* Ajustez la hauteur selon vos besoins */
-  background-color: #181818;
-  z-index: 999;
-  /* Assurez-vous que la barre vidéo est au-dessus du reste du contenu */
-}
-
-/* Barre de progression principale */
-#videoPlayer::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  /* Hauteur de la barre de progression */
-  background-color: #555;
-  transform: translateY(-50%);
-}
-
-/* Barre de progression remplie */
-#videoPlayer::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 60%;
-  /* Pourcentage de la barre de progression remplie */
-  height: 4px;
-  background-color: #1DB954;
-  /* Couleur de la barre de progression remplie */
-  transform: translateY(-50%);
-}
-
-/* Bouton de volume */
-#videoPlayer::-webkit-media-controls-volume-slider {
-  appearance: none;
-  width: 40px;
-  height: 40px;
-  background-color: transparent;
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-  cursor: pointer;
-}
-
-/* Style du bouton de volume (icône ou image peut être ajoutée ici) */
-#videoPlayer::-webkit-media-controls-mute-button {
-  background-color: transparent;
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-  cursor: pointer;
-}
-
-/* Style des contrôles de lecture (play/pause) */
-#videoPlayer::-webkit-media-controls-play-button,
-#videoPlayer::-webkit-media-controls-pause-button {
-  background-color: transparent;
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  top: 50%;
-  left: 20px;
-  transform: translateY(-50%);
-  cursor: pointer;
-}
-
-/* Style du curseur de la barre de progression */
-#videoPlayer::-webkit-media-controls-current-time-display,
-#videoPlayer::-webkit-media-controls-time-remaining-display {
-  color: #fff;
-  font-size: 14px;
-  position: absolute;
-  top: 50%;
-  left: 70px;
-  transform: translateY(-50%);
-}
-
 #container-albums,
+#container-musiques {
+	display: flex;
+	flex-direction: row;
+}
+
+#container-albums img,
+#container-musiques img {
+	width: 10em;
+	aspect-ratio: 1/1;
+	border-radius: 0.5em;
+	margin: 0.4em;
+	padding: 0.2em;
+}
+
+#container-albums .album,
+#container-musiques .musique {
+	margin: 1em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #181818;
+	border-radius: 0.5em;
+	position: relative;
+}
+
+#container-albums .album:hover {
+	background-color: #282828;
+	cursor: default;
+
+	.play-album {
+		display: block;
+	}
+}
+
+#container-musiques .musique:hover {
+	background-color: #282828;
+	cursor: default;
+
+	.play-musique {
+		display: block;
+	}
+}
+
+#container-albums .album .play-album,
+#container-musiques .musique .play-musique {
+	width: 3em;
+	aspect-ratio: 1/1;
+	position: absolute;
+	top: 6.5em;
+	left: 60%;
+	display: none;
+	transition: 0.1s;
+}
+
+#container-albums .album .play-album:hover,
+#container-musiques .musique .play-musique:hover {
+	cursor: pointer;
+	scale: 1.05;
+}
+
+#container-albums .album h6,
+#container-albums .album p,
+#container-musiques .musique h6,
+#container-musiques .musique p {
+	margin: 0;
+	padding: 0.2em;
+}
+
 h2{
-  color: white;
+	padding: 0;
+	margin: 0;
 }

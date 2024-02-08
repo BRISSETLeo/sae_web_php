@@ -80,11 +80,14 @@ class YamlParser {
     private function insertNewArtist($artiste, $imgPath)
     {
         // Lire le contenu de l'image en tant que données binaires
-        $imgData = file_get_contents($imgPath);
-
         $stmtInsertArtist = $this->pdo->prepare("INSERT INTO band (name_band, image_band) VALUES (:artiste, :img)");
         $stmtInsertArtist->bindParam(':artiste', $artiste);
-        $stmtInsertArtist->bindParam(':img', $imgData, PDO::PARAM_LOB); // Utiliser PDO::PARAM_LOB pour les données binaires
+
+        if(file_exists($imgPath)){
+            $imgData = file_get_contents($imgPath);
+            $stmtInsertArtist->bindParam(':img', $imgData, PDO::PARAM_LOB); // Utiliser PDO::PARAM_LOB pour les données binaires
+        }
+        
         $stmtInsertArtist->execute();
 
         return $this->pdo->lastInsertId();

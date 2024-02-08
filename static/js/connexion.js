@@ -42,3 +42,12 @@ function seConnecter(){
         }
     });
 }
+
+mdpInput.addEventListener('keypress', keyEnterIsPressed);
+nameInput.addEventListener('keypress', keyEnterIsPressed);
+
+function keyEnterIsPressed(event) {
+    if (event.key === 'Enter') {
+        seConnecter();
+    }
+}

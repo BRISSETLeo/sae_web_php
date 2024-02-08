@@ -11,6 +11,7 @@ $dataLoaderSQLite = new DataLoaderSQLite();
     <meta charset="UTF-8">
     <title>Yfitops</title>
     <link rel="stylesheet" href="static/css/template.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <div id="mini-menu-gauche">
@@ -51,7 +52,7 @@ $dataLoaderSQLite = new DataLoaderSQLite();
     </div>
     <main id="main">
         <header>
-            <div class="header-buttons">
+            <div id="header-buttons">
                 <?php 
                     if(isset($_SESSION['pseudo'])){
                         echo "<button id='button-profil'><span id='lettre-profil'>".$_SESSION['pseudo'][0]."</span></button>";
@@ -68,12 +69,10 @@ $dataLoaderSQLite = new DataLoaderSQLite();
                 ?>
             </div>
         </header>
-        <div> <?php echo $content; ?></div>
+        <div id="main-container"> <?php echo $content; ?></div>
     </main>
 </body>
 <!--<script src="./static/js/lancer_video.js"></script>-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="static/js/accueil.js"></script>
 </html>
 
 <!-- <video controls id="videoPlayer" class="hidden" width="640" height="30">

@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS `album` (
 CREATE TABLE IF NOT EXISTS `song` (
     `id_song` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     `name` VARCHAR(30) NOT NULL,
+    'date' TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     `genre` VARCHAR(30) NOT NULL,
     `release_date` DATE NOT NULL,
     `duration` INTEGER NOT NULL,
@@ -56,4 +57,13 @@ CREATE TABLE IF NOT EXISTS `song_playlist` (
     PRIMARY KEY(`id_song`, `id_playlist`),
     FOREIGN KEY(`id_song`) REFERENCES `song`(`id_song`),
     FOREIGN KEY(`id_playlist`) REFERENCES `playlist`(`id_playlist`)
+);
+
+CREATE TABLE IF NOT EXISTS `note_song`(
+    `id_song` INTEGER NOT NULL,
+    `name_user` VARCHAR(30) NOT NULL,
+    `note` INTEGER NOT NULL,
+    PRIMARY KEY(`id_song`, `name_user`),
+    FOREIGN KEY(`id_song`) REFERENCES `song`(`id_song`),
+    FOREIGN KEY(`name_user`) REFERENCES `user`(`name_user`)
 );

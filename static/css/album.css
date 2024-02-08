@@ -10,6 +10,7 @@
     padding-left: 5%;
     display: flex;
     justify-content: space-between;
+    padding-right: 5%;
 }
 
 .img-song {

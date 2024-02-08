@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 $.ajax({
-    url: './getAlbums.php',
+    url: './getBestAlbums.php',
     type: 'GET',
     dataType: 'json',
     success: function (data) {
@@ -93,18 +93,59 @@ $.ajax({
 
 function afficherAlbum(album) {
     var div = document.createElement('div');
-    div.onclick = function () {
-        onclickAlbum(album[0]);
+    div.onclick = function (event) {
+        onclickAlbum(album["id_album"], event);
     }
     div.className = 'album';
     div.innerHTML = `
-    <img src="data:image/jpeg;base64,${album[2]}" alt="${album[1]}">
-    <h3>${album[1]}</h3>
-    <p>${album[0]}</p>
+    <img src="data:image/jpeg;base64,${album["image_album"]}" alt="${album["album_name"]}">
+    <img class="play-album" src="static/images/play.png" alt="play">
+    <h6>${album["album_name"]}</h6>
+    <p>${album["artists"]}</p>
+    <p>${album["average_note"]}</p>
     `;
     document.getElementById('container-albums').appendChild(div);
 }
 
-function onclickAlbum(id_album) {
+function onclickAlbum(id_album, event) {
+    if (event.target.className == "play-album") {
+        return;
+    }
     window.location.href = `?action=album&id=${id_album}`;
+}
+
+$.ajax({
+    url: './getBestMusiques.php',
+    type: 'GET',
+    dataType: 'json',
+    success: function (data) {
+        for (var key in data) {
+            afficherMusique(data[key]);
+        }
+    },
+    error: function (xhr, status, error) {
+        console.log("Erreur de requête Ajax:", status, error);
+    }
+});
+
+function afficherMusique(musique) {
+    var div = document.createElement('div');
+    div.onclick = function (event) {
+        onclickMusique(musique["id_song"], event);
+    }
+    div.className = 'musique';
+    div.innerHTML = `
+    <img src="data:image/jpeg;base64,${musique["image_song"]}" alt="${musique["id_song"]}">
+    <img class="play-musique" src="static/images/play.png" alt="play">
+    <h6>${musique["song_name"]}</h6>
+    <p>${musique["average_note"]}</p>
+    `;
+    document.getElementById('container-musiques').appendChild(div);
+}
+
+function onclickMusique(id_musique, event) {
+    if (event.target.className == "play-musique") {
+        return;
+    }
+    window.location.href = `?action=musique&id=${id_musique}`;
 }
