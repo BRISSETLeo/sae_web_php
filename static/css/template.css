@@ -1,5 +1,5 @@
 * {
-  font-family: sans-serif;
+  font-family: url("./static/font/font.otf");
   color: white;
 }
 
@@ -14,36 +14,9 @@ body {
 
 #main{
   width: 100%;
-  margin: 0.5em;
+  margin: 0.5em 0.5em 0 0.5em;
   display: flex;
   flex-direction: column;
-}
-
-#header-buttons{
-  flex: 0;
-}
-
-#main-container{
-  flex: 1000000;
-  background-color: #1d1d1d;
-  border-radius: 0 0 0.5em 0.5em;
-  overflow-x: auto;
-}
-
-#mini-menu-gauche {
-  display: none;
-  background-color: #121212;
-  width: 2%;
-  margin-right: 0.5%;
-  align-items: center;
-  justify-content: center;
-}
-
-#mini-menu-gauche img {
-  width: 90%;
-  align-self: center;
-  justify-self: center;
-  cursor: pointer;
 }
 
 #menu-gauche {
@@ -51,8 +24,9 @@ body {
   flex-direction: column;
   background-color: black;
   width: 34%;
-  height: 99.3%;
+  height: 100%;
   margin: 0.5em 0 0.5em 0.5em;
+  /*transition: width 0.5s ease;*/
 }
 
 #menu-gauche img {
@@ -68,6 +42,14 @@ body {
   background-color: #121212;
   height: auto;
   border-radius: 0.5em;
+}
+
+.logo img,
+.accueil img,
+.recherche img,
+.playlist img[alt="playlist"] {
+  width: 2em;
+  aspect-ratio: 1/1;
 }
 
 .logo,
@@ -154,27 +136,27 @@ img[alt="playlist"]{
   transform: scale(1.2);
 }
 
-.creer-playlist {
+.creer-playlist{
   background-color: #242424;
   margin: 2.5%;
   padding-bottom: 7%;
   border-radius: 0.5em;
 }
 
-.playlist-ligne-un {
+.playlist-ligne-un{
   color: white;
   padding: 7% 5% 0 6%;
   margin-bottom: 0%;
   font-weight: bold;
 }
 
-.playlist-ligne-deux {
+.playlist-ligne-deux{
   color: white;
   padding: 3% 5% 5% 6%;
   margin-top: 0%;
 }
 
-.btn-creer-playlist {
+.btn-creer-playlist{
   color: black;
   background-color: white;
   font-weight: bold;
@@ -184,7 +166,7 @@ img[alt="playlist"]{
   opacity: 0.8;
 }
 
-.btn-creer-playlist:hover {
+.btn-creer-playlist:hover{
   opacity: 1;
 }
 
@@ -193,17 +175,18 @@ img[alt="playlist"]{
   max-width: 100%;
   height: 90vh;
   border-radius: 0.5em;
-  margin: 0.5em 0;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 header {
   background-color: #121212;
-  border-radius: 0.5em 0.5em 0 0;
   color: #fff;
   display: flex;
   justify-content: flex-end;
   max-width: 100%;
   height: auto;
+  border-radius: 0.5em 0.5em 0 0;
 }
 
 #header-buttons {
@@ -259,30 +242,28 @@ header {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  height: 3em;
-  width: 3em;
+  height: 2em;
+  width: 2em;
   background-color: rgb(52, 52, 52);
 }
 
 #lettre-profil {
   border-radius: 50%;
-  height: 2.75em;
-  width: 2.75em;
+  height: 1.5em;
+  width: 1.5em;
   background-color: rgb(80, 155, 245);
   color: black;
-  line-height: 2.75em;
+  line-height: 1.5em;
 }
 
 #popupMenu {
   display: none;
   position: fixed;
-  top: 15px;
-  right: 15px;
-  background-color: #242424;
-  padding: 12px;
+  top: 20px;
+  right: 20px;
+  background-color: #fff;
+  padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  margin: 2.5em 0 0 0;
 }
 
 #popupMenu ul {
@@ -296,10 +277,12 @@ header {
 
 #popupMenu a {
   text-decoration: none;
-  color: #ffffff;
+  color: #333;
 }
 
-#popupMenu a:hover {
-  color: #80a0c0;
-
+#main-container{
+  flex: 1000000;
+  background-color: #1d1d1d;
+  border-radius: 0 0 0.5em 0.5em;
+  overflow-x: auto;
 }
