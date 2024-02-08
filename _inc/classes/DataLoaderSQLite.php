@@ -200,4 +200,12 @@ class DataLoaderSQLite{
         return $this->pdo;
     }
 
+    public function searchMusic($query){
+        $query = htmlspecialchars($query);
+        $sql = "SELECT * FROM `song` WHERE name LIKE '%$query%'";
+        $result = $this->pdo->query($sql);
+        $result = $result->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
 }

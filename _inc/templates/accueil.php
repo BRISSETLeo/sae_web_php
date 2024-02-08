@@ -52,8 +52,13 @@ $dataLoaderSQLite = new DataLoaderSQLite();
     </div>
     <main id="main">
         <header>
+        <form action="?action=recherche" method="GET" class="search-form">
+                <input type="text" name="query" id="search-query" placeholder="Rechercher...">
+            </form>
+            <script> src="recherche.js"</script>
             <div id="header-buttons">
                 <?php 
+                
                     if(isset($_SESSION['pseudo'])){
                         echo "<button id='button-profil'><span id='lettre-profil'>".$_SESSION['pseudo'][0]."</span></button>";
                         echo "<div id='popupMenu'>";
