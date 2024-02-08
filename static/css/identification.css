@@ -133,6 +133,10 @@ body {
     transform: scale(1.04);
 }
 
+#identification #se-identifier {
+    border: none;
+}
+
 #identification #se-identifier:hover {
     background-color: #1ed760;
     ;
