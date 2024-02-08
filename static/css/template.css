@@ -260,28 +260,30 @@ header {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  height: 2em;
-  width: 2em;
+  height: 3em;
+  width: 3em;
   background-color: rgb(52, 52, 52);
 }
 
 #lettre-profil {
   border-radius: 50%;
-  height: 1.5em;
-  width: 1.5em;
+  height: 2.75em;
+  width: 2.75em;
   background-color: rgb(80, 155, 245);
   color: black;
-  line-height: 1.5em;
+  line-height: 2.75em;
 }
 
 #popupMenu {
   display: none;
   position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: #fff;
-  padding: 20px;
+  top: 15px;
+  right: 15px;
+  background-color: #242424;
+  padding: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin: 2.5em 0 0 0;
 }
 
 #popupMenu ul {
@@ -295,5 +297,10 @@ header {
 
 #popupMenu a {
   text-decoration: none;
-  color: #333;
+  color: #ffffff;
+}
+
+#popupMenu a:hover {
+  color: #80a0c0;
+
 }
