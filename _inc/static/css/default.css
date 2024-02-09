@@ -1,0 +1,136 @@
+* {
+    font-family: sans-serif;
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0.5em;
+    overflow-x: hidden;
+    background-color: black;
+    height: 100vh;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+#default-header {
+    background-color: #242424;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#default-header h1 {
+    padding: 0.5em;
+}
+
+#default-header #identification {
+    display: flex;
+    flex-direction: row;
+}
+
+#default-header #identification {
+    font-size: 1.5em;
+}
+
+#default-header #identification #inscription-container {
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+#default-header #identification #inscription-container:hover {
+    transform: scale(1.04);
+}
+
+#default-header #identification #connexion-container {
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+#default-header #identification #connexion-container:hover {
+    transform: scale(1.04);
+}
+
+#default-header #identification #connexion-container #connexion {
+    background-color: #D9D9D9;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    margin: 0 0.5em 0 1em;
+    color: black;
+}
+
+#default-main {
+    margin-top: 0.5em;
+    background: linear-gradient(0deg, black 0, #242424);
+    height: 100%;
+    overflow-x: auto;
+}
+
+#button-profil {
+    font-size: 1em;
+    margin-right: 0.5em;
+    font-weight: bold;
+    border: 0;
+    border-radius: 624.938em;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 2em;
+    width: 2em;
+    background-color: rgb(52, 52, 52);
+}
+
+#lettre-profil {
+    border-radius: 50%;
+    height: 1.5em;
+    width: 1.5em;
+    background-color: rgb(80, 155, 245);
+    color: black;
+    line-height: 1.5em;
+}
+
+#popupMenu {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    margin: 1em;
+    top: 3em;
+    right: -0.65em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: slideInFromLeft 0.5s forwards;
+    background-color: #282828;
+}
+
+#popupMenu a {
+    font-size: 0.75em;
+    color: hsla(0, 0%, 100%, .9);
+    padding: 1em;
+
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#popupMenu a:hover {
+    background-color: #383838;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}

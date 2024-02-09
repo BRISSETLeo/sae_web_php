@@ -1,0 +1,261 @@
+img {
+    width: 5em;
+    aspect-ratio: 1/1;
+}
+
+h2 {
+    margin: 1em;
+    margin-top: 3em;
+}
+
+#container-playlist {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0, 50%);
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#playlist {
+    width: 50em;
+    height: 30em;
+    background-color: rgb(48, 48, 48, 90%);
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 3em;
+}
+
+#playlist #sauvegarder-playlist {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    padding: 0.2em;
+    width: 8em;
+    font-size: 1.5em;
+    background: linear-gradient(0deg, rgb(0, 0, 0) 0, rgb(36, 36, 36));
+    color: white;
+}
+
+#playlist #sauvegarder-playlist:hover {
+    cursor: pointer;
+}
+
+#playlist #playlist-title {
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+}
+
+#playlist #playlist-title img {
+    width: 10em;
+    aspect-ratio: 1/1;
+}
+
+#playlist #playlist-title #nom-playlist {
+    height: 1em;
+    font-size: 1.5em;
+    padding: 0.5em;
+    margin-left: 0.5em;
+    border: none;
+    outline: none;
+    background: none;
+    border-width: 0 0 0.1em 0;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+#playlist #description-playlist {
+    flex: 1;
+    resize: none;
+    margin-top: 1em;
+    padding: 0.5em;
+    font-size: 1.2em;
+    background: none;
+    outline: none;
+    border: 0.1em solid rgba(255, 255, 255, 0.1);
+}
+
+#playlist #visibilite {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+
+#playlist #visibilite #visibilite-playlist {
+    margin: 2em;
+    text-align: right;
+    font-size: 1.5em;
+}
+
+
+#playlist #visibilite #visible {
+    margin-left: 1em;
+}
+
+#container-search {
+    margin: 1em;
+}
+
+#container-search #search {
+    margin: 0.5em;
+    font-size: 1.5em;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+#container-search #filtre {
+    display: flex;
+    flex-direction: row;
+    border-top: 0.1em solid white;
+    padding-top: 0.5em;
+}
+
+#container-search #filtre div {
+    margin-left: 2em;
+    margin-top: 0.5em;
+    width: 10em;
+}
+
+#container-search #filtre div label {
+    display: block;
+    text-align: center;
+    background-color: black;
+    padding: 0.5em 0;
+}
+
+#container-search #filtre div input {
+    display: none;
+}
+
+#container-search #filtre div input:checked+label {
+    filter: drop-shadow(0.3em 0.3em rgb(204, 255, 0, 0.2));
+}
+
+#container-search #filtre div label:hover {
+    cursor: pointer;
+}
+
+#container-principal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 1em 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 5em;
+}
+
+.container .informations {
+    margin-left: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 9em;
+}
+
+.container .informations .titre {
+    color: rgb(255, 255, 255, 70%);
+    font-size: 1.2rem;
+    font-weight: normal;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.container .informations .artistes {
+    margin-top: 1em;
+    color: rgb(255, 255, 255, 30%);
+    font-size: 1.063rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.container .infos {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.container .infos .container-note .note {
+    font-size: 1.7em;
+    position: relative;
+    top: -0.5em;
+    height: 100%;
+}
+
+.container .infos .date {
+    font-size: 1rem;
+    color: rgb(255, 255, 255, 20%);
+}
+
+.star {
+    color: #ccc;
+}
+
+.star[data-rating="virgule"] {
+    background: linear-gradient(to right, #CCFF00 50%, #ccc 50%);
+    background-clip: text;
+    color: transparent;
+}
+
+.star[data-rating="total"] {
+    background: #CCFF00;
+    background-clip: text;
+    color: transparent;
+}
+
+#form-control {
+    display: flex;
+    justify-content: right;
+}
+
+#form-control input[type="checkbox"] {
+    appearance: none;
+    margin: 0;
+    margin-right: 0.5em;
+
+    font: inherit;
+    color: white;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.01em solid white;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+
+    display: grid;
+    place-content: center;
+}
+
+#form-control input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em black;
+}
+
+#form-control input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}

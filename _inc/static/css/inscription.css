@@ -1,0 +1,147 @@
+#flash {
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    z-index: 1000;
+    background-color: black;
+    border-radius: 1em;
+    display: none;
+    animation: fadeInFromTop 1s ease-in-out;
+    font-size: 1.5em;
+}
+
+#flash.suppression {
+    animation: fadeFromInTop 1s ease-in-out;
+}
+
+#flash #message {
+    margin: 0;
+    color: red;
+}
+
+#default-inscription {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    font-size: 1.5em;
+}
+
+#default-inscription #inscription h2 {
+    padding: 1em;
+}
+
+#default-inscription #inscription,
+#default-inscription #informations {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    animation: slideInFromRight 1s ease;
+
+    height: 100%;
+    width: 50%;
+}
+
+#default-inscription #inscription #nom-user,
+#default-inscription #inscription #mdp-user {
+    text-align: left;
+    margin: 0.5em;
+}
+
+#default-inscription #inscription #nom-user input,
+#default-inscription #inscription #mdp-user input {
+    display: block;
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 0.5em;
+    font-size: 1em;
+    color: black;
+}
+
+#default-inscription #inscription #se-inscrire {
+    margin: 1em;
+    border: none;
+    background-color: transparent;
+    font-size: 1.5em;
+    transition: transform 0.3s ease;
+}
+
+#default-inscription #inscription #se-inscrire:hover {
+    transform: scale(1.04);
+    cursor: pointer;
+}
+
+#default-inscription #inscription p {
+    padding: 1em;
+    border-width: 0.1em 0 0 0;
+    border-style: solid;
+    border-color: rgb(204, 204, 204, 0.1);
+}
+
+#default-inscription #inscription #connexion {
+    color: #8BF067;
+}
+
+#default-inscription #inscription #connexion:hover {
+    color: #8BF067;
+    text-decoration: underline;
+}
+
+#default-inscription #informations {
+    animation: slideInFromLeft 1s ease;
+    background-color: black;
+    font-size: 1.5em;
+}
+
+#default-inscription #informations #premier-bloc {
+    padding: 1em;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-200%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(200%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInFromTop {
+
+    0% {
+        transform: translate(-50%, -100%);
+    }
+
+    100% {
+        transform: translate(-50%, 0%);
+    }
+}
+
+@keyframes fadeFromInTop {
+
+    0% {
+        transform: translate(-50%, 0%);
+    }
+
+    100% {
+        transform: translate(-50%, -200%);
+    }
+}

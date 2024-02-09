@@ -2,50 +2,19 @@
 
 namespace classes;
 
-/**
-* Class Templates
-*
-* Cette classe est utilisé pour utiliser des templates
-*
-* @package classes    
-*/
 class Template{
 
-    /**
-    * @var string $template Chemin vers le template
-    */
-    private string $template;
+    private string $path;
 
-    /**
-    * Constructeur de la classe
-    * @param string $path Chemin vers le template
-    */
-    public function __construct(string $template){
-        $this->template = $template;
+    public function __construct(string $path){
+        $this->path = $path;
     }
 
-    /**
-     * Redéfini le path
-     * @param string $template Chemin vers le template
-     * @return void
-     */
-    public function setPath(string $template){
-        $this->template = $template;
-    }
-
-    /**
-    * Affiche le template
-    * @param string $chemin Chemin vers le fichier à inclure
-    */
-    public function render(string $path): string{
-        if (file_exists($path)) {
-            ob_start();
-            require $path;
-            $content = ob_get_clean();        
-        } else {
-            $content = "Le fichier n'existe pas";
-        }
-        require $this->template;
+    public function render(string $contenant): string{
+        ob_start();
+        require $contenant;
+        $content = ob_get_clean();
+        require $this->path;
         return $content;
     }
 

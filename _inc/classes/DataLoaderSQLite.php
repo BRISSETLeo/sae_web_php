@@ -1,203 +1,159 @@
 <?php
 
 namespace classes;
+use Exception;
 use PDO;
 
-/**
-* Class DataLoaderSQLite
-* 
-* Cette classe est utilisé pour récupérer des informations d'une base de donnée sqlite
-* 
-* @package classes
-*/
 class DataLoaderSQLite{
-    
-    /**
-    * @var pdo $pdo
-    */
+
     private pdo $pdo;
 
-    /**
-    * Constructor
-    *
-    * @return void
-    */
     public function __construct(){
-
-        if(!file_exists('./data/db.sqlite')){
-            touch('./data/db.sqlite');
+        $file = __DIR__.'/../data/db.sqlite';
+        if(!file_exists($file)){
+            touch($file);
         }
-
-        $this->pdo = new PDO('sqlite:./data/db.sqlite');
+        $this->pdo = new PDO('sqlite:'.$file);
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $this->pdo->exec('PRAGMA encoding = "UTF-8";');
-        $this->createTable('./data/Base.sql');
+        $this->createAllTable(__DIR__.'/../data/Table.sql');
     }
 
-    private function createTable($sql_file){
-        $sql = file_get_contents($sql_file);
-        $this->pdo->exec($sql);
+    private function createAllTable($file): void{
+        if(!file_exists($file)) throw new Exception('File not found');
+        $this->pdo->exec(file_get_contents($file));
     }
 
-    public function insertUser($pseudo, $password){
-        if($this->userAlreadyExist($pseudo)){
-            return false;
-        }
-        $pseudo = htmlspecialchars($pseudo);
-        $password = htmlspecialchars($password);
-        $password = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO `user` (name_user, password) VALUES ('$pseudo', '$password')";
-        $result = $this->pdo->exec($sql);
-        return $result;
+    public function insertUser($username, $mdp): bool{
+        $username = trim($username);
+        $mdp = trim($mdp);
+        if($this->userAlreadyInserted($username) || empty($username) || empty($mdp)) return false;
+        $username = htmlspecialchars($username);
+        $mdp = password_hash($mdp, PASSWORD_DEFAULT);
+        $stmt = $this->pdo->prepare('INSERT INTO user (username, password) VALUES (:username, :mdp)');
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':mdp', $mdp);
+        return $stmt->execute();
     }
 
-    public function userAlreadyExist($pseudo): bool{
-        $pseudo = htmlspecialchars($pseudo);
-        $sql = "SELECT * FROM `user` WHERE name_user = '$pseudo'";
-        $result = $this->pdo->query($sql);
-        $result = $result->fetch(PDO::FETCH_ASSOC);
-        if($result){
-            return true;
-        }
-        return false;
-    }
-
-    public function isUser($pseudo, $password): bool{
-        $pseudo = htmlspecialchars($pseudo);
-        $password = htmlspecialchars($password);
-        $sql = "SELECT * FROM `user` WHERE name_user = '$pseudo'";
-        $result = $this->pdo->query($sql);
-        $result = $result->fetch(PDO::FETCH_ASSOC);
-        if($result){
-            if(password_verify($password, $result['password'])){
-                return true;
-            }else{
-                return false;
-            }
-        }
-        return false;
-    }
-
-    public function getBestAlbums(): array {
-        $sql = "SELECT
-                    a.id_album,
-                    a.name AS album_name,
-                    a.image_album,
-                    AVG(ns.note) AS average_note
-                FROM
-                    album a
-                JOIN
-                    song s ON a.id_album = s.id_album
-                LEFT JOIN
-                    note_song ns ON s.id_song = ns.id_song
-                GROUP BY
-                    a.id_album, a.name
-                ORDER BY
-                    average_note DESC
-                LIMIT 5;";
-        
-        $result = $this->pdo->query($sql);
-        $albums = $result->fetchAll(PDO::FETCH_ASSOC);
-    
-        foreach ($albums as &$album) {
-            $artists = $this->getArtistsForAlbum($album['id_album']);
-            $album['artists'] = $artists;
-        }
-    
-        return $albums;
-    }
-    
-
-    public function getBestMusiques(): array{
-        $sql = "SELECT
-                    s.id_song,
-                    s.name AS song_name,
-                    s.image_song,
-                    AVG(ns.note) AS average_note
-                FROM
-                    song s
-                LEFT JOIN
-                    note_song ns ON s.id_song = ns.id_song
-                GROUP BY
-                    s.id_song, s.name
-                ORDER BY
-                    average_note DESC
-                LIMIT 5;
-                ";
-        $result = $this->pdo->query($sql);
-        $result = $result->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
-    }
-
-    public function getArtistsForAlbum($albumId): string {
-        $sql = "select distinct b.name_band from album a join song s on a.id_album = s.id_album join band b on s.id_band = b.id_band where a.id_album = :albumId;";
-    
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->bindParam(':albumId', $albumId, PDO::PARAM_INT);
+    public function getUserName($username): string{
+        $username = trim($username);
+        if(empty($username)) return '';
+        $username = htmlspecialchars($username);
+        $stmt = $this->pdo->prepare('SELECT username FROM user WHERE username = :username');
+        $stmt->bindParam(':username', $username);
         $stmt->execute();
-    
-        $artists = $stmt->fetchAll(PDO::FETCH_COLUMN);
-    
-        return implode(', ', $artists);
-    }
-    
-    public function getNoteSong($id_song): float{
-        $sql = "SELECT AVG(note) FROM `note_song` WHERE id_song = $id_song";
-        $result = $this->pdo->query($sql);
-        $result = $result->fetch(PDO::FETCH_ASSOC);
-        print_r($result);
-        return $result['AVG(note)'];
+        return $stmt->fetchColumn();
     }
 
-    public function getAlbums(): array{
-        $sql = "SELECT * FROM `album`";
-        $result = $this->pdo->query($sql);
-        $result = $result->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
+    public function connectUser($username, $mdp): bool{
+        $username = trim($username);
+        $mdp = trim($mdp);	
+        if(empty($username) || empty($mdp)) return false;
+        $username = htmlspecialchars($username);
+        $stmt = $this->pdo->prepare('SELECT password FROM user WHERE username = :username');
+        $stmt->bindParam(':username', $username);
+        $stmt->execute();
+        $hash = $stmt->fetchColumn();
+        return password_verify($mdp, $hash);
     }
 
-    private function idAlbumExist($id_album): bool{
-        $id_album = htmlspecialchars($id_album);
-        $sql = "SELECT * FROM `album` WHERE id_album = $id_album";
-        $result = $this->pdo->query($sql);
-        $result = $result->fetch(PDO::FETCH_ASSOC);
-        if($result){
-            return true;
+    public function getAllSongswithNote(): array{
+        $stmt = $this->pdo->prepare('SELECT song.*, AVG(note.note) as "note" FROM song LEFT JOIN note ON song.id = note.id_song GROUP BY song.id ORDER BY note DESC');
+        $stmt->execute();
+        $res = $stmt->fetchAll();
+        for ($i = 0; $i < count($res); $i++) {
+            $res[$i]['artistes'] = $this->getAllArtistesFromSong($res[$i]['id']);
         }
-        return false;
+        return $res;
     }
 
-    public function getAlbum($id_album): array{
-        if (!$this->idAlbumExist($id_album)){
-            return [];
+    public function getAllArtistesFromSong($id_song): array{
+        $stmt = $this->pdo->prepare('SELECT band.name FROM band JOIN creer ON band.id = creer.id_band WHERE creer.id_song = :id_song');
+        $stmt->bindParam(':id_song', $id_song);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function getAllAlbumsWithNote(): array{
+        $stmt = $this->pdo->prepare('SELECT album.*, AVG(note.note) as "note" FROM album LEFT JOIN song ON album.id = song.id_album LEFT JOIN note ON song.id = note.id_song GROUP BY album.id ORDER BY note DESC');
+        $stmt->execute();
+        $res = $stmt->fetchAll();
+        for ($i = 0; $i < count($res); $i++) {
+            $res[$i]['artistes'] = $this->getAllArtistesFromAlbum($res[$i]['id']);
         }
-        $id_album = htmlspecialchars($id_album);
-        $sql = "SELECT * FROM `album` WHERE id_album = $id_album";
-        $result = $this->pdo->query($sql);
-        $result = $result->fetch(PDO::FETCH_ASSOC);
-        return $result;
+        return $res;
     }
 
-    public function userHasPlayList($pseudo){
-        $pseudo = htmlspecialchars($pseudo);
-        $sql = "SELECT * FROM `playlist` WHERE owner_name = '$pseudo'";
-        $result = $this->pdo->query($sql);
-        $result = $result->fetch(PDO::FETCH_ASSOC);
-        if($result){
-            return true;
-        }
-        return false;
+    public function getAllArtistesFromAlbum($id_album): array{
+        $stmt = $this->pdo->prepare('select b.name from song s join album a on s.id_album = a.id join creer c on c.id_song = s.id join band b on c.id_band = b.id where a.id = :id_album');
+        $stmt->bindParam(':id_album', $id_album);
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
 
-    public function getMusiqueAlbum($id_album){
-        $sql = "SELECT * FROM `song` WHERE id_album = $id_album";
-        $result = $this->pdo->query($sql);
-        $result = $result->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
+    private function userAlreadyInserted($username): bool{
+        $stmt = $this->pdo->prepare('SELECT * FROM user WHERE username = :username');
+        $stmt->bindParam(':username', $username);
+        $stmt->execute();
+        return $stmt->fetch() !== false;
     }
-    
-    public function getPdo(){
-        return $this->pdo;
+
+
+
+    // insertion des données dans la base de données
+
+
+
+
+    function insertBand($name, $image) {
+        $stmt = $this->pdo->prepare("INSERT INTO `band` (name, image) VALUES (?, ?)");
+        $stmt->bindParam(1, $name);
+        $stmt->bindParam(2, $image, PDO::PARAM_LOB); // Utiliser PDO::PARAM_LOB pour les données binaires
+        $stmt->execute();
+    }
+
+    // Fonction pour insérer des données dans la table album
+    function insertAlbum($title, $image) {
+        $stmt = $this->pdo->prepare("INSERT INTO `album` (title, image) VALUES (?, ?)");
+        $stmt->bindParam(1, $title);
+        $stmt->bindParam(2, $image, PDO::PARAM_LOB);
+        $stmt->execute();
+    }
+
+    // Fonction pour insérer des données dans la table song
+    function insertSong($title, $release_date, $duration, $id_album, $image, $audio) {
+        $stmt = $this->pdo->prepare("INSERT INTO `song` (title, release_date, duration, id_album, image, audio) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bindParam(1, $title);
+        $stmt->bindParam(2, $release_date);
+        $stmt->bindParam(3, $duration);
+        $stmt->bindParam(4, $id_album);
+        $stmt->bindParam(5, $image, PDO::PARAM_LOB);
+        $stmt->bindParam(6, $audio, PDO::PARAM_LOB);
+        $stmt->execute();
+    }
+
+    // Fonction pour insérer des données dans la table creer
+    function insertCreer($id_band, $id_song) {
+        $stmt = $this->pdo->prepare("INSERT INTO `creer` (id_band, id_song) VALUES (?, ?)");
+        $stmt->bindParam(1, $id_band);
+        $stmt->bindParam(2, $id_song);
+        $stmt->execute();
+    }
+
+    public function insertNote($id_song, $username, $note){
+        $stmt = $this->pdo->prepare('INSERT INTO note (id_song, username, note) VALUES (:id_song, :username, :note)');
+        $stmt->bindParam(':id_song', $id_song);
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':note', $note);
+        return $stmt->execute();
+    }
+
+    function deleteAll(){
+        $this->pdo->exec('DELETE FROM user');
+        $this->pdo->exec('DELETE FROM band');
+        $this->pdo->exec('DELETE FROM album');
+        $this->pdo->exec('DELETE FROM song');
+        $this->pdo->exec('DELETE FROM creer');
     }
 
 }
