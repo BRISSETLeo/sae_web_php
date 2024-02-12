@@ -7,17 +7,15 @@
 </head>
 <body>
     <header id="default-header">
-        <h1><a href="./">iuT'Unes</a></h1>
+        <h1 id="logo-h1"><a target="_blank" href="./">iuT'Unes</a></h1>
         <div id="identification">
             <?php 
             if(isset($_SESSION['user'])) {
                 echo "
-                    <button id='button-profil'><span id='lettre-profil'>".$_SESSION['user'][0]."</span></button>
+                    <button onclick='afficherMenu()' id='button-profil'><span id='lettre-profil'>".$_SESSION['user'][0]."</span></button>
                     <div id='popupMenu'>
-                        <a onclick='afficherCreationPlaylist()'>Playlist</a></li>
                         <a href='?page=deconnexion'>Déconnexion</a></li>
                     </div>
-                    <script src='./_inc/static/js/mainMenu.js'></script>
                 ";
             } else {
                 echo '<div id="inscription-container">
@@ -30,9 +28,13 @@
             ?>
         </div>
     </header>
-    <main id="default-main">
+    
+    
+    <?php if(isset($playlist)) echo $playlist; ?>
+    <main id="default-main" class="default-main">
         <?php echo $content; ?>
     </main>
+
     <script src="_inc/static/js/default.js"></script>
 </body>
 </html>
