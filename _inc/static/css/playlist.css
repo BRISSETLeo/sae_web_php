@@ -1,0 +1,40 @@
+#playlist-list {
+    background: linear-gradient(0deg, rgb(0, 0, 0) 0, rgb(36, 36, 36));
+    margin: 0.5em;
+    margin-left: 0;
+}
+
+#playlist-list div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.1em;
+}
+
+#chevron {
+    width: 2em;
+    aspect-ratio: 1/1;
+}
+
+#ajout-playlist {
+    width: 1.5em;
+    aspect-ratio: 1/1;
+    margin: 0 0.5em;
+}
+
+#playlist-logo {
+    width: 2.5em;
+    aspect-ratio: 1/1;
+    padding: 0.5em;
+}
+
+#playlist-list div p {
+    justify-content: center;
+    text-align: center;
+}
+
+#flex-position {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
