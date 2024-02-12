@@ -91,6 +91,16 @@ class DataLoaderSQLite{
         return $stmt->fetchAll();
     }
 
+    public function getAllMyPlaylist($username): array{
+        $username = trim($username);
+        if(empty($username)) return [];
+        $username = htmlspecialchars($username);
+        $stmt = $this->pdo->prepare('SELECT * FROM playlist WHERE `owner` = :username');
+        $stmt->bindParam(':username', $username);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
     private function userAlreadyInserted($username): bool{
         $stmt = $this->pdo->prepare('SELECT * FROM user WHERE username = :username');
         $stmt->bindParam(':username', $username);
