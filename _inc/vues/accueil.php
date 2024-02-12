@@ -6,7 +6,9 @@ $dl = new DataLoaderSQLite();
 $songs = $dl->getAllSongswithNote();
 $albums = $dl->getAllAlbumsWithNote();
 
-echo '<div id="container-playlist">
+?>
+
+<div id="container-playlist">
     <div id="playlist">
         <button id="sauvegarder-playlist">Sauvegarder</button>
         <div id="playlist-title">
@@ -23,14 +25,16 @@ echo '<div id="container-playlist">
         <textarea id="description-playlist" placeholder="Description de la playlist" rows="12"></textarea>
     </div>
     <h1>Playlist</h1>
-</div>';
+</div>
 
-require '_inc/vues/affichageAccueil/recherche.php';
-echo '<div id="container-accueil">';
-    require '_inc/vues/affichageAccueil/bestAlbum.php';
-    require '_inc/vues/affichageAccueil/bestSong.php';
-echo '</div>';
-
-?>
+<div id="container">
+    <?php require '_inc/vues/affichageAccueil/recherche.php'; ?>
+    <div id="container-accueil">
+        <?php
+            require '_inc/vues/affichageAccueil/bestAlbum.php';
+            require '_inc/vues/affichageAccueil/bestSong.php';
+        ?>
+    </div>
+</div>
 
 <link rel="stylesheet" href="_inc/static/css/accueil.css">
