@@ -6,11 +6,11 @@
 }
 
 body {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 1fr 30fr;
+    grid-template-columns: 0.2fr 1.2fr 1fr 1fr 5fr;
 
     padding: 0.5em;
-    overflow-x: hidden;
     background-color: black;
     height: 100vh;
     overflow: hidden;
@@ -20,7 +20,33 @@ a {
     text-decoration: none;
 }
 
+#logo-h1 {
+    filter: drop-shadow(0 0 0.6em rgba(255, 255, 255, 0.2)) drop-shadow(0 0 1em rgba(0, 150, 255, 0.2));
+    transition: filter 0.3s ease-in-out;
+}
+
+#logo-h1:hover {
+    cursor: pointer;
+    filter: drop-shadow(0 0 0.6em rgba(255, 255, 255, 0.5)) drop-shadow(0 0 1em rgba(0, 150, 255, 0.5));
+}
+
+#logo-h1:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(45deg, #00bfff, #00ff00);
+    z-index: -1;
+    clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+    filter: blur(0.6em) brightness(1.2);
+}
+
 #default-header {
+    grid-row: 1;
+    grid-column: span 5;
+
     background-color: #242424;
 
     display: flex;
@@ -68,11 +94,36 @@ a {
     color: black;
 }
 
+.resize-playlist-list-2 {
+    grid-column: span 1;
+}
+
+.resize-default-main-2 {
+    grid-column: span 4;
+}
+
+.resize-playlist-list {
+    grid-column: span 4;
+}
+
+.resize-default-main {
+    grid-column: span 1;
+}
+
+.default-playlist-list {
+    grid-column: span 2;
+}
+
+.default-main {
+    grid-column: span 3;
+}
+
 #default-main {
     margin-top: 0.5em;
     background: linear-gradient(0deg, black 0, #242424);
     height: 100%;
-    overflow-x: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 #button-profil {

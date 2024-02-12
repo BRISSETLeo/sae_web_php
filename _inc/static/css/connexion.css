@@ -12,6 +12,11 @@
     font-size: 1.5em;
 }
 
+#default-main {
+    grid-row: 2;
+    grid-column: span 5;
+}
+
 #flash.suppression {
     animation: fadeFromInTop 1s ease-in-out;
 }
@@ -29,6 +34,7 @@
     height: 100%;
     width: 100%;
     font-size: 1.5em;
+    overflow: hidden;
 }
 
 #default-connexion #connexion h2 {

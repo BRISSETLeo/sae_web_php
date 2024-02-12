@@ -154,6 +154,9 @@ h2 {
     flex-direction: row;
     align-items: center;
     margin: 1em 0;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 .container {
@@ -198,8 +201,7 @@ h2 {
 .container .infos .container-note .note {
     font-size: 1.7em;
     position: relative;
-    top: 0;
-    margin-bottom: 0.5em;
+    top: -0.5em;
     height: 100%;
 }
 

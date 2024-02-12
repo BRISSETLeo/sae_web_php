@@ -21,6 +21,11 @@
     color: red;
 }
 
+#default-main {
+    grid-row: 2;
+    grid-column: span 5;
+}
+
 #default-inscription {
     display: flex;
     flex-direction: row;
@@ -29,6 +34,7 @@
     height: 100%;
     width: 100%;
     font-size: 1.5em;
+    overflow: hidden;
 }
 
 #default-inscription #inscription h2 {
