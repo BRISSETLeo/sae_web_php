@@ -200,8 +200,7 @@ h2 {
 
 .container .infos .container-note .note {
     font-size: 1.7em;
-    position: relative;
-    top: -0.5em;
+    margin-bottom: 0.8em;
     height: 100%;
 }
 
