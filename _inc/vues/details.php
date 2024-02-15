@@ -8,6 +8,8 @@ $dl = new DataLoaderSQLite();
 
 if($type === "album"){
     $album = $dl->getAlbum($id);
+    $musiques = $dl->getAllMusiqueFromAlbum($id);
+    $artistes = $dl->getAllArtistesFromAlbum($id);
     require "_inc/vues/detailsAlbum/album.php";
 }
 

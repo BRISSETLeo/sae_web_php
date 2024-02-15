@@ -118,6 +118,24 @@ class DataLoaderSQLite{
         return $stmt->fetchAll();
     }
 
+    public function getAllMusiqueFromAlbum($id_album): array{
+        $stmt = $this->pdo->prepare('select * from song where id_album = :id_album');
+        $stmt->bindParam(':id_album', $id_album);
+        $stmt->execute();
+        $res = $stmt->fetchAll();
+        for ($i = 0; $i < count($res); $i++) {
+            $res[$i]['artistes'] = $this->getAllArtistesFromSong($res[$i]['id']);
+        }
+        return $res;
+    }
+
+    public function getNoteFromMusique($id_song): float{
+        $stmt = $this->pdo->prepare('SELECT AVG(note) FROM note WHERE id_song = :id_song');
+        $stmt->bindParam(':id_song', $id_song);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+    }
+
     public function getAllMyPlaylist($username): array{
         $username = trim($username);
         if(empty($username)) return [];
