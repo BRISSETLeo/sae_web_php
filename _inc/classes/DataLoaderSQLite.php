@@ -45,6 +45,33 @@ class DataLoaderSQLite{
         return $stmt->fetchColumn();
     }
 
+    public function getAlbum($id_album){
+        if(empty($id_album)) return [];
+        $id_album = htmlspecialchars($id_album);
+        $stmt = $this->pdo->prepare('SELECT * FROM album WHERE id = :id_album');
+        $stmt->bindParam(':id_album', $id_album);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function getArtiste($id_band){
+        if(empty($id_band)) return [];
+        $id_band = htmlspecialchars($id_band);
+        $stmt = $this->pdo->prepare('SELECT * FROM band WHERE id = :id_band');
+        $stmt->bindParam(':id_band', $id_band);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function getMusique($id_musique){
+        if(empty($id_musique)) return [];
+        $id_musique = htmlspecialchars($id_musique);
+        $stmt = $this->pdo->prepare('SELECT * FROM song WHERE id = :id_musique');
+        $stmt->bindParam(':id_musique', $id_musique);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
     public function connectUser($username, $mdp): bool{
         $username = trim($username);
         $mdp = trim($mdp);	
