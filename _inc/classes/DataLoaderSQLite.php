@@ -72,6 +72,15 @@ class DataLoaderSQLite{
         return $stmt->fetchAll();
     }
 
+    public function getPlaylist($id_playlist){
+        if(empty($id_playlist)) return [];
+        $id_playlist = htmlspecialchars($id_playlist);
+        $stmt = $this->pdo->prepare('SELECT * FROM playlist WHERE id = :id_playlist');
+        $stmt->bindParam(':id_playlist', $id_playlist);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
     public function getSongByTitle($title){
         $titleWithWildcard = $title . '%';
         $stmt = $this->pdo->prepare('SELECT * FROM song WHERE title LIKE :title');
@@ -154,6 +163,18 @@ class DataLoaderSQLite{
         $stmt->execute();
         return $stmt->fetchAll();
     }
+
+    public function getAllMusiqueFromPlaylist($id_playlist): array{
+        $stmt = $this->pdo->prepare('SELECT s.* FROM song s JOIN composer c ON s.id = c.id_song JOIN playlist p ON c.id_playlist = p.id WHERE p.id = :id_playlist');
+        $stmt->bindParam(':id_playlist', $id_playlist);
+        $stmt->execute();
+        $res = $stmt->fetchAll();
+        for ($i = 0; $i < count($res); $i++) {
+            $res[$i]['artistes'] = $this->getAllArtistesFromSong($res[$i]['id']);
+        }
+        return $res;
+    }
+    
 
     public function getArtisteByName($name){
         $nameWithWildcard = $name . '%';
