@@ -164,6 +164,17 @@ class DataLoaderSQLite{
         return $stmt->fetchAll();
     }
 
+    public function getAllTableArtisteFromPlaylist($id_playlist): array{
+        $stmt = $this->pdo->prepare('SELECT DISTINCT b.* FROM band b JOIN creer cr ON b.id = cr.id_band
+        JOIN song s ON cr.id_song = s.id
+        JOIN composer c ON s.id = c.id_song
+        JOIN playlist p ON c.id_playlist = p.id
+        WHERE p.id = :id_playlist');
+        $stmt->bindParam(':id_playlist', $id_playlist);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
     public function getAllMusiqueFromPlaylist($id_playlist): array{
         $stmt = $this->pdo->prepare('SELECT s.* FROM song s JOIN composer c ON s.id = c.id_song JOIN playlist p ON c.id_playlist = p.id WHERE p.id = :id_playlist');
         $stmt->bindParam(':id_playlist', $id_playlist);
