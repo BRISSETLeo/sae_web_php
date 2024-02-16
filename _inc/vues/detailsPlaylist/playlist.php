@@ -33,10 +33,9 @@ echo '
     <div class="artistes">
     ';
     foreach($artistes as $artiste){
-        $allArtiste = $dl->getArtiste($artiste['id']);
         echo '
             <div class="artiste-container">
-            <img src="data:image/jpeg;base64,' . base64_encode($allArtiste[0]['image']) . '"/>
+            <img src="data:image/jpeg;base64,' . base64_encode($artiste['image']) . '"/>
             <div class="infosArtiste">
                     <p class="nom">' . $artiste["name"] . '</p>
                 </div>

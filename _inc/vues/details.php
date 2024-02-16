@@ -23,7 +23,7 @@ else if($type === "artiste"){
 else if($type === "playlist"){
     $playlist = $dl->getPlaylist($id);
     $musiques = $dl->getAllMusiqueFromPlaylist($id);
-    $artistes = $dl->getAllArtistesFromPlaylist($id);
+    $artistes = $dl->getAllTableArtisteFromPlaylist($id);
     require "_inc/vues/detailsPlaylist/playlist.php";
 }
 
