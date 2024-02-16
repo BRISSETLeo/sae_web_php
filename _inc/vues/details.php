@@ -20,9 +20,11 @@ else if($type === "artiste"){
     require "_inc/vues/detailsArtiste/artiste.php";
 }
 
-else if($type === "musique"){
-    $musique = $dl->getMusique($id);
-    echo '<img src="data:image/jpeg;base64,' . base64_encode($musique[0]["image"]) . '"/>';
+else if($type === "playlist"){
+    $playlist = $dl->getPlaylist($id);
+    $musiques = $dl->getAllMusiqueFromPlaylist($id);
+    $artistes = $dl->getAllArtistesFromPlaylist($id);
+    require "_inc/vues/detailsPlaylist/playlist.php";
 }
 
 ?>
