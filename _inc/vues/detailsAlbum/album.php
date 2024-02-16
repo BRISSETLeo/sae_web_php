@@ -51,4 +51,4 @@ echo '
 
 ?>
 
-<link rel="stylesheet" href="./_inc/static/css/detailsAlbum.css">
+<link rel="stylesheet" href="./_inc/static/css/details.css">
