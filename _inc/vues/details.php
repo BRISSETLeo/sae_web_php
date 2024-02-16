@@ -15,7 +15,9 @@ if($type === "album"){
 
 else if($type === "artiste"){
     $artiste = $dl->getArtiste($id);
-    echo '<img src="data:image/jpeg;base64,' . base64_encode($artiste[0]["image"]) . '"/>';
+    $musiques = $dl->getAllMusiqueFromArtiste($id);
+    $albums = $dl->getAllAlbumFromArtiste($id);
+    require "_inc/vues/detailsArtiste/artiste.php";
 }
 
 else if($type === "musique"){
