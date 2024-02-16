@@ -115,6 +115,7 @@ h2 {
     background: none;
     border: none;
     outline: none;
+    width: 100%;
 }
 
 #container-search #filtre {
@@ -200,7 +201,8 @@ h2 {
 
 .container .infos .container-note .note {
     font-size: 1.7em;
-    margin-bottom: 0.8em;
+    position: relative;
+    top: -0.5em;
     height: 100%;
 }
 
@@ -260,4 +262,28 @@ h2 {
 
 #form-control input[type="checkbox"]:checked::before {
     transform: scale(1);
+}
+
+#image_pl {
+    position: relative;
+    width: 12.5em;
+}
+
+#image_playlist {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+#image_playlist_preview {
+    width: 100%;
+    height: 100%;
+}
+
+#message_playlist {
+    font-size: 1.1em;
 }

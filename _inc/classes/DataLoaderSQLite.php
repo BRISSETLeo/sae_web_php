@@ -72,6 +72,97 @@ class DataLoaderSQLite{
         return $stmt->fetchAll();
     }
 
+    public function getSongByTitle($title){
+        $titleWithWildcard = $title . '%';
+        $stmt = $this->pdo->prepare('SELECT * FROM song WHERE title LIKE :title');
+        $stmt->bindParam(':title', $titleWithWildcard);
+        $stmt->execute();
+        $res = $stmt->fetchAll();
+        for ($i = 0; $i < count($res); $i++) {
+            $res[$i]['artistes'] = $this->getAllArtistesFromSong($res[$i]['id']);
+        }
+        return $res;
+    }
+    
+    public function getSongByBand($band){
+        $bandWithWildcard = $band . '%';
+        $stmt = $this->pdo->prepare('SELECT * FROM song WHERE id IN (SELECT id_song FROM creer WHERE id_band IN (SELECT id FROM band WHERE name LIKE :band))');
+        $stmt->bindParam(':band', $bandWithWildcard);
+        $stmt->execute();
+        $res = $stmt->fetchAll();
+        for ($i = 0; $i < count($res); $i++) {
+            $res[$i]['artistes'] = $this->getAllArtistesFromSong($res[$i]['id']);
+        }
+        return $res;
+    }
+
+    public function getAlbumByTitle($title){
+        $titleWithWildcard = $title . '%';
+        $stmt = $this->pdo->prepare('SELECT * FROM album WHERE title LIKE :title');
+        $stmt->bindParam(':title', $titleWithWildcard);
+        $stmt->execute();
+        $res = $stmt->fetchAll();
+        for ($i = 0; $i < count($res); $i++) {
+            $res[$i]['artistes'] = $this->getAllArtistesFromAlbum($res[$i]['id']);
+        }
+        return $res;
+    }
+    
+    public function getAlbumByBand($band){
+        $bandWithWildcard = $band . '%';
+        $stmt = $this->pdo->prepare('SELECT * FROM album WHERE id IN (SELECT id_album FROM song WHERE id IN (SELECT id_song FROM creer WHERE id_band IN (SELECT id FROM band WHERE name LIKE :band)))');
+        $stmt->bindParam(':band', $bandWithWildcard);
+        $stmt->execute();
+        $res = $stmt->fetchAll();
+        for ($i = 0; $i < count($res); $i++) {
+            $res[$i]['artistes'] = $this->getAllArtistesFromAlbum($res[$i]['id']);
+        }
+        return $res;
+    }
+
+    public function getPlaylistByName($name){
+        $nameWithWildcard = $name . '%';
+        $stmt = $this->pdo->prepare('SELECT * FROM playlist WHERE name LIKE :name AND visibility = 1');
+        $stmt->bindParam(':name', $nameWithWildcard);
+        $stmt->execute();
+        $res = $stmt->fetchAll();
+        for ($i = 0; $i < count($res); $i++) {
+            $res[$i]['artistes'] = $this->getAllArtistesFromPlaylist($res[$i]['id']);
+        }
+        return $res;
+    }
+
+    public function getPlaylistByOwner($owner){
+        $ownerWithWildcard = $owner . '%';
+        $stmt = $this->pdo->prepare('SELECT * FROM playlist WHERE owner LIKE :owner AND visibility = 1');
+        $stmt->bindParam(':owner', $ownerWithWildcard);
+        $stmt->execute();
+        $res = $stmt->fetchAll();
+        for ($i = 0; $i < count($res); $i++) {
+            $res[$i]['artistes'] = $this->getAllArtistesFromPlaylist($res[$i]['id']);
+        }
+        return $res;
+    }
+
+    public function getAllArtistesFromPlaylist($id_playlist): array{
+        $stmt = $this->pdo->prepare('SELECT DISTINCT b.name FROM band b JOIN creer cr ON b.id = cr.id_band
+        JOIN song s ON cr.id_song = s.id
+        JOIN composer c ON s.id = c.id_song
+        JOIN playlist p ON c.id_playlist = p.id
+        WHERE p.id = :id_playlist');
+        $stmt->bindParam(':id_playlist', $id_playlist);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function getArtisteByName($name){
+        $nameWithWildcard = $name . '%';
+        $stmt = $this->pdo->prepare('SELECT * FROM band WHERE name LIKE :name');
+        $stmt->bindParam(':name', $nameWithWildcard);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }    
+
     public function connectUser($username, $mdp): bool{
         $username = trim($username);
         $mdp = trim($mdp);	

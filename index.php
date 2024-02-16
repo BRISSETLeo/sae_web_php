@@ -10,14 +10,12 @@ if($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['page'])){
     $page = $_GET['page'];
     
     if($page === 'connexion'){
-        $template->render('_inc/vues/connexion.php');
+        $template->render('_inc/vues/connexion.php', true);
     }else if($page === 'inscription'){
-        $template->render('_inc/vues/inscription.php');
+        $template->render('_inc/vues/inscription.php', true);
     }else if($page === 'deconnexion'){
         unset($_SESSION['user']);
         $template->render('_inc/vues/accueil.php');
-    }else if($page === "details"){
-        $template->render('_inc/vues/details.php');
     }else{
         $template->render('_inc/vues/accueil.php');
     }

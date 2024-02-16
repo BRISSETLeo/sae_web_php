@@ -7,7 +7,7 @@
 </head>
 <body>
     <header id="default-header">
-        <h1 id="logo-h1"><a target="_blank" href="./">iuT'Unes</a></h1>
+        <h1 id="logo-h1"><a href="./">iuT'Unes</a></h1>
         <div id="identification">
             <?php 
             if(isset($_SESSION['user'])) {
