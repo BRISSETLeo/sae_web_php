@@ -1,0 +1,27 @@
+.informations{
+    display: flex;
+    margin-top: 1em;
+    border-bottom: 1px solid white;
+}
+
+.informations img{
+    margin: 0 1em 1em 1em;
+}
+
+.musique-container,
+.artiste-container,
+.album-container{
+    margin: 1em;
+}
+
+.coeur{
+    width: 1.25em;
+    aspect-ratio: 1/1;
+}
+
+.musique-container > img,
+.artiste-container > img,
+.album-container > img{
+    width: 5em;
+    aspect-ratio: 1/1;
+}
