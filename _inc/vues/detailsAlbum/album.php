@@ -8,7 +8,7 @@ echo '
         <img src="data:image/jpeg;base64,' . base64_encode($album[0]["image"]) . '"/>
         <div class="infos">
             <h1 class="type">' . $type . '</h1>
-            <h2 class="titre">' . $title . '</h2>
+            <h2 class="titre">' . $album[0]["title"] . '</h2>
         </div>
     </div>
     <div class="musique">
@@ -34,9 +34,10 @@ echo '
     <div class="artistes">
     ';
     foreach($artistes as $artiste){
+        $allArtiste = $dl->getArtiste($artiste['id']);
         echo '
             <div class="artiste-container">
-            <img src="data:image/jpeg;base64,' . base64_encode($artiste["image"]) . '"/>
+            <img src="data:image/jpeg;base64,' . base64_encode($allArtiste[0]['image']) . '"/>
             <div class="infosArtiste">
                     <p class="nom">' . $artiste["name"] . '</p>
                 </div>
