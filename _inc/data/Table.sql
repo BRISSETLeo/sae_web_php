@@ -58,3 +58,11 @@ CREATE TABLE IF NOT EXISTS `creer` (
     FOREIGN KEY(`id_song`) REFERENCES `song`(`id`),
     FOREIGN KEY(`id_band`) REFERENCES `band`(`id`)
 );
+
+CREATE TABLE IF NOT EXISTS `composer` (
+    `id_playlist` INT NOT NULL,
+    `id_song` INT NOT NULL,
+    PRIMARY KEY(`id_playlist`, `id_song`),
+    FOREIGN KEY(`id_playlist`) REFERENCES `playlist`(`id`),
+    FOREIGN KEY(`id_song`) REFERENCES `song`(`id`)
+);

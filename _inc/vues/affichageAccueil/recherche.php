@@ -24,5 +24,12 @@
             <input id="artistes" type="radio" name="filter" value="artistes">
             <label for="artistes" id="artiste">Artistes</label>
         </div>
+
+        <div id="container-playlists">
+            <input id="playlists" type="radio" name="filter" value="playlists">
+            <label for="playlists" id="playlists">Playlist</label>
+        </div>
     </div>
 </div>
+
+<script src="_inc/static/js/recherche.js"></script>

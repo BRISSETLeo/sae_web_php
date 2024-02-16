@@ -10,9 +10,18 @@ $albums = $dl->getAllAlbumsWithNote();
 
 <div id="container-playlist">
     <div id="playlist">
-        <button id="sauvegarder-playlist">Sauvegarder</button>
+        <button id="sauvegarder-playlist">Créer la playlist</button>
         <div id="playlist-title">
-            <img src="_inc/data/mesDonnees/Le_Meilleur_Des_Années_80.jpg" alt="image" id="image-playlist"/>
+            <div>
+                <div id="image_pl">
+                    <input type="file" id="image_playlist"/>
+                    <img id="image_playlist_preview" src="_inc/static/img/playlist.png" alt=""/>
+                    <p id="message_playlist">
+                        Choisir une image
+                    </p>
+                </div>
+            </div>
+            <script src="_inc/static/js/choiseImageInput.js"></script>
             <div id="visibilite">
                 <input type="text" id="nom-playlist" placeholder="Nom de la playlist"/>
                 <div id="visibilite-playlist">
@@ -36,5 +45,6 @@ $albums = $dl->getAllAlbumsWithNote();
         ?>
     </div>
 </div>
+<div id="research-container"></div>
 
 <link rel="stylesheet" href="_inc/static/css/accueil.css">

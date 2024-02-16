@@ -16,7 +16,6 @@ foreach ($mesPlaylist as $playlist) {
         $playlist['image'] = base64_encode($playlist['image']);
         $playlist['4'] = base64_encode($playlist['4']);
     }
-    var_dump($playlist);
 }
 
 echo json_encode(array(
