@@ -16,6 +16,8 @@ if($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['page'])){
     }else if($page === 'deconnexion'){
         unset($_SESSION['user']);
         $template->render('_inc/vues/accueil.php');
+    }else if($page === 'details'){
+        $template->render('_inc/vues/details.php');
     }else{
         $template->render('_inc/vues/accueil.php');
     }
