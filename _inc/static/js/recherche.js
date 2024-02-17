@@ -131,9 +131,9 @@ function afficherPlaylist(lesPlaylist) {
             <div class="playlist-cover">
                 <img src="data:image/jpeg;base64,${playlist['image']}" alt="">
             </div>
-            <div class="playlist-infos">
-                <h3>${playlist['name']}</h3>
-                <p>${artistes}</p>
+            <div class="informations">
+                <h3 class="titre">${playlist['name']}</h3>
+                <p class="artistes">${artistes}</p>
             </div>
         `;
         container.appendChild(div);
@@ -193,9 +193,9 @@ function afficherMusiques(lesSongs) {
             <div class="song-cover">
                 <img src="data:image/jpeg;base64,${song['image']}" alt="">
             </div>
-            <div class="song-infos">
-                <h3>${song['title']}</h3>
-                <p>${artistes}</p>
+            <div class="informations">
+                <h3 class="titre">${song['title']}</h3>
+                <p class="artistes">${artistes}</p>
             </div>
         `;
         container.appendChild(div);
@@ -218,9 +218,9 @@ function afficherBand(lesBand) {
             <div class="band-cover">
                 <img src="data:image/jpeg;base64,${band['image']}" alt="">
             </div>
-            <div class="band-infos">
-                <h3>${band['id']}</h3>
-                <p>${band['name']}</p>
+            <div class="informations">
+                <h3 class="titre">${band['id']}</h3>
+                <p class="artistes">${band['name']}</p>
             </div>
         `;
         container.appendChild(div);

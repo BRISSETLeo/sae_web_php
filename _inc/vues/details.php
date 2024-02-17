@@ -1,5 +1,10 @@
 <?php
 
+if(!isset($_GET['type']) || !isset($_GET['id'])){
+    header("Location: ../");
+    exit();
+}
+
 $type = $_GET['type'];
 $id = $_GET['id'];
 
@@ -26,5 +31,3 @@ else if($type === "playlist"){
     $artistes = $dl->getAllTableArtisteFromPlaylist($id);
     require "_inc/vues/detailsPlaylist/playlist.php";
 }
-
-?>

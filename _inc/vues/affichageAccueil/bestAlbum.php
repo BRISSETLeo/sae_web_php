@@ -8,15 +8,16 @@ foreach($albums as $album){
     $noteVirgule = $note - $noteEntiere;
     $artistNames = implode(', ', array_column($album['artistes'], 'name'));
     echo '
-        <div class="container">
-            <img src="data:image/jpeg;base64,' . base64_encode($album["image"]) . '"/>
-            <div class="informations">
-                <p class="titre">' . $album["title"] . '</p>
-                <p class="artistes">'.$artistNames.'</p>
-            </div>
-            <div class="informations infos">
-                <div class="container-note">
-                    <div class="note" id="note-'.str_replace(' ', '',$album['title']).'">
+        <a class="lien_details" href="?page=details&type=album&id='.$album['id'].'">
+            <div class="container">
+                <img src="data:image/jpeg;base64,' . base64_encode($album["image"]) . '"/>
+                <div class="informations">
+                    <p class="titre">' . $album["title"] . '</p>
+                    <p class="artistes">'.$artistNames.'</p>
+                </div>
+                <div class="informations infos">
+                    <div class="container-note">
+                        <div class="note" id="note-'.str_replace(' ', '',$album['title']).'">
     ';
     for ($i = 1; $i <= $noteEntiere; $i++) {
         echo '<span class="star" data-rating="total">&#9733;</span>';
@@ -30,11 +31,12 @@ foreach($albums as $album){
         }
     }
     echo '
-        </div>
+                        </div>
+                    </div>
+                    <p class="date">.</p>
+                </div>
             </div>
-                <p class="date">.</p>
-            </div>
-        </div>
+        </a>
     ';
 }
 echo '</div>';
