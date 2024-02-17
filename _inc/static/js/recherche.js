@@ -144,12 +144,20 @@ function afficherPlaylist(lesPlaylist) {
 }
 
 function afficherAlbums(lesAlbums) {
-    if (lesAlbums.length == 0) return;
+    if (lesAlbums.length === 0) return;
+
     const container = document.createElement('div');
-    container.innerHTML = '<h2>Albums</h2>';
     container.id = 'research-container-albums';
+    container.innerHTML = '<h2>Les meilleurs albums :</h2>';
 
     for (var key in lesAlbums) {
+        const divContainer = document.createElement('div');
+        divContainer.classList.add('container');
+        divContainer.classList.add('no-hover');
+        divContainer.classList.add('container');
+        const a = document.createElement('a');
+        a.href = `?page=details&type=album&id=${lesAlbums[key]['id']}`;
+        a.classList.add('lien_details');
         const album = lesAlbums[key];
         const div = document.createElement('div');
         div.classList.add('container');
@@ -168,38 +176,50 @@ function afficherAlbums(lesAlbums) {
                 <p class="artistes">${artistes}</p>
             </div>
         `;
-        container.appendChild(div);
+        a.appendChild(div);
+        divContainer.appendChild(a);
+        container.appendChild(divContainer);
     }
+
     document.getElementById('research-container').appendChild(container);
 }
 
-function afficherMusiques(lesSongs) {
-    if (lesSongs.length == 0) return;
-    const container = document.createElement('div');
-    container.innerHTML = '<h2>Musiques</h2>';
-    container.id = 'research-container-musiques';
+function afficherMusiques(lesMusiques) {
+    if (lesMusiques.length === 0) return;
 
-    for (var key in lesSongs) {
-        const song = lesSongs[key];
+    const container = document.createElement('div');
+    container.id = 'research-container-musiques';
+    container.innerHTML = '<h2>Les meilleures musiques :</h2>';
+
+    for (var key in lesMusiques) {
+        const divContainer = document.createElement('div');
+        divContainer.classList.add('container');
+        divContainer.classList.add('no-hover');
+        const a = document.createElement('a');
+        a.classList.add('lien_details');
+        const musique = lesMusiques[key];
         const div = document.createElement('div');
         div.classList.add('container');
-        div.classList.add('song');
+        div.classList.add('musique');
         artistes = '';
-        for (var key in song['artistes']) {
-            artistes += song['artistes'][key]['name'] + ', ';
+        for (var key in musique['artistes']) {
+            artistes += musique['artistes'][key]['name'] + ', ';
         }
         artistes = artistes.slice(0, -2);
         div.innerHTML = `
-            <div class="song-cover">
-                <img src="data:image/jpeg;base64,${song['image']}" alt="">
+            <div class="musique-cover">
+                <img src="data:image/jpeg;base64,${musique['image']}" alt="">
             </div>
             <div class="informations">
-                <h3 class="titre">${song['title']}</h3>
+                <h3 class="titre">${musique['title']}</h3>
                 <p class="artistes">${artistes}</p>
             </div>
         `;
-        container.appendChild(div);
+        a.appendChild(div);
+        divContainer.appendChild(a);
+        container.appendChild(divContainer);
     }
+
     document.getElementById('research-container').appendChild(container);
 }
 
@@ -210,6 +230,12 @@ function afficherBand(lesBand) {
     container.id = 'research-container-artistes';
 
     for (var key in lesBand) {
+        const divContainer = document.createElement('div');
+        divContainer.classList.add('container');
+        divContainer.classList.add('no-hover');
+        const a = document.createElement('a');
+        a.href = '?page=details&type=artiste&id='.concat(lesBand[key]['id']);
+        a.classList.add('lien_details');
         const band = lesBand[key];
         const div = document.createElement('div');
         div.classList.add('container');
@@ -219,12 +245,14 @@ function afficherBand(lesBand) {
                 <img src="data:image/jpeg;base64,${band['image']}" alt="">
             </div>
             <div class="informations">
-                <h3 class="titre">${band['id']}</h3>
-                <p class="artistes">${band['name']}</p>
+                <h3 class="titre">${band['name']}</h3>
             </div>
         `;
-        container.appendChild(div);
+        a.appendChild(div);
+        divContainer.appendChild(a);
+        container.appendChild(divContainer);
     }
+
     document.getElementById('research-container').appendChild(container);
 }
 

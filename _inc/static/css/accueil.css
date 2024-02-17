@@ -176,6 +176,11 @@ h2 {
     cursor: pointer;
 }
 
+.no-hover:hover {
+    background-color: transparent;
+    cursor: default;
+}
+
 .container .informations {
     margin-left: 1em;
     overflow: hidden;
