@@ -10,10 +10,19 @@
         <h1 id="logo-h1"><a href="./">iuT'Unes</a></h1>
         <div id="identification">
             <?php 
+            use classes\DataLoaderSQLite;
+            $dl = new DataLoaderSQLite();
             if(isset($_SESSION['user'])) {
                 echo "
                     <button onclick='afficherMenu()' id='button-profil'><span id='lettre-profil'>".$_SESSION['user'][0]."</span></button>
                     <div id='popupMenu'>
+                        ";
+                if($dl->isAdminRole($_SESSION['user'])){
+                    echo "<a href='?page=creerAlbum'>Ajouter un album</a></li>";
+                    echo "<a href='?page=creerMusique'>Ajouter une musique</a></li>";
+                    echo "<a href='?page=creerBand'>Ajouter un artiste/groupe</a></li>";
+                }
+                echo "
                         <a href='?page=deconnexion'>Déconnexion</a></li>
                     </div>
                 ";

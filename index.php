@@ -18,6 +18,12 @@ if($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['page'])){
         $template->render('_inc/vues/accueil.php');
     }else if($page === 'details'){
         $template->render('_inc/vues/details.php');
+    } else if($page === 'creerAlbum'){
+        $template->render('_inc/vues/creerAlbum.php');
+    }else if($page === 'creerMusique'){
+        $template->render('_inc/vues/creerMusique.php');
+    }else if ($page === 'creerBand'){
+        $template->render('_inc/vues/creerBand.php');
     }else{
         $template->render('_inc/vues/accueil.php');
     }

@@ -291,6 +291,14 @@ class DataLoaderSQLite{
         $stmt->execute();
         return $stmt->fetchAll();
     }    
+
+    public function isAdminRole($username){
+        $stmt = $this->pdo->prepare('SELECT fonction FROM user WHERE username=:username');
+        $stmt->bindParam(':username', $username);
+        $stmt->execute();
+        $res = $stmt->fetch();
+        return $res !== null ? $res[0] === 'admin' : false;
+    }
     
 
     public function getAllMyPlaylist($username): array{

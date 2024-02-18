@@ -11,6 +11,26 @@
     font-size: 1.1em;
 }
 
+#playlist-list #contre-playlist {
+    flex-direction: column !important;
+    align-items: start;
+}
+
+.cliquable {
+    padding: 1em;
+    width: 80%;
+}
+
+.cliquable:hover {
+    background-color: #242424;
+    padding: 1em;
+}
+
+.size-5 {
+    width: 2em;
+    aspect-ratio: 1/1;
+}
+
 #chevron {
     width: 2em;
     aspect-ratio: 1/1;
@@ -21,6 +41,8 @@
     aspect-ratio: 1/1;
     margin: 0 0.5em;
 }
+
+
 
 #playlist-logo {
     width: 2.5em;
