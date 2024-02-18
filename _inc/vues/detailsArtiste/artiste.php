@@ -39,7 +39,7 @@ echo '
                 <img class="img-pos" src="data:image/jpeg;base64,' . base64_encode($alb['image']) . '"/>
                 <div class="infoAlbums">
                     <div class="InfoPrimaire">
-                        <p class="titre">' . $alb["title"] . '</p>
+                        <a class="titre" href="?page=details&type=album&id='.$alb["id"].'">' . $alb["title"] . '</a>
                     </div>
                 </div>
             </div>
