@@ -148,7 +148,7 @@ function afficherAlbums(lesAlbums) {
 
     const container = document.createElement('div');
     container.id = 'research-container-albums';
-    container.innerHTML = '<h2>Les meilleurs albums :</h2>';
+    container.innerHTML = '<h2>Albums :</h2>';
 
     for (var key in lesAlbums) {
         const divContainer = document.createElement('div');

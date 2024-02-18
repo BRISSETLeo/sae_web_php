@@ -17,6 +17,9 @@ echo '
     foreach($musiques as $musique){
         $artistNames = implode(', ', array_column($musique['artistes'], 'name'));
         $note = $dl->getNoteFromMusique($musique['id']);
+        if($note == null){
+            $note = 0;
+        }
         echo '
             <div class="musique-container">
                 <img class="img-pos" src="data:image/jpeg;base64,' . base64_encode($musique["image"]) . '"/>

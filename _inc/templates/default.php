@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Site</title>
+    <title>iuT'Unes</title>
     <link rel="stylesheet" href="_inc/static/css/default.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>

@@ -58,6 +58,36 @@ class DataLoaderSQLite{
         $stmt->bindParam(':username', $_SESSION['user']);
         $stmt->execute();
     }
+    
+    public function getAllAlbums(){
+        $stmt = $this->pdo->prepare('SELECT * FROM album');
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function createMusique($nom, $image, $selection){
+        $stmt = $this->pdo->prepare('INSERT INTO song (title, image, id_album, release_date, duration) VALUES (:nom, :image, :selection, :release, 0)');
+        $stmt->bindParam(':nom', $nom);
+        $stmt->bindParam(':image', $image);
+        $stmt->bindParam(':selection', $selection);
+        $dateActuelle = date('Y-m-d');
+        $stmt->bindParam(':release', $dateActuelle);
+        $stmt->execute();
+    }
+
+    public function createAlbum($nom, $image){
+        $stmt = $this->pdo->prepare('INSERT INTO album (title, image) VALUES (:title, :image)');
+        $stmt->bindParam(':title', $nom);
+        $stmt->bindParam(':image', $image);
+        $stmt->execute();
+    }
+
+    public function createBand($nom, $image){
+        $stmt = $this->pdo->prepare('INSERT INTO band (name, image) VALUES (:nom, :image)');
+        $stmt->bindParam(':nom', $nom);
+        $stmt->bindParam(':image', $image);
+        $stmt->execute();
+    }
 
     public function getAlbum($id_album){
         if(empty($id_album)) return [];
@@ -266,7 +296,7 @@ class DataLoaderSQLite{
         return $res;
     }
 
-    public function getNoteFromMusique($id_song): float{
+    public function getNoteFromMusique($id_song){
         $stmt = $this->pdo->prepare('SELECT AVG(note) FROM note WHERE id_song = :id_song');
         $stmt->bindParam(':id_song', $id_song);
         $stmt->execute();
