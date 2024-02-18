@@ -45,6 +45,20 @@ class DataLoaderSQLite{
         return $stmt->fetchColumn();
     }
 
+    public function createPlaylist($nom, $description, $checkbox, $image){
+        $stmt = $this->pdo->prepare('INSERT INTO playlist (name, description, visibility, image, owner) VALUES (:nom, :description, :checkbox, :image, :username)');
+        $stmt->bindParam(':nom', $nom);
+        $stmt->bindParam(':description', $description);
+        if($checkbox === 'on'){
+            $stmt->bindValue(':checkbox', 1, PDO::PARAM_INT);
+        }else{
+            $stmt->bindValue(':checkbox', 0, PDO::PARAM_INT);
+        }
+        $stmt->bindParam(':image', $image, PDO::PARAM_LOB);
+        $stmt->bindParam(':username', $_SESSION['user']);
+        $stmt->execute();
+    }
+
     public function getAlbum($id_album){
         if(empty($id_album)) return [];
         $id_album = htmlspecialchars($id_album);
