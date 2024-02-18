@@ -20,11 +20,15 @@ echo '
             <div class="musique-container">
                 <img src="data:image/jpeg;base64,' . base64_encode($musique["image"]) . '"/>
                 <div class="infosMusique">
-                    <p class="titre">' . $musique["title"] . '</p>
-                    <p class="artiste">' . $artistNames . '</p>
-                    <p class="date">' . $musique["release_date"] . '</p>
-                    <p class="note">' . $note . '/5</p>
-                    <img class="coeur" src="./_inc/static/images/coeur_vide.png" alt="coeur">
+                    <div class="InfoPrimaire">
+                        <p class="titre">' . $musique["title"] . '</p>
+                        <p class="artiste">' . $artistNames . '</p>
+                        <p class="date">' . $musique["release_date"] . '</p>
+                    </div>
+                    <div class="InfoSecondaire">
+                        <img class="coeur" src="./_inc/static/images/coeur_vide.png" alt="coeur">
+                        <p class="note">' . $note . '/5</p>
+                    </div>
                 </div>
             </div>
         ';
@@ -35,10 +39,8 @@ echo '
     foreach($artistes as $artiste){
         echo '
             <div class="artiste-container">
-            <img src="data:image/jpeg;base64,' . base64_encode($artiste['image']) . '"/>
-            <div class="infosArtiste">
-                    <p class="nom">' . $artiste["name"] . '</p>
-                </div>
+                <img src="data:image/jpeg;base64,' . base64_encode($artiste['image']) . '"/>
+                <a class="nom" href="?page=details&type=artiste&id='.$artiste["id"].'">' . $artiste["name"] . '</a>
             </div>
         ';
     }

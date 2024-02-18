@@ -16,19 +16,18 @@ echo '
         $artistNames = implode(', ', array_column($musique['artistes'], 'name'));
         $note = $dl->getNoteFromMusique($musique['id']);
         echo '
-            <tr><img class="img-pos" src="data:image/jpeg;base64,' . base64_encode($musique["image"]) . '"/></tr>
             <div class="musique-container">
-                
+                <img class="img-pos" src="data:image/jpeg;base64,' . base64_encode($musique["image"]) . '"/>
                 <div class="infosMusique">
                     <div class="InfoPrimaire">
                         <p class="titre">' . $musique["title"] . '</p>
                         <p class="artiste">' . $artistNames . '</p>
+                        <p class="date">' . $musique["release_date"] . '</p>
                     </div>
                     <div class="InfoSecondaire">
-                        <p class="date">' . $musique["release_date"] . '</p>
-                        <p class="note">' . $note . '/5</p>
                         <img class="coeur" src="./_inc/static/images/coeur_vide.png" alt="coeur">
-                    </div>
+                        <p class="note">' . $note . '/5</p>
+                        </div>
                 </div>
             </div>
         ';
@@ -42,8 +41,7 @@ echo '
         echo '
             <div class="artiste-container">
                 <img class="img-pos" src="data:image/jpeg;base64,' . base64_encode($allArtiste[0]['image']) . '"/>
-                <p class="nom">' . $artiste["name"] . '</p>
-            </div>
+                <a class="nom" href="?page=details&type=artiste&id='.$artiste["id"].'">' . $artiste["name"] . '</a>            </div>
         ';
     }
     echo '

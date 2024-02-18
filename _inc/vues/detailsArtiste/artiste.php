@@ -15,26 +15,32 @@ echo '
         $note = $dl->getNoteFromMusique($musique['id']);
         echo '
             <div class="musique-container">
-                <img src="data:image/jpeg;base64,' . base64_encode($musique["image"]) . '"/>
+                <img class="img-pos" src="data:image/jpeg;base64,' . base64_encode($musique["image"]) . '"/>
                 <div class="infosMusique">
-                    <p class="titre">' . $musique["title"] . '</p>
-                    <p class="date">' . $musique["release_date"] . '</p>
-                    <p class="note">' . $note . '/5</p>
-                    <img class="coeur" src="./_inc/static/images/coeur_vide.png" alt="coeur">
-                </div>
+                    <div class="InfoPrimaire">
+                        <p class="titre">' . $musique["title"] . '</p>
+                        <p class="date">' . $musique["release_date"] . '</p>
+                    </div>
+                    <div class="InfoSecondaire">
+                        <img class="coeur" src="./_inc/static/images/coeur_vide.png" alt="coeur">
+                        <p class="note">' . $note . '/5</p>
+                    </div>
+                </div>    
             </div>
         ';
     }
     echo '
     </div>
-    <div class="artistes">
+    <div class="album">
     ';
     foreach($albums as $album){
         echo '
             <div class="album-container">
-                <img src="data:image/jpeg;base64,' . base64_encode($album['image']) . '"/>
+                <img class="img-pos" src="data:image/jpeg;base64,' . base64_encode($album['image']) . '"/>
                 <div class="infoAlbums">
-                    <p class="title">' . $album["title"] . '</p>
+                    <div class="InfoPrimaire">
+                        <p class="titre">' . $album["title"] . '</p>
+                    </div>
                 </div>
             </div>
         ';

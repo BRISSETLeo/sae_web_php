@@ -6,12 +6,72 @@
 
 .informations img {
     margin: 0 1em 1em 1em;
+    width: 10em;
+    aspect-ratio: 1/1;
+}
+
+.infos .titre{
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+}
+
+.infos .owner{
+    font-size: 2em;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
 }
 
 .musique-container,
 .artiste-container,
 .album-container {
     margin: 1em;
+}
+
+.musique-container,
+.album-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.infosMusique,
+.infoAlbums {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.infosMusique .InfoPrimaire {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-bottom: 0%;
+}
+
+.infosMusique .InfoPrimaire .titre {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: auto;
+}
+
+.infosMusique .InfoPrimaire .artiste {
+    font-size: 1em;
+    margin-bottom: auto;
+    opacity: 0.7;
+}
+
+.infosMusique .InfoPrimaire .date {
+    font-size: 0.75em;
+    opacity: 0.7;
+}
+
+.infosMusique .InfoSecondaire{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-bottom: 0%;
 }
 
 .coeur {
@@ -22,8 +82,10 @@
 .img-pos {
     width: 5em;
     aspect-ratio: 1/1;
+    margin: 0 0.25em 0 0;
 }
 
+.album,
 .artistes {
     border-top: 0.1em solid rgb(255, 255, 255, 0.2);
     width: 100%;
