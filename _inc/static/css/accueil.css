@@ -155,7 +155,7 @@ h2 {
     flex-direction: row;
     align-items: center;
     margin: 1em 0;
-    padding: 1em;
+    padding-bottom: 1em;
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
