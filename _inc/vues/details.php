@@ -6,10 +6,12 @@ if(!isset($_GET['type']) || !isset($_GET['id'])){
 }
 
 $type = $_GET['type'];
-$id = $_GET['id'];
+$id = $_GET['id']; 
+$username = $_SESSION['user'];
 
 use classes\DataLoaderSQLite;
 $dl = new DataLoaderSQLite();
+$role = $dl-> isAdminRole($username);
 
 if($type === "album"){
     $album = $dl->getAlbum($id);
