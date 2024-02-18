@@ -30,17 +30,6 @@ echo '
                         <p class="date">' . $musique["release_date"] . '</p>
                     </div>
                     <div class="InfoSecondaire">
-                    ';
-                    if(!$role){
-                        echo '
-                            <p class="modifier">modifier</p>
-                            <div class="menu">
-                                <p>Option 1</p>
-                                <p>Option 2</p>
-                                <p>Option 3</p>
-                            </div>
-                        ';
-                    }echo '
                         <img class="coeur" src="./_inc/static/images/coeur_vide.png" alt="coeur">
                         <p class="note">' . $note . '/5</p>
                         </div>
@@ -72,4 +61,3 @@ echo '
 ?>
 
 <link rel="stylesheet" href="./_inc/static/css/details.css">
-<script src="./_inc/static/js/details.js"></script>

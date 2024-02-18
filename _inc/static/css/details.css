@@ -4,14 +4,6 @@
     border-bottom: 1px solid white;
 }
 
-.menu{
-    display: none;
-}
-
-.show-menu{
-    display: block;
-}
-
 .informations img {
     margin: 0 1em 1em 1em;
     width: 10em;
