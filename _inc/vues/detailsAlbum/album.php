@@ -1,5 +1,7 @@
 <?php
 
+$listeArtiste= array();
+
 echo '
 
 <div class="container">
@@ -37,12 +39,15 @@ echo '
     <div class="artistes">
     ';
     foreach($artistes as $artiste){
-        $allArtiste = $dl->getArtiste($artiste['id']);
-        echo '
-            <div class="artiste-container">
-                <img class="img-pos" src="data:image/jpeg;base64,' . base64_encode($allArtiste[0]['image']) . '"/>
-                <a class="nom" href="?page=details&type=artiste&id='.$artiste["id"].'">' . $artiste["name"] . '</a>            </div>
-        ';
+        if(!in_array($artiste['id'], $listeArtiste)){
+            array_push($listeArtiste, $artiste['id']);
+            $allArtiste = $dl->getArtiste($artiste['id']);
+            echo '
+                <div class="artiste-container">
+                    <img class="img-pos" src="data:image/jpeg;base64,' . base64_encode($allArtiste[0]['image']) . '"/>
+                    <a class="nom" href="?page=details&type=artiste&id='.$artiste["id"].'">' . $artiste["name"] . '</a>            </div>
+            ';
+        }
     }
     echo '
     </div>
