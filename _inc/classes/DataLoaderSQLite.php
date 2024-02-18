@@ -281,12 +281,17 @@ class DataLoaderSQLite{
     }
 
 
-    public function getAllAlbumFromArtiste($id_band): array{
-        $stmt = $this->pdo->prepare('SELECT * FROM album a JOIN song s ON s.id_album = a.id JOIN creer c ON c.id_song = s.id JOIN band b ON c.id_band = b.id WHERE b.id = :id_band');
+    public function getAllAlbumFromArtiste($id_band): array {
+        $stmt = $this->pdo->prepare('SELECT DISTINCT a.*
+                                    FROM album a
+                                    JOIN song s ON a.id = s.id_album
+                                    JOIN creer c ON s.id = c.id_song
+                                    WHERE c.id_band = :id_band');
         $stmt->bindParam(':id_band', $id_band);
         $stmt->execute();
         return $stmt->fetchAll();
-    }
+    }    
+    
 
     public function getAllMyPlaylist($username): array{
         $username = trim($username);

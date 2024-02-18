@@ -33,13 +33,13 @@ echo '
     </div>
     <div class="album">
     ';
-    foreach($albums as $album){
+    foreach($albums as $alb){
         echo '
             <div class="album-container">
-                <img class="img-pos" src="data:image/jpeg;base64,' . base64_encode($album['image']) . '"/>
+                <img class="img-pos" src="data:image/jpeg;base64,' . base64_encode($alb['image']) . '"/>
                 <div class="infoAlbums">
                     <div class="InfoPrimaire">
-                        <p class="titre">' . $album["title"] . '</p>
+                        <p class="titre">' . $alb["title"] . '</p>
                     </div>
                 </div>
             </div>
