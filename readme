@@ -1,0 +1,19 @@
+Executer le projet dans le dossier principal avec la commande :
+php -S localhost:8080
+
+Ce que l'on peut faire :
+- Se connecter/ s'inscrire
+
+En tant qu'utilisateur :
+- Rechercher des artistes/albums/titres
+- Voir les détails d'un artiste/album
+- Creer une playlist
+- Ajouter des titres à une playlist
+- Voir les playlists
+- Liker des titres
+- Voir les notes des titres/albums
+
+En tant qu'admin :
+- CRUD sur les artistes
+- CRUD sur les albums
+- CRUD sur les titres

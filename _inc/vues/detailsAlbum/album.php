@@ -30,7 +30,20 @@ echo '
                         <p class="date">' . $musique["release_date"] . '</p>
                     </div>
                     <div class="InfoSecondaire">
-                        <img class="coeur" src="./_inc/static/images/coeur_vide.png" alt="coeur">
+                    ';
+                    if(!$role){
+                        echo '
+                            <p class="modifier">modifier</p>
+                            <div class="menu">
+                                <p>Option 1</p>
+                                <p>Option 2</p>
+                                <p>Option 3</p>
+                            </div>
+                        ';
+                    }echo '
+                    <a href="#" onclick="toggleCoeur('. $musique['id'] . ')">
+                        <img id="coeur-'.$musique['id'].'" src="./_inc/static/images/coeur_vide.png" alt="coeur">
+                    </a>
                         <p class="note">' . $note . '/5</p>
                         </div>
                 </div>
@@ -61,3 +74,21 @@ echo '
 ?>
 
 <link rel="stylesheet" href="./_inc/static/css/details.css">
+<script src="./_inc/static/js/details.js"></script>
+<script>
+    function toggleCoeur(musiqueId) {
+        var coeur = document.getElementById("coeur-" + musiqueId);
+        $.ajax({
+            type: "POST",
+            url: "_inc/methodes/likeTitre.php",
+            data: {musiqueId: musiqueId},
+            success: function(data){
+                if(data.split(".")[1] === "like"){
+                    coeur.src = "./_inc/static/images/coeur_blanc.png";
+                } else{
+                    coeur.src = "./_inc/static/images/coeur_vide.png";
+                }
+            }
+        });
+    }
+</script>

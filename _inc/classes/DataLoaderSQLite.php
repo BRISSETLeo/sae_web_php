@@ -348,6 +348,84 @@ class DataLoaderSQLite{
         return $stmt->fetch() !== false;
     }
 
+    public function likeTitre($username) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['musiqueId'])) {
+            $musiqueId = $_POST['musiqueId'];
+    
+            if (!isset($_SESSION['user']) || $_SESSION['user'] !== $username) {
+                echo 'Utilisateur non autorisé.';
+                return;
+            }
+    
+            // Vérifier si la playlist existe déjà pour cette musique et cet utilisateur
+            $stmt = $this->pdo->prepare('SELECT id FROM playlist WHERE name = :name AND owner = :owner');
+            $stmt->execute(array(':name' => 'titre like', ':owner' => $username));
+            $playlistId = $stmt->fetchColumn();
+    
+            if ($playlistId) {
+                // Playlist existe déjà, ajouter la musique à cette playlist
+                $stmt = $this->pdo->prepare('INSERT INTO composer (id_playlist, id_song) VALUES (:playlistId, :musiqueId)');
+                if ($stmt->execute(array(':playlistId' => $playlistId, ':musiqueId' => $musiqueId))) {
+                    echo 'Musique ajoutée à la playlist existante.';
+                } else {
+                    echo 'Erreur lors de l\'ajout de la musique à la playlist existante.';
+                }
+            } else {
+                // Playlist n'existe pas, la créer et ajouter la musique
+                $stmt = $this->pdo->prepare('INSERT INTO playlist (name, owner) VALUES (:name, :owner)');
+                if ($stmt->execute(array(':name' => 'titre like', ':owner' => $username))) {
+                    $playlistId = $this->pdo->lastInsertId();
+                    $stmt = $this->pdo->prepare('INSERT INTO composer (id_playlist, id_song) VALUES (:playlistId, :musiqueId)');
+                    if ($stmt->execute(array(':playlistId' => $playlistId, ':musiqueId' => $musiqueId))) {
+                        echo 'Musique ajoutée à une nouvelle playlist.';
+                    } else {
+                        echo 'Erreur lors de l\'ajout de la musique à la nouvelle playlist.';
+                    }
+                } else {
+                    echo 'Erreur lors de la création de la nouvelle playlist.';
+                }
+            }
+        } else {
+            echo 'Requête invalide.';
+        }
+    }
+
+    public function unlikeTitrePlaylist($username) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['musiqueId'])) {
+            $musiqueId = $_POST['musiqueId'];
+    
+            if (!isset($_SESSION['user']) || $_SESSION['user'] !== $username) {
+                echo 'Utilisateur non autorisé.';
+                return;
+            }
+    
+            // Vérifier si la playlist existe déjà pour cette musique et cet utilisateur
+            $stmt = $this->pdo->prepare('SELECT id FROM playlist WHERE name = :name AND owner = :owner');
+            $stmt->execute(array(':name' => 'titre like', ':owner' => $username));
+            $playlistId = $stmt->fetchColumn();
+    
+            if ($playlistId) {
+                // Playlist existe déjà, supprimer la musique de cette playlist
+                $stmt = $this->pdo->prepare('DELETE FROM composer WHERE id_playlist = :playlistId AND id_song = :musiqueId');
+                if ($stmt->execute(array(':playlistId' => $playlistId, ':musiqueId' => $musiqueId))) {
+                    echo 'Musique supprimée de la playlist.';
+                } else {
+                    echo 'Erreur lors de la suppression de la musique de la playlist.';
+                }
+            } else {
+                echo 'La playlist n\'existe pas.';
+            }
+        } else {
+            echo 'Requête invalide.';
+        }
+    }
+
+    public function titreIsliked($username, $musiqueId): bool{
+        $stmt = $this->pdo->prepare('SELECT id_playlist FROM composer WHERE id_playlist IN (SELECT id FROM playlist WHERE name = :name AND owner = :owner) AND id_song = :musiqueId');
+        $stmt->execute(array(':name' => 'titre like', ':owner' => $username, ':musiqueId' => $musiqueId));
+        return $stmt->fetch() !== false;
+    }
+
 
 
     // insertion des données dans la base de données
