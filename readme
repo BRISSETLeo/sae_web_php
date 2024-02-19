@@ -4,6 +4,10 @@ php -S localhost:8080
 Ce que l'on peut faire :
 - Se connecter/ s'inscrire
 
+Base de données en SQlite : 
+- Nous avons fait quelque insert afin de remplir le site
+- Et avons fait le YamlParser afin de pouvoir charger les données qui était donné au début
+
 En tant qu'utilisateur :
 - Rechercher des artistes/albums/titres
 - Voir les détails d'un artiste/album
@@ -17,3 +21,13 @@ En tant qu'admin :
 - CRUD sur les artistes
 - CRUD sur les albums
 - CRUD sur les titres
+
+
+Nous avons eu un problème avec le git suite car à la suite de la restructuration complète de notre projet il y
+avait trop de conflit nous n'avons donc pas mis le lien du git car la main n'est pas à jour il nous a juste servis
+à nous transmettre les fichiers.
+
+
+BRISSET LEO
+SEVELLEC Maxime
+OZOCAK Ibrahim
