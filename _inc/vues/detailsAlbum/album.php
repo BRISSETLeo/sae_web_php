@@ -30,17 +30,6 @@ echo '
                         <p class="date">' . $musique["release_date"] . '</p>
                     </div>
                     <div class="InfoSecondaire">
-                    ';
-                    if(!$role){
-                        echo '
-                            <p class="modifier">modifier</p>
-                            <div class="menu">
-                                <p>Option 1</p>
-                                <p>Option 2</p>
-                                <p>Option 3</p>
-                            </div>
-                        ';
-                    }echo '
                     <a href="#" onclick="toggleCoeur('. $musique['id'] . ')">
                         <img id="coeur-'.$musique['id'].'" src="./_inc/static/images/coeur_vide.png" alt="coeur">
                     </a>
@@ -61,7 +50,8 @@ echo '
             echo '
                 <div class="artiste-container">
                     <img class="img-pos" src="data:image/jpeg;base64,' . base64_encode($allArtiste[0]['image']) . '"/>
-                    <a class="nom" href="?page=details&type=artiste&id='.$artiste["id"].'">' . $artiste["name"] . '</a>            </div>
+                    <a class="nom" href="?page=details&type=artiste&id='.$artiste["id"].'">' . $artiste["name"] . '</a>
+                </div>
             ';
         }
     }
@@ -74,7 +64,6 @@ echo '
 ?>
 
 <link rel="stylesheet" href="./_inc/static/css/details.css">
-<script src="./_inc/static/js/details.js"></script>
 <script>
     function toggleCoeur(musiqueId) {
         var coeur = document.getElementById("coeur-" + musiqueId);
