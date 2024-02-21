@@ -5,7 +5,7 @@ Ce que l'on peut faire :
 - Se connecter/ s'inscrire
 
 Base de données en SQlite : 
-- Nous avons fait quelque insert afin de remplir le site
+- Nous avons fait quelques insert afin de remplir le site.
 - Et avons fait le YamlParser afin de pouvoir charger les données qui était donné au début
 
 En tant qu'utilisateur :
@@ -26,6 +26,8 @@ En tant qu'admin :
 Nous avons eu un problème avec le git suite car à la suite de la restructuration complète de notre projet il y
 avait trop de conflit nous n'avons donc pas mis le lien du git car la main n'est pas à jour il nous a juste servis
 à nous transmettre les fichiers.
+
+lien du git : https://github.com/BRISSETLeo/sae_web_php
 
 
 BRISSET LEO
